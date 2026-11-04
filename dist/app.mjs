@@ -174,7 +174,12 @@ $('result-file').addEventListener('change', async event => {
     const result = await readJsonFile(file);
     if (token !== generation) return;
     await performVerification(result);
-  } catch (error) { if (token === generation) { $('verify-error').textContent = error.message; $('verify-error').hidden = false; } }
+  } catch (error) {
+    if (token === generation) {
+      $('verify-state').textContent = 'REJECTED';
+      $('verify-error').textContent = error.message; $('verify-error').hidden = false;
+    }
+  }
   finally { event.target.value = ''; }
 });
 $('verify-example').addEventListener('click', async () => {

@@ -1,20 +1,27 @@
 # Browser acceptance automation
 
-Status: authored; not executed. No browser acceptance result or screenshot has
-been recorded for this suite. Test discovery and syntax checks do not establish
-that any of these scenarios pass.
+Status: desktop interactions have been exercised through the development
+preview. The full Playwright run and its screenshot review remain pending.
+Test discovery and syntax checks do not establish that the suite passes.
 
-The proposed Playwright suite covers eight scenarios in two Chromium viewport
+The Playwright suite covers nine scenarios in two Chromium viewport
 configurations (1440 x 1000 and 390 x 844). It checks readiness text, imports and
 verification for both public fixtures, downloaded report contents, rejection of
 cross-session and damaged results, review/acknowledgement gating, input edits,
-and replacement with malformed JSON.
+and replacement with malformed session or result JSON. Readiness is opened
+through the visible View scope control, including on mobile where the sidebar
+shortcut is hidden.
 
 ## Setup
 
 The runner expects a deployment of the checked-out `dist` directory. It has
-no default URL and does not start a server or install browsers. The existing
-firmware CI workflow does not execute this suite.
+no default URL and does not start a server or install browsers. The separate
+`.github/workflows/browser.yml` workflow installs the locked dependencies and
+Chromium in an isolated GitHub Actions runner, serves `dist` on the runner's
+loopback interface and supplies that URL explicitly. It runs on pull requests,
+pushes to main and manual dispatch, with read-only repository permissions.
+Reports, screenshots and failure traces are retained as `browser-evidence`
+artifacts for 14 days. The firmware workflow remains separate.
 
 Playwright Test is pinned to 1.64.1. Dependencies can be installed without
 package lifecycle scripts using `npm ci --ignore-scripts`. The execution

@@ -42,7 +42,8 @@ const test = base.extend({
 });
 
 async function view(page, name) {
-  await page.locator(`.nav-item[data-view="${name}"]`).click();
+  if (name === 'readiness') await page.getByRole('button', {name: 'View scope'}).click();
+  else await page.locator(`.nav-item[data-view="${name}"]`).click();
   await expect(page.locator(`#${name}-view`)).toBeVisible();
 }
 
@@ -229,5 +230,16 @@ test('a malformed replacement session invalidates the previous one', async ({pag
   await expect(page.locator('#review-empty')).toBeVisible();
   await view(page, 'verify');
   await expect(page.locator('#verify-state')).toHaveText('AWAITING RESULT');
+  await expect(page.locator('#download-report')).toBeHidden();
+});
+
+test('a malformed result is rejected and clears the previous verified report', async ({page}) => {
+  await importSession(page, 'fixture-session.json');
+  await importResult(page, 'policy-fixture-result.json');
+  await expect(page.locator('#verify-state')).toHaveText('VERIFIED');
+  await chooseFile(page, '#import-result', {name: 'invalid-result.json', mimeType: 'application/json', buffer: Buffer.from('{')});
+  await expect(page.locator('#verify-state')).toHaveText('REJECTED');
+  await expect(page.locator('#verify-error')).toHaveText('The selected file is not valid JSON.');
+  await expect(page.locator('#verify-success')).toBeHidden();
   await expect(page.locator('#download-report')).toBeHidden();
 });
