@@ -14,7 +14,7 @@ key, funds, hardware provenance or production custody is protected by this build
 - Descriptive result evidence, including claims about emulator or hardware runs.
 - Downloaded upstream bytes until their hashes match the checked-in manifest.
 
-The parsers reject malformed lengths, noncanonical encodings, unsupported
+The host parsers and optional experimental assembly parser reject malformed lengths, noncanonical encodings, unsupported
 account layouts and permissions, unexpected instructions, trailing bytes,
 metadata/byte disagreement, incorrect hashes and invalid output records.
 Result verification binds the signature to the frozen message and expected
@@ -44,7 +44,10 @@ presented as a veto unless the actual authorization design changes.
 
 Profile 0 receives message bytes from the host. The independent Python policy
 helps detect development mistakes, but an attacker controlling the host can
-remove it. The signing core does not thereby acquire an on-device policy.
+remove it. The optional assembly parser runs inside the emulated signing ROM,
+but the host can also replace that emulator or ROM. There is no independent
+physical trust boundary, trusted confirmation flow or completed device boot
+state machine. A correct parser alone does not authorize a transaction.
 
 Source hashes show which source bytes were selected, not that those bytes or
 their execution environment are safe. Emulated scratch clearing shows the

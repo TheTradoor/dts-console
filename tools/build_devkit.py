@@ -5,9 +5,9 @@ import pathlib
 import zipfile
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-ROOT_FILES = ("README.md", "CONTRIBUTING.md", "SECURITY.md", "NOTICE.md", "LICENSE",
+ROOT_FILES = ("README.md", "CHANGELOG.md", "CONTRIBUTING.md", "SECURITY.md", "NOTICE.md", "LICENSE",
               "package.json", "package-lock.json", "upstream-lock.json", ".gitignore")
-DIRECTORIES = ("dist", "tools", "tests", "docs", ".github")
+DIRECTORIES = ("dist", "firmware", "tools", "tests", "docs", ".github")
 
 
 def main():

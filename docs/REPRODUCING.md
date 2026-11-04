@@ -18,6 +18,9 @@ From the repository root:
 The runner checks all twelve upstream file hashes before importing source,
 checks JavaScript syntax, runs both test suites, builds the native emulator
 in a temporary directory for each fixture and executes the actual firmware.
+This includes the assembly parser's differential corpus and length/profile,
+bus-access, stack and integration tests. Both canonical fixtures run with the
+baseline ROM and again with the experimental parser: four full signing runs.
 It compares the complete JSON results, including record bytes, ROM hash,
 cycles and check results, against the checked-in references.
 
@@ -43,6 +46,10 @@ the emulator library, so an existing shared library is not reused.
     DTS_UPSTREAM=/path/to/dts02 node --test tests/protocol.test.mjs
     python3 -m unittest discover -s tests -p 'test_*.py'
     python3 tools/sign_fixture.py dist/fixture-session.json --upstream /path/to/dts02 --output artifacts/fresh-result.json
+    python3 tools/sign_fixture.py dist/fixture-session.json --upstream /path/to/dts02 --firmware-policy --output artifacts/policy-result.json
+
+Python firmware tests need the pinned checkout too. Set DTS_UPSTREAM for a
+non-default path; the full runner handles this for both test suites.
 
 The full runner handles DTS_UPSTREAM automatically. Running npm test directly
 requires that variable because the serialization comparison imports the
@@ -56,6 +63,12 @@ This command overwrites the checked-in fixture sessions and results. Use it
 only for an intentional reviewed change, inspect the diff and explain why the
 reference changed. It is not the verification command.
 
+Experimental references are generated explicitly with `--firmware-policy` for
+dist/fixture-session.json and dist/nonce-fixture-session.json, writing
+dist/policy-fixture-result.json and dist/policy-nonce-fixture-result.json. Their
+recordHex fields must equal the existing baseline records. Only the ROM and
+emulator evidence should change. Generated ROMs stay local and are not packaged.
+
 ## Rebuild dependencies or download kit
 
     npm ci
@@ -65,7 +78,7 @@ reference changed. It is not the verification command.
 The first two commands are needed only when rebuilding the vendored crypto
 modules. The last command creates dist/dts-console-devkit.zip, which supplies
 the interface's developer-kit download. It includes source, documentation,
-tests, fixtures and dependency notices; it excludes fetched upstream source,
+tests, original assembly, fixtures and dependency notices; it excludes fetched upstream source,
 node_modules, credentials, runtime artifacts and hosting metadata.
 
 ## Limits

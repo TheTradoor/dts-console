@@ -67,3 +67,9 @@ Verification checks every format constraint and binding before accepting the
 signature. Strict Ed25519 verification rejects noncanonical signatures.
 The evidence object reports a local run's checks; it is not trusted by the
 browser and is not hardware attestation.
+
+The optional firmware parser build keeps the same profile-0 record format.
+Its evidence adds `firmwareParser` resource/source hashes and
+`preSignPolicyGate: true`. `onDevicePolicyImplemented` stays false because
+trusted device review, confirmation and complete recovery are not implemented.
+These unsigned fields are descriptive and never override signature checks.

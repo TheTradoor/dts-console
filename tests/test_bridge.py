@@ -4,7 +4,13 @@ import json
 import pathlib
 import tempfile
 import unittest
+from unittest import mock
+from types import SimpleNamespace
+import sys
 from tools.sign_fixture import parse_message, sign, validate
+from tools.sign_fixture import UPSTREAM
+from tools.upstream import load_pinned
+import os
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 FIXTURES = [json.loads((ROOT / "dist" / (name + "-session.json")).read_text())
@@ -82,6 +88,12 @@ class BridgeTests(unittest.TestCase):
             (path / "__init__.py").write_text("raise RuntimeError('must not execute')\n")
             with self.assertRaisesRegex(ValueError, "Upstream source mismatch"):
                 sign(FIXTURES[0], directory)
+
+    def test_a_cached_module_from_another_checkout_is_rejected(self):
+        directory = os.environ.get("DTS_UPSTREAM", ROOT / ".upstream/dts02")
+        with mock.patch.dict(sys.modules, {"sim": SimpleNamespace(__file__="/different/sim/__init__.py")}):
+            with self.assertRaisesRegex(ValueError, "Conflicting upstream module"):
+                load_pinned(directory, UPSTREAM)
 
 
 if __name__ == "__main__":
