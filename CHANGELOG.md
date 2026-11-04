@@ -24,6 +24,14 @@
 
 # Changelog
 
+## 0.3.3 — Paper interface and motion
+
+- Rebuilt the overview around a light monochrome frame, hatched dividers and an illustrative session editor.
+- Added progressive text/code entrances, subtle section transitions, a locally rendered point landscape and drifting fog.
+- Added pause/resume and system reduced-motion support; decorative rendering stops outside the overview and while offscreen.
+- Applied the matching light palette to the existing transaction workspace without changing signing or verification behavior.
+- Added browser checks for changing canvas pixels, pause/resume, reduced motion and session preservation.
+
 ## 0.2.0 — proposed, 2026-11-04
 
 - Add an original 65C02 parser for the two canonical public SOL fixture forms.

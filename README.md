@@ -4,17 +4,18 @@ A development companion for [DTS-02](https://github.com/aeyakovenko/dts02-6502-s
 Prepare canonical Solana transfer fixtures, inspect the exact message bytes,
 run the pinned 65C02 signing firmware locally, and verify its output in a browser.
 
-**Version 0.3.2 is a software development prototype.** It includes the existing host
+**Version 0.3.3 is a software development prototype.** It includes the existing host
 workflow and an opt-in experimental 65C02 parser for two restricted SOL message
 forms. The new Squads draft workspace prepares and reviews an unsigned composite.
 On-chain Squads execution remains pending; trusted device authorization belongs
 to the external signer. Hardware development is outside this project’s scope. It accepts no private key and has
 no wallet connection, RPC endpoint or broadcast operation.
 
-Version 0.3.2 adds a monochrome technical overview and workspace design, responsive navigation,
-and browser back/forward support. Its [browser acceptance suite](docs/BROWSER_AUTOMATION.md)
-contains 30 cases across desktop and mobile viewports. Current run results and
-the historical 0.3.0 evidence are separated in the [validation record](docs/VALIDATION.md).
+Version 0.3.3 adds a light monochrome interface, an illustrative code preview,
+progressive entrance animations and a decorative point landscape with pause/resume
+and reduced-motion support. Its [browser acceptance suite](docs/BROWSER_AUTOMATION.md)
+contains 34 cases across desktop and mobile viewports. Current and historical
+evidence are separated in the [validation record](docs/VALIDATION.md).
 
 This is an independent project. It does not claim endorsement by Anatoly
 Yakovenko, Solana, or Squads.

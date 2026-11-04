@@ -1,3 +1,9 @@
+# Version 0.3.3 validation
+
+Paper overview, illustrative code animation and decorative point landscape.
+Application, protocol, cryptography and Squads modules are unchanged. Browser
+motion and palette validation is in progress; earlier records below are historical.
+
 # Version 0.3.2 validation
 
 Monochrome overview and workspace with a labelled process schematic. Application

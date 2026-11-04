@@ -1,10 +1,10 @@
 # Browser acceptance — current scope
 
-Version 0.3.2 has 30 cases across 1440 x 1000 and 390 x 844 Chromium viewports.
-The suite retains the fixture and Squads checks and adds overview entry points,
-workflow scrolling, back/forward session preservation, direct links and unknown
-route handling, including keyboard skip-link focus. Fourteen served asset hashes
-bind every case to its source.
+Version 0.3.3 has 34 cases across 1440 x 1000 and 390 x 844 Chromium viewports.
+The suite retains all fixture, Squads, navigation and keyboard checks. Additional
+cases compare rendered canvas pixels to verify movement, pause, resume and
+reduced-motion behavior, and confirm that motion does not change the current
+session. Sixteen served asset hashes bind every case to its source.
 See [VALIDATION.md](VALIDATION.md) for the current run and visual review evidence.
 
 Historical 0.3.0 evidence: [run 41816685541](https://github.com/TheTradoor/dts-console/actions/runs/41816685541)

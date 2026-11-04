@@ -1,6 +1,6 @@
 {
   "name": "dts-console",
-  "version": "0.3.2",
+  "version": "0.3.3",
   "private": true,
   "type": "module",
   "dependencies": {
@@ -9,7 +9,7 @@
   },
   "scripts": {
     "test": "node --test tests/*.test.mjs",
-    "check": "node --check dist/app.mjs && node --check dist/protocol.mjs && node --check dist/squads.mjs && node --check dist/squads-ui.mjs",
+    "check": "node --check dist/motion.mjs && node --check dist/app.mjs && node --check dist/protocol.mjs && node --check dist/squads.mjs && node --check dist/squads-ui.mjs",
     "test:squads": "node --test tests/squads.test.mjs tests/squads-sdk.test.mjs",
     "test:browser": "playwright test",
     "test:browser:list": "playwright test --list"

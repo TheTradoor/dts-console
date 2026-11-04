@@ -10,7 +10,7 @@ const file = name => fileURLToPath(new URL(name, dist));
 const json = name => JSON.parse(readFileSync(file(name), 'utf8'));
 const legacy = json('fixture-session.json');
 const validation = json('validation.json');
-const assets = ['index.html', 'app.mjs', 'style.css', 'favicon.svg', 'protocol.mjs', 'crypto.mjs',
+const assets = ['index.html', 'app.mjs', 'style.css', 'motion.css', 'motion.mjs', 'favicon.svg', 'protocol.mjs', 'crypto.mjs',
   'squads.mjs','squads-ui.mjs',
   'validation.json', 'fixture-session.json', 'nonce-fixture-session.json',
   'fixture-result.json', 'policy-fixture-result.json', 'policy-nonce-fixture-result.json'];
@@ -117,7 +117,7 @@ test('readiness describes the partial parser and all views render', async ({page
     await view(page, name);
     await capture(page, testInfo, name);
   }
-  await expect(page.locator('.version-line')).toContainText('v0.3.2');
+  await expect(page.locator('.version-line')).toContainText('v0.3.3');
   await expect(page.locator('#readiness-view')).toContainText('No hardware development');
   await expect(page.locator('#readiness-view')).toContainText('M1 partial');
   await expect(page.locator('#readiness-view')).toContainText('trusted device review and approval are still pending');
@@ -163,6 +163,47 @@ test('direct links select their view and unknown routes return to the overview',
   await page.goto(new URL('#unknown',baseURL).href);
   await expect(page.locator('#home-view')).toBeVisible();
   await expect(page.locator('#workspace-main')).toBeHidden();
+});
+
+test('decorative motion renders, pauses and resumes without changing a session', async ({page}, testInfo) => {
+  await page.locator('#load-example').click();
+  const session = await page.locator('#session-id').textContent();
+  await page.locator('.sidebar .brand').click();
+  await page.locator('#landscape').scrollIntoViewIfNeeded();
+  await expect(page.locator('#terrain-canvas')).toHaveAttribute('data-ready', 'true');
+  const pixels = () => page.locator('#terrain-canvas').evaluate(canvas => canvas.toDataURL());
+  const initial = await pixels();
+  await expect.poll(pixels).not.toBe(initial);
+  await page.getByRole('button', {name: 'Pause motion', exact: true}).click();
+  await expect(page.locator('#motion-toggle')).toHaveAttribute('aria-pressed', 'true');
+  const paused = await pixels();
+  await page.waitForTimeout(200);
+  expect(await pixels()).toBe(paused);
+  await capture(page, testInfo, 'paper-landscape-paused');
+  await page.getByRole('button', {name: 'Resume motion', exact: true}).click();
+  await expect.poll(pixels).not.toBe(paused);
+  await page.locator('.paper-footer [data-view="review"]').click();
+  await expect(page.locator('#session-id')).toHaveText(session);
+  const hidden = await pixels();
+  await page.waitForTimeout(150);
+  expect(await pixels()).toBe(hidden);
+});
+
+test('reduced motion keeps the landscape still and all landing content usable', async ({page,baseURL}, testInfo) => {
+  await page.emulateMedia({reducedMotion: 'reduce'});
+  await page.goto(baseURL);
+  await expect(page.locator('.paper-title')).toBeVisible();
+  await expect(page.locator('.code-lines')).toContainText('legacy-transfer');
+  await page.locator('#landscape').scrollIntoViewIfNeeded();
+  await expect(page.getByRole('button', {name: 'Motion reduced', exact: true})).toBeDisabled();
+  await expect(page.locator('#terrain-canvas')).toHaveAttribute('data-ready', 'true');
+  const pixels = () => page.locator('#terrain-canvas').evaluate(canvas => canvas.toDataURL());
+  const still = await pixels();
+  await page.waitForTimeout(200);
+  expect(await pixels()).toBe(still);
+  await capture(page, testInfo, 'paper-reduced-motion');
+  await page.locator('#open-workspace').click();
+  await expect(page.locator('#prepare-view')).toBeVisible();
 });
 
 for (const name of ['fixture', 'nonce-fixture']) {
