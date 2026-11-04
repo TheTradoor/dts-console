@@ -83,7 +83,13 @@ async function downloadJson(page, selector, testInfo, name) {
 }
 
 async function capture(page, testInfo, name) {
-  await page.evaluate(async () => { await document.fonts.ready; });
+  await page.evaluate(async () => {
+    await document.fonts.ready;
+    // Capture the settled interface; keep looping decorative motion intact.
+    const entrances = document.getAnimations().filter(animation =>
+      Number.isFinite(animation.effect?.getComputedTiming().endTime));
+    await Promise.all(entrances.map(animation => animation.finished.catch(() => {})));
+  });
   // Let the real notification expire so it cannot obscure review evidence.
   await expect(page.locator('#toast')).toBeHidden({timeout: 10000});
   const dimensions = await page.evaluate(() => ({width: document.documentElement.clientWidth,
