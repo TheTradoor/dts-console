@@ -1,3 +1,11 @@
+# Version 0.3.1 validation
+
+Dark overview and workspace redesign; no change to the signing bridge, codec,
+cryptographic verification or Squads draft semantics. Syntax and HTML ID/label
+checks passed. Direct desktop preview inspection confirmed the overview and
+Prepare screen. The 30-case CI run and remaining visual review are pending.
+Earlier browser evidence below does not attest the new interface assets.
+
 # Version 0.3.0 validation
 
 [Browser CI run 41816685541](https://github.com/TheTradoor/dts-console/actions/runs/41816685541)

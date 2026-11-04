@@ -1,6 +1,12 @@
 # Browser acceptance — current scope
 
-Current 0.3.0 evidence: [run 41816685541](https://github.com/TheTradoor/dts-console/actions/runs/41816685541)
+Version 0.3.1 has 30 cases across 1440 x 1000 and 390 x 844 Chromium viewports.
+The suite retains the fixture and Squads checks and adds overview entry points,
+workflow scrolling, back/forward session preservation, direct links and unknown
+route handling. Fourteen served asset hashes bind every case to its source.
+See [VALIDATION.md](VALIDATION.md) for the current run and visual review evidence.
+
+Historical 0.3.0 evidence: [run 41816685541](https://github.com/TheTradoor/dts-console/actions/runs/41816685541)
 passed 26/26 cases. All 38 screenshots and 26 diagnostic attachments were reviewed.
 See [the validation record](VALIDATION.md) for source hashes, exported-file checks,
 artifact integrity and the precise browser/validator limitations.

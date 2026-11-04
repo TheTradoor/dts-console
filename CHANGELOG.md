@@ -1,3 +1,12 @@
+# 0.3.1 — Console design update
+
+- Add an overview with a mint glow, workflow entry points and explicit developer-preview scope.
+- Restyle all workspace views with dark surfaces, violet controls and responsive layouts.
+- Replace the physical-device illustration with a software message preview.
+- Support browser back/forward navigation, direct view links, keyboard focus and reduced motion.
+- Retain public-fixture signing and unsigned Squads behavior; no wallet, RPC or broadcasting is added.
+- Extend browser acceptance to 30 desktop/mobile cases, including overview navigation and session preservation.
+
 # 0.3.0 — Unsigned Squads preparation
 
 - Add a software-only Squads draft workspace: restricted nonce/create/propose/approve composition, derived accounts, exact-byte review and JSON import/export.
