@@ -1,9 +1,38 @@
 # Version 0.3.2 validation
 
-Monochrome overview and workspace. Application logic, protocol and cryptographic
-modules are unchanged. Syntax, unique HTML IDs, label targets and neutral color
-literals passed inspection. Desktop preview reviewed. The current browser run
-and mobile screenshot inspection are pending; earlier evidence below is historical.
+Monochrome overview and workspace with a labelled process schematic. Application
+logic, protocol, cryptography and Squads draft semantics are unchanged.
+
+[Browser run 41826198655](https://github.com/TheTradoor/dts-console/actions/runs/41826198655)
+passed **30/30** cases at 1440 × 1000 and 390 × 844, without skips, retries or
+flaky outcomes. All 40 screenshot states were visually reviewed, including
+successful verification, rejection, stale-state locks and unsigned draft export.
+Controls and full-address review fields remain readable without blocking overlap
+or horizontal document overflow. Errors and status use text and symbols as well
+as contrast. The interface color literals are neutral; mint glows are removed.
+
+Thirty diagnostics contain zero uncaught JavaScript errors, unexpected external
+requests or failed application requests. Fourteen served asset hashes match the
+source. External fonts were disabled. Four Squads downloads match the independently
+validated draft, two session exports match the fixture and four verification
+reports match their source fixtures. Syntax, unique HTML IDs and label targets
+passed. Direct Chrome checks also confirmed overview entry, recorded fixture
+verification and zero-amount rejection with the previous review cleared.
+
+The clean CI checkout `6c7991f1e176557ac6230854e8156b744f24af6a` has the same tree
+as head `453243c9473a9a8e060d739e5254571d2f218c8c`. The downloaded evidence ZIP
+passed integrity and SHA-256 checks. Exact source, artifact and screenshot hashes
+are in [monochrome-validation.json](evidence/monochrome-validation.json) and
+[monochrome-screenshots.json](evidence/monochrome-screenshots.json). The archive
+expires on November 18; these manifests are not copies of the screenshots.
+
+[Squads compatibility](https://github.com/TheTradoor/dts-console/actions/runs/41826198566)
+and [firmware reproduction](https://github.com/TheTradoor/dts-console/actions/runs/41826198581)
+also passed for this code commit.
+
+Mobile results use Chromium viewport emulation, not Safari or physical phones.
+This is not a WCAG or independent security audit. Wallet connection, live-key
+signing, broadcast and local-validator execution remain outside this validation.
 
 # Version 0.3.1 validation
 
