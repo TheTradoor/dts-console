@@ -4,8 +4,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Prepare, inspect, and verify public test transactions for the DTS-02 signer.">
-  <meta name="theme-color" content="#0b0c0e">
-  <title>DTS Console — Every byte, in plain sight</title>
+  <meta name="theme-color" content="#0a0a0a">
+  <title>DTS Console — Every byte, accounted for</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
   <script type="module" src="app.mjs"></script>
@@ -29,19 +29,34 @@
       <nav class="landing-links" aria-label="Overview navigation"><button class="landing-link current" data-view="home">Overview</button><button class="landing-link" data-scroll="workflow">Workflow</button><button class="landing-link" data-view="readiness">Project scope</button></nav>
       <a class="nav-source" href="https://github.com/TheTradoor/dts-console" target="_blank" rel="noopener noreferrer">Source <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-external"/></svg></a>
     </header>
-    <div class="hero" id="main-content" tabindex="-1">
-      <div class="hero-grain" aria-hidden="true"></div>
-      <svg class="hero-lines" viewBox="0 0 1200 620" preserveAspectRatio="none" aria-hidden="true"><path d="M0 150h130c60 0 50-80 120-80h95M1200 145h-130c-65 0-55-65-120-65h-70M0 450h150c60 0 55 80 120 80h80M1200 455h-150c-65 0-50 80-120 80h-70M555 620V505M600 620V480M645 620V505"/></svg>
-      <span class="hero-note note-a"><span class="orbit-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-prepare"/></svg></span>Exact message<small>Start with the bytes</small></span>
-      <span class="hero-note note-b"><span class="orbit-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-review"/></svg></span>Full context<small>Inspect every field</small></span>
-      <span class="hero-note note-c"><span class="orbit-icon"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-verify"/></svg></span>Verified result<small>Bound to your session</small></span>
-      <div class="hero-content"><div class="hero-badge"><span class="status-led"></span>DTS-02 · Developer preview</div>
-        <h1>Every byte.<br><span>In plain sight.</span></h1>
-        <p>Prepare Solana test transactions. Review the exact message.<br class="desktop-break"> Verify DTS-02 firmware results in one focused workspace.</p>
+    <div class="hero instrument-hero" id="main-content" tabindex="-1">
+      <div class="instrument-topline"><span>DTS / TRANSACTION WORKSPACE</span><span><span class="status-led"></span> PUBLIC FIXTURE MODE</span></div>
+      <div class="hero-content">
+        <div class="hero-badge">DTS-02 <span>/</span> Developer preview</div>
+        <h1>Every byte.<br><span>Accounted for.</span></h1>
+        <p>Prepare the transaction. Inspect its exact bytes. Verify the signing result.</p>
+        <dl class="hero-specs"><div><dt>NETWORK</dt><dd>Solana</dd></div><div><dt>SIGNATURE</dt><dd>Ed25519</dd></div><div><dt>EXCHANGE</dt><dd>Local files</dd></div></dl>
         <div class="hero-actions"><button id="open-workspace" class="button light" data-view="prepare">Open workspace <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-external"/></svg></button><button class="button ghost" data-scroll="workflow">Explore the workflow <svg class="icon" aria-hidden="true" focusable="false"><use href="#i-arrow"/></svg></button></div>
         <span class="hero-scope">Public test keys · No wallet connection</span>
       </div>
-      <button class="hero-scroll" data-scroll="workflow"><span>↓</span> A closer look</button><div class="hero-edition">SOFTWARE ONLY<span>Independent by design</span></div>
+      <figure class="session-map" aria-label="Workflow schematic: prepare a message, review its bytes, then verify the result. This is a process diagram, not live activity.">
+        <div class="map-topline"><span>MESSAGE / SIGNAL PATH</span><span>01 — 03</span></div>
+        <svg viewBox="0 0 650 440" class="session-map-svg" aria-hidden="true" focusable="false">
+          <defs><pattern id="map-grid" width="34" height="34" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#323232"/></pattern></defs>
+          <rect x="46" y="48" width="548" height="340" fill="url(#map-grid)"/>
+          <g class="map-axis"><path d="M66 54v318h520M66 150h520M66 260h520"/><path d="M174 68v318M330 68v318M486 68v318" stroke-dasharray="3 8"/></g>
+          <g class="map-tick"><path d="M60 150h12M60 260h12M60 372h12M174 366v12M330 366v12M486 366v12"/></g>
+          <path class="map-track" d="M112 322h126c83 0 107-32 139-95s47-105 139-105"/>
+          <path class="map-track-alt" d="M112 322h126c83 0 107-32 139-95s47-105 139-105"/>
+          <g class="map-node"><circle cx="112" cy="322" r="7"/><circle cx="359" cy="260" r="7"/><circle cx="516" cy="122" r="7"/></g>
+          <path class="map-crosshair" d="M332 260h54M359 233v54"/>
+          <g class="map-label"><text x="90" y="288">PREPARE</text><text x="384" y="270">REVIEW</text><text x="476" y="89">VERIFY</text></g>
+          <g class="map-small"><text x="90" y="351">01 / INTENT</text><text x="384" y="289">02 / BYTES</text><text x="476" y="157">03 / RESULT</text><text x="60" y="410">INPUT</text><text x="502" y="410">OUTPUT</text></g>
+          <g class="map-badge"><rect x="279" y="83" width="111" height="32"/><text x="334" y="104" text-anchor="middle">EXACT MESSAGE</text></g>
+        </svg>
+        <figcaption><span><i></i> FIXED MESSAGE</span><span><i></i> SIGNATURE CHECK</span><span>WORKFLOW SCHEMATIC</span></figcaption>
+      </figure>
+      <div class="instrument-bottomline"><span>01 / PREPARE → 02 / REVIEW → 03 / VERIFY</span><span>SOFTWARE ONLY <b>↗</b></span></div>
     </div>
     <div class="capability-strip"><span>Built around <strong>DTS-02</strong></span><span>Solana messages</span><span>Ed25519 verification</span><span>Local file exchange</span></div>
     <section class="workflow-section" id="workflow" aria-labelledby="workflow-title"><div class="section-heading"><div><p class="eyebrow">A CLEARER WORKFLOW</p><h2 id="workflow-title">From intent to evidence.</h2></div><p>Three connected steps.<br>One message throughout.</p></div>
@@ -68,7 +83,7 @@
     <button data-view="readiness" class="nav-item"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-status"/></svg>Build readiness<span class="small-dot"></span></button>
     <a class="nav-item" href="https://github.com/aeyakovenko/dts02-6502-signer" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-code"/></svg>Upstream source<svg class="icon link-arrow" aria-hidden="true" focusable="false"><use href="#i-external"/></svg></a>
     <button data-view="home" class="nav-item overview-nav"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-grid"/></svg>Overview</button>
-    <div class="sidebar-bottom"><div class="version-line"><span class="status-led"></span>DEVELOPER PREVIEW<span>v0.3.1</span></div><p>Independent companion project.<br>Based on DTS-02 by Anatoly Yakovenko.</p></div>
+    <div class="sidebar-bottom"><div class="version-line"><span class="status-led"></span>DEVELOPER PREVIEW<span>v0.3.2</span></div><p>Independent companion project.<br>Based on DTS-02 by Anatoly Yakovenko.</p></div>
   </aside>
   <main id="workspace-main">
     <header class="topbar"><div><svg class="icon topbar-icon" aria-hidden="true" focusable="false"><use href="#i-grid"/></svg><span class="muted">Workspace</span><span class="slash">/</span><span id="breadcrumb">Prepare transaction</span></div><div class="environment"><span class="status-led"></span>Local workspace<span class="environment-label">SOLANA</span></div></header>
@@ -153,14 +168,14 @@ python3 tools/sign_fixture.py dts-session.json --output dts-result.json</pre><a 
       </section>
       <section id="readiness-view" class="view" hidden>
         <div class="page-heading"><div><p class="eyebrow">PROJECT / READINESS</p><h1>Evidence before claims.</h1><p class="subtitle">A software product for preparation, review and verification. No hardware development is included.</p></div><a class="button secondary" href="dts-console-devkit.zip" download>Download development kit ↓</a></div>
-        <div class="readiness-stats"><div class="card"><span class="stat-label">SOFTWARE RELEASE</span><strong>0.3.1</strong><p>Console visual update</p></div><div class="card"><span class="stat-label">FIRMWARE / HOST CHECKS</span><strong id="test-count">—</strong><p id="test-description">Loading recorded test results</p></div><div class="card"><span class="stat-label">PRODUCT SCOPE</span><strong>Software</strong><p>No hardware development</p></div></div>
+        <div class="readiness-stats"><div class="card"><span class="stat-label">SOFTWARE RELEASE</span><strong>0.3.2</strong><p>Monochrome workspace</p></div><div class="card"><span class="stat-label">FIRMWARE / HOST CHECKS</span><strong id="test-count">—</strong><p id="test-description">Loading recorded test results</p></div><div class="card"><span class="stat-label">PRODUCT SCOPE</span><strong>Software</strong><p>No hardware development</p></div></div>
         <section class="card readiness-card"><div class="card-heading"><h2>Implementation status</h2><span class="tag">NO LIVE-KEY SUPPORT</span></div><div class="readiness-row"><div><h3>Prepare, inspect, export, import, verify</h3><p>Canonical SOL transfer and durable-nonce fixtures; exact bytes and integer amounts.</p></div><span class="state built">Implemented</span></div><div class="readiness-row"><div><h3>Actual 65C02 firmware bridge</h3><p>Local execution of pinned upstream firmware, double signing, on-emulator verification, and OpenSSL comparison.</p></div><span class="state built">Implemented</span></div><div class="readiness-row"><div><h3>Experimental 65C02 transaction parser</h3><p>Optional firmware checks over frozen SOL fixture bytes. Tested in an emulator; trusted device review and approval are still pending.</p></div><span class="state pending">M1 partial</span></div><div class="readiness-row"><div><h3>Squads draft preparation + byte review</h3><p>Unsigned nonce/create/propose/approve composition, derived accounts and manual state comparison. On-chain execution and local-validator tests remain pending.</p></div><span class="state built">Preparation only</span></div><div class="readiness-row"><div><h3>Upstream signer security boundary</h3><p>Physical isolation and trusted device authorization belong to the external signer design. The Console does not build hardware or claim those guarantees.</p></div><span class="state hardware">External dependency</span></div><div class="readiness-row"><div><h3>Commercial distribution and upstream attribution</h3><p>Upstream source is fetched separately for development. Distribution licensing needs clarification. No Toly endorsement is claimed.</p></div><span class="state pending">Unresolved</span></div></section>
         <section class="card evidence-card"><div><p class="eyebrow">REPRODUCIBLE FIXTURE</p><h2>Measured in an emulator.</h2><p id="cycle-count">Loading firmware evidence…</p><p>Cycle-derived estimates are not hardware measurements. The existing design is not ready to hold funds.</p></div><a href="fixture-result.json" download class="button secondary">Download result evidence ↓</a></section>
         <p class="attribution">DTS Console is an independent development project. <a href="https://github.com/aeyakovenko/dts02-6502-signer/blob/main/spec.md" target="_blank" rel="noopener noreferrer">Read the DTS-02 specification ↗</a></p>
       </section>
       <div id="toast" class="toast" role="status" hidden></div>
     </div>
-    <footer><span>DTS CONSOLE <span class="footer-muted">/ v0.3.1</span></span><span>Public test signing · Unsigned Squads drafts</span><span id="footer-version">Upstream a7cbac2</span></footer>
+    <footer><span>DTS CONSOLE <span class="footer-muted">/ v0.3.2</span></span><span>Public test signing · Unsigned Squads drafts</span><span id="footer-version">Upstream a7cbac2</span></footer>
   </main>
   <noscript><div class="noscript-notice">JavaScript is required to use the transaction workspace.</div></noscript>
 </body>

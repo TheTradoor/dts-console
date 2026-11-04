@@ -1,3 +1,10 @@
+# 0.3.2 — Monochrome workspace
+
+- Replace the colored glow with a black-and-white technical interface.
+- Add a labeled workflow schematic, instrument-style dividers and squared controls.
+- Apply neutral status treatments throughout; labels and symbols retain their meaning.
+- Preserve all transaction, signing and draft behavior.
+
 # 0.3.1 — Console design update
 
 - Add an overview with a mint glow, workflow entry points and explicit developer-preview scope.

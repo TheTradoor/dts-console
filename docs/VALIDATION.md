@@ -1,3 +1,10 @@
+# Version 0.3.2 validation
+
+Monochrome overview and workspace. Application logic, protocol and cryptographic
+modules are unchanged. Syntax, unique HTML IDs, label targets and neutral color
+literals passed inspection. Desktop preview reviewed. The current browser run
+and mobile screenshot inspection are pending; earlier evidence below is historical.
+
 # Version 0.3.1 validation
 
 Dark overview and workspace redesign; the signing bridge, codec, cryptographic

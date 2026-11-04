@@ -117,7 +117,7 @@ test('readiness describes the partial parser and all views render', async ({page
     await view(page, name);
     await capture(page, testInfo, name);
   }
-  await expect(page.locator('.version-line')).toContainText('v0.3.1');
+  await expect(page.locator('.version-line')).toContainText('v0.3.2');
   await expect(page.locator('#readiness-view')).toContainText('No hardware development');
   await expect(page.locator('#readiness-view')).toContainText('M1 partial');
   await expect(page.locator('#readiness-view')).toContainText('trusted device review and approval are still pending');

@@ -1,6 +1,6 @@
 # Browser acceptance — current scope
 
-Version 0.3.1 has 30 cases across 1440 x 1000 and 390 x 844 Chromium viewports.
+Version 0.3.2 has 30 cases across 1440 x 1000 and 390 x 844 Chromium viewports.
 The suite retains the fixture and Squads checks and adds overview entry points,
 workflow scrolling, back/forward session preservation, direct links and unknown
 route handling, including keyboard skip-link focus. Fourteen served asset hashes
