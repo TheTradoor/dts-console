@@ -1,3 +1,11 @@
+# 0.3.0 — Unsigned Squads preparation
+
+- Add a software-only Squads draft workspace: restricted nonce/create/propose/approve composition, derived accounts, exact-byte review and JSON import/export.
+- Detect manual nonce/index mismatches and invalidate changed or rejected drafts.
+- Add a pinned SDK serialization oracle, 128 differential vectors and browser acceptance coverage.
+- Correct product scope and roadmap to exclude physical hardware development.
+- Keep the existing public-key signing bridge unchanged; Squads signing, chain-state verification and execution remain pending.
+
 # Changelog
 
 ## 0.2.0 — proposed, 2026-11-04

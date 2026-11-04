@@ -1,3 +1,12 @@
+# Version 0.3.0 interface
+
+Current 0.3.0 evidence: [run 41816685541](https://github.com/TheTradoor/dts-console/actions/runs/41816685541)
+passed 26/26 cases. All 38 screenshots and 26 diagnostic attachments were reviewed.
+See [the validation record](VALIDATION.md) for source hashes, exported-file checks,
+artifact integrity and the precise browser/validator limitations.
+
+Adds the Squads draft view and software-only product scope. Current browser acceptance and visual review results are recorded in the PR. Historical 0.2.0 screenshots below apply only to their recorded assets.
+
 # Browser validation procedure for the proposed 0.2.0 UI update
 
 Status: the functional checklist passed in the 18-case Chromium CI run,

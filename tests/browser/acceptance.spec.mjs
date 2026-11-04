@@ -3,6 +3,7 @@ import {readFileSync} from 'node:fs';
 import {readFile} from 'node:fs/promises';
 import {fileURLToPath} from 'node:url';
 import {createHash} from 'node:crypto';
+import {squadsExample,validateSquadsDraft} from '../../dist/squads.mjs';
 
 const dist = new URL('../../dist/', import.meta.url);
 const file = name => fileURLToPath(new URL(name, dist));
@@ -10,6 +11,7 @@ const json = name => JSON.parse(readFileSync(file(name), 'utf8'));
 const legacy = json('fixture-session.json');
 const validation = json('validation.json');
 const assets = ['index.html', 'app.mjs', 'style.css', 'protocol.mjs', 'crypto.mjs',
+  'squads.mjs','squads-ui.mjs',
   'validation.json', 'fixture-session.json', 'nonce-fixture-session.json',
   'fixture-result.json', 'policy-fixture-result.json', 'policy-nonce-fixture-result.json'];
 const digest = data => createHash('sha256').update(data).digest('hex');
@@ -111,11 +113,12 @@ test.beforeEach(async ({page, request, baseURL}, testInfo) => {
 });
 
 test('readiness describes the partial parser and all views render', async ({page}, testInfo) => {
-  for (const name of ['prepare', 'review', 'verify', 'readiness']) {
+  for (const name of ['prepare', 'review', 'verify', 'squads', 'readiness']) {
     await view(page, name);
     await capture(page, testInfo, name);
   }
-  await expect(page.locator('.version-line')).toContainText('v0.2.0');
+  await expect(page.locator('.version-line')).toContainText('v0.3.0');
+  await expect(page.locator('#readiness-view')).toContainText('No hardware development');
   await expect(page.locator('#readiness-view')).toContainText('M1 partial');
   await expect(page.locator('#readiness-view')).toContainText('trusted device review and approval are still pending');
   await expect(page.locator('#test-description')).toHaveText(`${validation.failed} failed · ${validation.recordedAt.slice(0, 10)}`);
@@ -247,4 +250,87 @@ test('a malformed result is rejected and clears the previous verified report', a
   await expect(page.locator('#verify-success')).toBeHidden();
   await expect(page.locator('#download-report')).toBeHidden();
   await capture(page, testInfo, 'malformed-result-rejection');
+});
+
+async function loadSquads(page) {
+  await view(page,'squads');
+  await page.locator('#squads-example').click();
+  await expect(page.locator('#squads-result')).toBeVisible();
+  await expect(page.locator('#squads-size')).toContainText('487 message bytes');
+}
+
+test('Squads draft exports reviewed bytes and imports with full decoded intent',async({page},testInfo)=>{
+  await loadSquads(page);
+  await expect(page.locator('#squads-decoded')).toContainText(squadsExample().recipient);
+  await expect(page.locator('#squads-export')).toBeDisabled();
+  await page.locator('#squads-ack').check();
+  const packet=await downloadJson(page,'#squads-export',testInfo,'squads-draft.json');
+  expect(validateSquadsDraft(packet)).toEqual(packet);
+  expect(packet.status).toBe('UNSIGNED_DRAFT');
+  expect(packet.review.transactionIndex).toBe('1');
+  expect(packet).not.toHaveProperty('signature');
+  await capture(page,testInfo,'squads-reviewed-draft');
+  await page.locator('#sq-amountSol').fill('0.000006');
+  await expect(page.locator('#squads-result')).toBeHidden();
+  await chooseFile(page,'#squads-import',{name:'draft.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(packet))});
+  await expect(page.locator('#squads-result')).toBeVisible();
+  await expect(page.locator('#sq-amountSol')).toHaveValue('0.000005');
+  await expect(page.locator('#squads-ack')).not.toBeChecked();
+  await expect(page.locator('#squads-export')).toBeDisabled();
+});
+
+test('Squads input changes invalidate the draft and reject invalid amounts',async({page},testInfo)=>{
+  await loadSquads(page);await page.locator('#squads-ack').check();
+  await page.locator('#sq-amountSol').fill('0');
+  await expect(page.locator('#squads-result')).toBeHidden();
+  await expect(page.locator('#squads-empty')).toBeVisible();
+  await page.getByRole('button',{name:'Build & inspect draft'}).click();
+  await expect(page.locator('#squads-error')).toContainText('Amount must be positive');
+  await expect(page.locator('#squads-export')).toBeDisabled();
+  await capture(page,testInfo,'squads-invalid-amount');
+});
+
+test('Squads stale index or nonce blocks reuse while matching is explicitly unverified',async({page},testInfo)=>{
+  await loadSquads(page);
+  await page.getByRole('button',{name:'Compare values',exact:true}).click();
+  await expect(page.locator('#squads-comparison')).toContainText('VALUES MATCH');
+  await expect(page.locator('#squads-comparison')).toContainText('No on-chain state');
+  await page.locator('#squads-ack').check();
+  await page.locator('#sq-compare-index').fill('1');
+  await page.getByRole('button',{name:'Compare values',exact:true}).click();
+  await expect(page.locator('#squads-comparison')).toContainText('REBUILD REQUIRED');
+  await expect(page.locator('#squads-export')).toBeDisabled();
+  await page.locator('#squads-ack').check();
+  await expect(page.locator('#squads-export')).toBeDisabled();
+  await page.locator('#sq-compare-index').fill('0');
+  await page.getByRole('button',{name:'Compare values',exact:true}).click();
+  await expect(page.locator('#squads-comparison')).toContainText('mismatch was already detected');
+  await expect(page.locator('#squads-export')).toBeDisabled();
+  await loadSquads(page);
+  await page.locator('#sq-compare-nonce').fill(squadsExample().recipient);
+  await page.getByRole('button',{name:'Compare values',exact:true}).click();
+  await expect(page.locator('#squads-comparison')).toContainText('nonce value changed');
+  await capture(page,testInfo,'squads-stale-state');
+  await loadSquads(page);await page.locator('#squads-ack').check();
+  await page.locator('#sq-compare-index').fill('9007199254740991');
+  await page.getByRole('button',{name:'Compare values',exact:true}).click();
+  await expect(page.locator('#squads-comparison')).toContainText('exceeds the supported range');
+  await expect(page.locator('#squads-export')).toBeDisabled();
+  await page.locator('#squads-ack').check();
+  await expect(page.locator('#squads-export')).toBeDisabled();
+});
+
+test('Squads tampered or malformed imports clear the previous review',async({page},testInfo)=>{
+  await loadSquads(page);await page.locator('#squads-ack').check();
+  const packet=await downloadJson(page,'#squads-export',testInfo,'squads-for-tamper.json');
+  packet.review.recipient=squadsExample().member;
+  await chooseFile(page,'#squads-import',{name:'tampered.json',mimeType:'application/json',buffer:Buffer.from(JSON.stringify(packet))});
+  await expect(page.locator('#squads-error')).toContainText('does not match the decoded message');
+  await expect(page.locator('#squads-result')).toBeHidden();
+  await expect(page.locator('#squads-export')).toBeDisabled();
+  await loadSquads(page);
+  await chooseFile(page,'#squads-import',{name:'malformed.json',mimeType:'application/json',buffer:Buffer.from('{')});
+  await expect(page.locator('#squads-error')).toContainText('not valid JSON');
+  await expect(page.locator('#squads-result')).toBeHidden();
+  await capture(page,testInfo,'squads-rejected-import');
 });

@@ -1,51 +1,69 @@
 # Product scope
 
-## Intended use
+## Product decision
 
-The long-term direction is an offline DTS-02 co-signer and a companion Console
-for infrequent Solana treasury operations. The published upstream design uses
-a distinct third device in a 2-of-3 Squads arrangement. It supplies one vote;
-the other two members can form a quorum without it.
+DTS Console is a software product built around DTS-02 transaction preparation,
+review and result verification. Physical hardware development, PCB design,
+assembly, manufacturing and hardware sales are outside this project's scope.
+This is a permanent product boundary, not a deferred Console milestone.
 
-The current audience is developers evaluating that design. The immediate value
-is a repeatable workflow: construct a narrowly scoped public fixture, inspect
-the bytes, execute the actual signing core and independently verify the result.
+The productization model is to turn an upstream engineering foundation into
+usable application workflows and integrations, as illustrated by percolator.trade.
+It does not imply the same application, implementation, licensing or endorsement.
 
-## Current release
+## Intended users and value
 
-Version 0.2.0 includes a static Prepare/Review/Verify/Readiness interface, two
-canonical SOL fixture forms, independent JavaScript and Python host parsers,
-source pinning, actual-firmware emulator execution and signature verification.
-An opt-in assembly parser validates the frozen message on the emulated 65C02
-before signing. It uses public profile 0 and has no trusted approval interface.
+The intended users are Solana treasury operators and developers who need to
+inspect exactly what a restricted transaction proposes. The software should
+make addresses, integer amounts, instructions, state dependencies and returned
+signatures understandable and reproducible before any external signing step.
 
-It does not include a live wallet, funds handling, seed input, transaction
-broadcast, Squads execution, physical device or complete on-device authorization.
+The current release is a development tool. It does not yet complete a production
+Squads treasury workflow. Its utility today is reproducible DTS public-fixture
+signing and verification, plus offline preparation and strict review of a narrow
+unsigned Squads draft. A successful draft is not an on-chain proposal or approval.
 
-## Product direction
+## Version 0.3.0
 
-Keep preparation and result verification on the companion host. Keep the
-trusted authorization decision inside a minimal offline device with its own
-parser, display, confirmation state machine and physical security boundary.
-The host's review screen is useful during development but cannot become the
-device's source of truth.
+- Retains canonical SOL fixture preparation, frozen-byte review, public-profile-0
+  firmware emulation and independent Ed25519 result verification.
+- Adds an unsigned Squads v4 composite: nonce advancement, restricted vault SOL
+  transaction creation, active proposal creation and the member's first approval.
+- Derives vault/transaction/proposal addresses, decodes the serialized bytes and
+  exports a bound JSON draft. Manual state comparisons detect changed index or
+  nonce values; matching manual values do not authenticate chain state.
+- Uses the pinned Squads SDK as a test oracle. The browser uses the Console's
+  narrow codec and existing pinned crypto; no Squads SDK bundle is redistributed.
 
-The restricted SOL parser is implemented as an experiment, with adversarial
-vectors and parser ROM/RAM/stack evidence. The next target is independent review
-and trusted device confirmation, integrated with complete reset/fault handling.
-Squads work then needs an exact serialized composite and local-validator
-evidence. Hardware work requires an embedded/electronics engineer and physical
-measurements.
+No private-key input, wallet connection, RPC request, transaction broadcast or
+on-chain execution is implemented. The DTS bridge still rejects Squads messages;
+this release does not silently extend its signing policy.
 
-See [ROADMAP.md](ROADMAP.md) for observable acceptance criteria.
+## Alignment with DTS-02
+
+The published upstream specification describes a distinct offline signer as one
+member of a 2-of-3 Squads arrangement. The Console follows its proposed atomic
+creation-and-first-approval direction rather than trusting an existing proposal
+snapshot as signer authorization. The companion never equates its host review or
+emulator with the independent security boundary of an external signer.
+
+The upstream device's physical isolation, erasure and trusted approval remain
+external requirements for anyone claiming a live-key DTS signer. They are not
+Console hardware deliverables and do not block development of software-only
+preparation, compatibility testing and verification features.
+
+## Next acceptance gate
+
+Execute the exact composite against a pinned Squads program in a local validator.
+Test competing transaction creation, changed nonce and consumed-nonce replay;
+record account, fee and nonce outcomes. Then add read-only chain-state retrieval
+and bind the reviewed message to those results without overstating their trust.
+
+See [ROADMAP.md](ROADMAP.md) and [SQUADS.md](SQUADS.md).
 
 ## Release and business boundaries
 
-A public-key developer kit follows physical measurements with public keys.
-A live-key device needs the completed architecture, independent review and
-documented custody/recovery procedures.
-
-Potential commercial distribution requires clarification of upstream licensing.
-A separate token is under consideration but has no implemented role in this
-prototype. Product progress and any future token proposal must remain separately
-verifiable. No affiliation, approval or endorsement by upstream is claimed.
+Commercial distribution remains subject to the relevant upstream licensing terms.
+Original Console code and fetched upstream components stay separate. No Toly,
+Solana or Squads endorsement is claimed. No token role is implemented; any token
+proposal must establish its own functional use separately from the software.

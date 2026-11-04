@@ -1,3 +1,45 @@
+# Version 0.3.0 validation
+
+[Browser CI run 41816685541](https://github.com/TheTradoor/dts-console/actions/runs/41816685541)
+passed **26/26** cases: thirteen scenarios at 1440 × 1000 and at 390 × 844,
+with no skips, retries or flaky outcomes. All 38 full-page screenshots were
+visually inspected. Review fields, addresses, instructions, errors and controls
+were readable without blocking clipping or overlap. Mobile is Chromium viewport
+emulation; this is not Safari, a device lab or a WCAG audit.
+
+All 26 diagnostics had zero uncaught JavaScript errors, unexpected external
+requests and failed application requests. Thirteen served asset hashes matched
+the source. External fonts were disabled. The four downloaded Squads JSON files
+matched the independently validated draft; both fixture session exports matched
+exactly and four downloaded verification reports matched their source fixtures.
+
+The run tested head `ac0259d35d14f7f773586eaf39627eaef772b8c8` through synthetic
+merge `914adef1a5559e5089a09b4f070084000cb2bff4`; both use Git tree
+`f9c7a31d066c27c0dc26d24a04f138434d3de8c9`. Checkout was clean. The downloaded
+artifact passed ZIP integrity checks and matched GitHub's SHA-256. Exact source
+hashes, artifact metadata and scope are in [squads-validation.json](evidence/squads-validation.json),
+and all image hashes/dimensions are in [squads-screenshots.json](evidence/squads-screenshots.json).
+The archive expires on 2026-11-18; the manifests are permanent records, not image copies.
+
+[Squads compatibility](https://github.com/TheTradoor/dts-console/actions/runs/41816685483)
+passed 29 tests, including 128 deterministic byte/PDA comparisons with the pinned
+SDK and rejection of all 487 truncated prefixes. The combined local JavaScript
+suite passed 59 tests with DTS_UPSTREAM set.
+[Firmware CI](https://github.com/TheTradoor/dts-console/actions/runs/41816685248)
+passed its 51 firmware/host tests, 5,803 differential vectors, all 65,536 u16
+lengths and four signing reproductions. The 51 and 59 totals overlap on the
+original 30 JavaScript fixture tests; they must not be added together.
+
+Direct Chrome preview checks confirmed draft construction, actual downloaded
+export validation, stale-index locking even after reverting values, zero-amount
+rejection and the software-only readiness view. These checks supplement CI.
+
+No local-validator execution has been performed. Squads signing and on-chain
+approval remain unimplemented; account state and manual comparisons are unverified.
+
+The detailed records below describe the earlier 0.2.0 baseline. Its screenshot
+hashes do not attest the changed 0.3.0 interface.
+
 # Validation record
 
 ## Automated — 0.2.0
