@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Prepare, inspect, and verify public test transactions for the DTS-02 signer.">
+  <meta name="theme-color" content="#17251f">
+  <title>DTS Console — Signing workspace</title>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="style.css">
+  <script type="module" src="app.mjs"></script>
+</head>
+<body>
+  <aside class="sidebar">
+    <a class="brand" href="./" aria-label="DTS Console home"><span class="mark">D<span>:</span></span><span>DTS<span class="brand-light"> / Console</span></span></a>
+    <div class="workspace"><span class="workspace-icon">B</span><div>Bollish workspace<small>Development environment</small></div><span class="workspace-dot"></span></div>
+    <p class="nav-label">SIGNING WORKSPACE</p>
+    <nav aria-label="Main navigation">
+      <button data-view="prepare" class="nav-item active"><span class="nav-icon">▤</span>Prepare transaction<span class="nav-num">01</span></button>
+      <button data-view="review" class="nav-item"><span class="nav-icon">⊞</span>Review session<span class="nav-num">02</span></button>
+      <button data-view="verify" class="nav-item"><span class="nav-icon">◈</span>Verify result<span class="nav-num">03</span></button>
+    </nav>
+    <p class="nav-label second-label">PROJECT</p>
+    <button data-view="readiness" class="nav-item"><span class="nav-icon">◷</span>Build readiness<span class="small-dot"></span></button>
+    <a class="nav-item" href="https://github.com/aeyakovenko/dts02-6502-signer" target="_blank" rel="noopener noreferrer"><span class="nav-icon">↗</span>Upstream source</a>
+    <div class="sidebar-bottom"><div class="version-line"><span class="status-led"></span>PUBLIC TEST KEYS<span>v0.1.1</span></div><p>Independent companion project.<br>Based on DTS-02 by Anatoly Yakovenko.</p></div>
+  </aside>
+  <main>
+    <header class="topbar"><div><span class="muted">Workspace</span><span class="slash">/</span><span id="breadcrumb">Prepare transaction</span></div><div class="environment"><span class="status-led"></span>Fixture environment</div></header>
+    <div class="content">
+      <div class="notice"><span class="notice-symbol">i</span><span><strong>Development build.</strong> Published test keys only. No funds, wallet connection, or network broadcast.</span><button data-view="readiness" class="text-button">View scope <span>↗</span></button></div>
+      <section id="prepare-view" class="view">
+        <div class="page-heading"><div><p class="eyebrow">01 / PREPARE</p><h1>Start with the exact bytes.</h1><p class="subtitle">Build a restricted SOL transfer for a DTS-02 test signing session.</p></div><button class="button secondary" id="load-example">Load signed example <span>↗</span></button></div>
+        <div class="prepare-grid">
+          <section class="card form-card"><div class="card-heading"><div><span class="card-index">01</span><h2>Transfer details</h2></div><span class="tag">SOLANA · LEGACY</span></div>
+            <form id="prepare-form">
+              <label for="source">Source signer <span class="label-tag">PUBLIC FIXTURE</span></label>
+              <div class="input-copy"><input id="source" readonly spellcheck="false" aria-describedby="source-help"><button type="button" class="copy-button" data-copy="source" aria-label="Copy source address">⧉</button></div>
+              <p class="help" id="source-help">RFC 8032 test key. Anyone can derive this key. Never fund it.</p>
+              <label for="recipient">Recipient address</label>
+              <input id="recipient" required autocomplete="off" spellcheck="false" placeholder="Enter a 32-byte Solana address">
+              <label for="amount">Amount</label>
+              <div class="amount-input"><input id="amount" inputmode="decimal" required autocomplete="off" value="0.000005" aria-describedby="lamports-preview"><span>SOL</span></div>
+              <p class="help amount-help" id="lamports-preview">5,000 lamports · integer precision</p>
+              <fieldset><legend>Message format</legend><div class="format-options">
+                <label class="radio-card"><input type="radio" name="format" value="legacy" checked><span>Legacy transfer<small>Single System Program instruction</small></span></label>
+                <label class="radio-card"><input type="radio" name="format" value="nonce"><span>Durable nonce fixture<small>Nonce advance + SOL transfer</small></span></label>
+              </div></fieldset>
+              <p class="help">The blockhash and optional nonce account are fixed test values. This session cannot be submitted from the Console.</p>
+              <div id="form-error" class="error" role="alert" hidden></div>
+              <button class="button primary full" id="prepare-button" type="submit">Prepare & inspect <span>→</span></button>
+              <div class="form-foot"><span>◈</span> No seed phrase or private key is requested.</div>
+            </form>
+          </section>
+          <div class="right-column">
+            <section class="device-card">
+              <div class="device-caption"><span class="status-led"></span>REVIEW PREVIEW<span>65C02 / DTS-02</span></div>
+              <div class="device-outline"><div class="device-screws"><i></i><i></i></div><div class="device-name">DTS–02 <span>DESKTOP SIGNER</span></div><div class="led-panel"><span id="intro-led">d75a 9801 82b1 0ab7</span><div class="led-reflection"></div></div><div class="device-lower"><span>01 SOURCE<span class="device-underline"></span></span><div class="keys-mini"><i></i><i></i><i></i><i></i></div><span>PUBLIC DATA</span></div><div class="device-screws bottom"><i></i><i></i></div></div>
+              <p>A preview of the review format.<br>Physical hardware and on-device policy are not implemented here.</p>
+            </section>
+            <section class="card compact-card"><p class="eyebrow">THE SESSION CONTRACT</p><div class="contract-row"><span class="check">✓</span><div><strong>Prepare</strong><p>Serialize a restricted transaction.</p></div></div><div class="contract-row"><span class="check">✓</span><div><strong>Review</strong><p>Read fields from those exact bytes.</p></div></div><div class="contract-row"><span class="check">✓</span><div><strong>Verify</strong><p>Match the result to the frozen message.</p></div></div><div class="contract-foot">Host-side checks · profile 0 only</div></section>
+          </div>
+        </div>
+        <div class="bottom-strip"><span>Plain Ed25519</span><span>Exact integer amounts</span><span>Local file exchange</span><span>Zero transaction broadcasts</span></div>
+      </section>
+      <section id="review-view" class="view" hidden>
+        <div class="page-heading"><div><p class="eyebrow">02 / REVIEW</p><h1>One frozen message.</h1><p class="subtitle">Review decoded fields before exporting the signing session.</p></div><button class="button secondary" id="import-session">Import session</button><input type="file" id="session-file" accept=".json,application/json" hidden></div>
+        <div id="review-empty" class="card empty"><span class="empty-icon">⊞</span><h2>No session prepared</h2><p>Prepare a transfer or import a session exported from this Console.</p><button class="button primary" data-view="prepare">Prepare a transaction →</button></div>
+        <div id="review-content" hidden>
+          <div class="session-banner"><div><span class="status-led"></span>MESSAGE FROZEN<span id="session-id" class="mono"></span></div><span id="message-size"></span></div>
+          <div class="review-grid">
+            <section class="card"><div class="card-heading"><h2>Decoded transaction</h2><span class="tag">HOST POLICY</span></div><dl id="decoded"></dl><details class="bytes-details"><summary>Inspect message & envelope bytes</summary><label>Serialized Solana message</label><pre id="message-hex"></pre><label>DTS input envelope · profile 0</label><pre id="envelope-hex"></pre></details></section>
+            <section class="card review-device"><div class="card-heading"><h2>Review pages</h2><span class="tag">UI PREVIEW</span></div><p id="page-title"></p><div class="page-header mono" id="page-header"></div><div class="led-panel review-led"><span id="review-led"></span></div><div class="page-navigation"><button id="previous-page" class="button secondary">← Back</button><span id="page-number" class="mono"></span><button id="next-page" class="button secondary">Next →</button></div><p id="recipient-progress" class="help"></p><p class="help">Addresses retain their original byte order. The preview does not execute the device's review firmware.</p></section>
+          </div>
+          <section class="card export-card"><div><h2>Export for the local DTS emulator</h2><p>Run the pinned 65C02 firmware with the published test key, then import its result.</p><label class="acknowledgement"><input type="checkbox" id="review-ack" disabled><span>I reviewed all recipient pages and compared the full address and amount with my intended transfer.</span></label></div><button class="button primary" id="export-session" disabled>Export session ↓</button></section>
+          <details class="cli-details"><summary>Run the emulator bridge</summary><p>Download the development kit, install Python 3.10+, a C compiler, and OpenSSL, then run:</p><pre>python3 tools/fetch_upstream.py
+python3 tools/sign_fixture.py dts-session.json --output dts-result.json</pre><a href="dts-console-devkit.zip" download>Download development kit ↓</a><p>The bridge accepts only the published test key. The firmware uses profile 0; the authorization parser remains host-side.</p></details>
+        </div>
+      </section>
+      <section id="verify-view" class="view" hidden>
+        <div class="page-heading"><div><p class="eyebrow">03 / VERIFY</p><h1>Verify what was signed.</h1><p class="subtitle">Check the DTS public result against your current session, entirely in this browser.</p></div></div>
+        <div class="verify-grid"><section class="card upload-card"><div class="upload-symbol">↥</div><h2>Import a DTS result</h2><p>Select the result JSON produced by the local emulator bridge.</p><button id="import-result" class="button primary">Choose result file</button><input type="file" id="result-file" accept=".json,application/json" hidden><div class="or-divider"><span>or</span></div><button id="verify-example" class="button secondary">Verify signed example</button><p class="help">The example is a recorded output of the actual DTS firmware running in an emulator. This button verifies it; it does not perform a new signing run.</p></section><section class="card verify-checks"><div class="card-heading"><h2>Verification checks</h2><span class="tag" id="verify-state">AWAITING RESULT</span></div><div id="verification-list"><div class="pending-check">○<span>Current session matches its serialized bytes</span></div><div class="pending-check">○<span>Result format, reserved bytes, and CRC</span></div><div class="pending-check">○<span>Public key, message length, and SHA-512</span></div><div class="pending-check">○<span>Ed25519 signature over the exact message</span></div></div><div id="verify-error" class="error" role="alert" hidden></div><div id="verify-success" hidden><div class="verified-mark">✓</div><h3>Signature verified.</h3><p>The result matches this session's exact message bytes.</p><dl id="verified-details"></dl><button class="button secondary" id="download-report">Download verification report ↓</button></div><p class="help verification-note">A valid signature proves the key signed these bytes. It does not prove hardware isolation, physical erasure, or a safe on-chain execution.</p></section></div>
+      </section>
+      <section id="readiness-view" class="view" hidden>
+        <div class="page-heading"><div><p class="eyebrow">PROJECT / READINESS</p><h1>Evidence before claims.</h1><p class="subtitle">A clear boundary between this working prototype and the finished signer.</p></div><a class="button secondary" href="dts-console-devkit.zip" download>Download development kit ↓</a></div>
+        <div class="readiness-stats"><div class="card"><span class="stat-label">SOFTWARE RELEASE</span><strong>0.1.1</strong><p>Fixture companion</p></div><div class="card"><span class="stat-label">AUTOMATED CHECKS</span><strong id="test-count">—</strong><p id="test-description">Loading recorded test results</p></div><div class="card"><span class="stat-label">HARDWARE STATUS</span><strong>Not built</strong><p>Physical validation required</p></div></div>
+        <section class="card readiness-card"><div class="card-heading"><h2>Implementation status</h2><span class="tag">NO LIVE-KEY SUPPORT</span></div><div class="readiness-row"><div><h3>Prepare, inspect, export, import, verify</h3><p>Canonical SOL transfer and durable-nonce fixtures; exact bytes and integer amounts.</p></div><span class="state built">Implemented</span></div><div class="readiness-row"><div><h3>Actual 65C02 firmware bridge</h3><p>Local execution of pinned upstream firmware, double signing, on-emulator verification, and OpenSSL comparison.</p></div><span class="state built">Implemented</span></div><div class="readiness-row"><div><h3>On-device review and authorization parser</h3><p>Console review is host-side. Signing profiles 1 and 2 remain disabled upstream.</p></div><span class="state pending">Pending</span></div><div class="readiness-row"><div><h3>Squads proposal creation + first approval</h3><p>Needs pinned protocol integration and local-validator tests for competing proposals, nonce changes, and replay.</p></div><span class="state pending">Pending</span></div><div class="readiness-row"><div><h3>Independent wipe, CPU isolation, restricted output</h3><p>Requires a completed electrical design, physical build, measurements, and independent review.</p></div><span class="state hardware">Hardware required</span></div><div class="readiness-row"><div><h3>Commercial distribution and upstream attribution</h3><p>Upstream source is fetched separately for development. Distribution licensing needs clarification. No Toly endorsement is claimed.</p></div><span class="state pending">Unresolved</span></div></section>
+        <section class="card evidence-card"><div><p class="eyebrow">REPRODUCIBLE FIXTURE</p><h2>Measured in an emulator.</h2><p id="cycle-count">Loading firmware evidence…</p><p>Cycle-derived estimates are not hardware measurements. The existing design is not ready to hold funds.</p></div><a href="fixture-result.json" download class="button secondary">Download result evidence ↓</a></section>
+        <p class="attribution">DTS Console is an independent development project. <a href="https://github.com/aeyakovenko/dts02-6502-signer/blob/main/spec.md" target="_blank" rel="noopener noreferrer">Read the DTS-02 specification ↗</a></p>
+      </section>
+      <div id="toast" class="toast" role="status" hidden></div>
+    </div>
+    <footer><span>DTS CONSOLE</span><span>Public test fixtures · Signing profile 0</span><span id="footer-version">Upstream a7cbac2</span></footer>
+  </main>
+</body>
+</html>

@@ -1,0 +1,28 @@
+name: Bug report
+description: Report a reproducible Console or bridge problem using public fixtures.
+body:
+  - type: textarea
+    id: environment
+    attributes:
+      label: Commit and environment
+      description: Include commit, operating system, Node/Python/OpenSSL versions or browser.
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Reproduction
+      description: Exact steps and synthetic inputs. Never include real keys or private transactions.
+    validations:
+      required: true
+  - type: textarea
+    id: behavior
+    attributes:
+      label: Expected and actual behavior
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Evidence and affected boundary
+      description: Relevant logs, rejection case, or screenshot. Distinguish host, emulator and physical hardware.

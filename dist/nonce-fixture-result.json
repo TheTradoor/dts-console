@@ -1,0 +1,22 @@
+{
+  "schema": "dts-console-result-v1",
+  "sessionSha256": "0dfef225f8803a4bdd0a33e9c71cdc1d775a858f40884a0cfe5d8aa03f8bd81c",
+  "recordHex": "44545330324f55540100e000d75a980182b10ab7d54bfed3c964073a0ee172f3daa62325af021a68f707511ad52849e3e934db89609b83662c4fd837dd4c34dc70821f0836945ec138e197a2b81c6aa73490e1c05c4841c3f1ce5c90527ad6a4a74cb32aa71eb409bcf93a07b4672f3c16cf53b51c417256e22d5e1490329e6a2f236fda0b509c055fc666e9bf819dbbafa612eed1efbc2ee6996eaf467684ac94c9e92f7edea7cad6da6145434c2ecf0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000",
+  "evidence": {
+    "engine": "DTS-02 65C02 firmware on the upstream C emulator",
+    "upstreamCommit": "a7cbac2ed7093a3cd994c4b7f1109396cd1d2faf",
+    "romSha256": "ed5a9da101906ca7b609f9a696daebcf93775ecd8ccf3304eae9e211b2c260ac",
+    "cycles": 652476175,
+    "doubleSign": true,
+    "firmwareVerify": true,
+    "opensslVerified": true,
+    "messageLocked": true,
+    "resultLocked": true,
+    "fault": false,
+    "blockedWrites": 0,
+    "emulatedScratchWiped": true,
+    "hardwareMeasured": false,
+    "onDevicePolicyImplemented": false,
+    "hostPolicy": "console-canonical-sol-v1"
+  }
+}

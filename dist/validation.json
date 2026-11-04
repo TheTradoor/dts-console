@@ -1,0 +1,84 @@
+{
+  "schema": "dts-console-validation-v1",
+  "recordedAt": "2026-11-04T06:09:54.099787+00:00",
+  "scope": "local automated tests and emulator reproducibility; not an audit",
+  "upstreamCommit": "a7cbac2ed7093a3cd994c4b7f1109396cd1d2faf",
+  "upstreamFileHashes": {
+    "sim/__init__.py": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "sim/asm.py": "81c0b9146f2e7a0718547eb30be1601176fb1699b6d02e2bc159efbef79f045d",
+    "sim/signer_fw.py": "aebb09cf84d5545fd62261cd0313bbe2b12ec937639f44814a150b4c211475d1",
+    "sim/ed25519_ref.py": "f229f9b42e40930aa32a8f29f8bcf3d4d5a19c731cd3f9f320bb448fa19920e0",
+    "sim/signer_harness.py": "387f4f599f56ddd3c86f038bf244c9e920964e9fe9d32e359e5b6a3ec56563f3",
+    "sim/emu.py": "4e65a1d60642d15c7c8f6e5fb144d79b155a78856910839084dd64a963d4d7f9",
+    "sim/emu65.c": "ff468336258fb531a24704f94e59a2da0bb7817473430a91c9dfa405783e5c6c",
+    "sim/solana.py": "1767f304e5dd4be6e7f0319a184fb1fa3c9cf20ead665384ca5fe444907287e0",
+    "sim/cpu65c02.py": "2d960afcbb18def357397c8c957aa8df5fb99f3078095abd14000dd3f1f3a177",
+    "sim/engine.py": "f11ea800885f9068657b2a35e2d409e470a8f3ab59bfc765495b3d71136ab67d",
+    "sim/parts.py": "671129ebfe887ef710aa90d08e19b567aed7279b8d4d5606fafda5f247f5c8ac",
+    "sim/timing.py": "edfa30a4a7751f9b891baa4fcc6c30aa3cedd685ad381ca05851caf58e2fdf13"
+  },
+  "tools": {
+    "node": "v24.22.1",
+    "python": "3.12.14",
+    "cc": "cc (Ubuntu 13.3.0-6ubuntu2~24.04) 13.3.0",
+    "openssl": "OpenSSL 3.0.13 30 Jan 2024 (Library: OpenSSL 3.0.13 30 Jan 2024)"
+  },
+  "javascript": {
+    "tests": 28,
+    "pass": 28,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "python": {
+    "tests": 8,
+    "failed": 0,
+    "skipped": 0
+  },
+  "passed": 36,
+  "failed": 0,
+  "skipped": 0,
+  "firmwareRuns": {
+    "fixture": {
+      "engine": "DTS-02 65C02 firmware on the upstream C emulator",
+      "upstreamCommit": "a7cbac2ed7093a3cd994c4b7f1109396cd1d2faf",
+      "romSha256": "ed5a9da101906ca7b609f9a696daebcf93775ecd8ccf3304eae9e211b2c260ac",
+      "cycles": 651345707,
+      "doubleSign": true,
+      "firmwareVerify": true,
+      "opensslVerified": true,
+      "messageLocked": true,
+      "resultLocked": true,
+      "fault": false,
+      "blockedWrites": 0,
+      "emulatedScratchWiped": true,
+      "hardwareMeasured": false,
+      "onDevicePolicyImplemented": false,
+      "hostPolicy": "console-canonical-sol-v1",
+      "recordSha256": "e4996b7dc10ecb0bfea72d69153223b3cf450622db0415d8ec2adf6734d19856",
+      "sessionSha256": "b071bab3846b6f5b5622ad65a15de1326a399a02ccdf8d5c204819cdc234204b"
+    },
+    "nonce-fixture": {
+      "engine": "DTS-02 65C02 firmware on the upstream C emulator",
+      "upstreamCommit": "a7cbac2ed7093a3cd994c4b7f1109396cd1d2faf",
+      "romSha256": "ed5a9da101906ca7b609f9a696daebcf93775ecd8ccf3304eae9e211b2c260ac",
+      "cycles": 652476175,
+      "doubleSign": true,
+      "firmwareVerify": true,
+      "opensslVerified": true,
+      "messageLocked": true,
+      "resultLocked": true,
+      "fault": false,
+      "blockedWrites": 0,
+      "emulatedScratchWiped": true,
+      "hardwareMeasured": false,
+      "onDevicePolicyImplemented": false,
+      "hostPolicy": "console-canonical-sol-v1",
+      "recordSha256": "70c35bae1a0ad0e43b2e1bc5e70fa150ec8f844382067dce6402d62a532a3f6f",
+      "sessionSha256": "0dfef225f8803a4bdd0a33e9c71cdc1d775a858f40884a0cfe5d8aa03f8bd81c"
+    }
+  },
+  "hardwareMeasured": false,
+  "onChainExecuted": false
+}

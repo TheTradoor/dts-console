@@ -1,0 +1,3 @@
+Vendored @noble/curves 2.4.0 and @noble/hashes 2.4.0.
+MIT licenses are retained in their respective directories.
+Only module import paths and source-map comments are changed.

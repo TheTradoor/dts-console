@@ -1,0 +1,178 @@
+TAP version 13
+# Subtest: base58: leading zeroes and 64 deterministic addresses round-trip
+ok 1 - base58: leading zeroes and 64 deterministic addresses round-trip
+  ---
+  duration_ms: 3.830208
+  type: 'test'
+  ...
+# Subtest: base58: invalid alphabet, whitespace, overflow and wrong lengths rejected
+ok 2 - base58: invalid alphabet, whitespace, overflow and wrong lengths rejected
+  ---
+  duration_ms: 0.404567
+  type: 'test'
+  ...
+# Subtest: SOL amounts remain exact beyond Number.MAX_SAFE_INTEGER
+ok 3 - SOL amounts remain exact beyond Number.MAX_SAFE_INTEGER
+  ---
+  duration_ms: 0.406139
+  type: 'test'
+  ...
+# Subtest: ambiguous amounts, negatives, zero and u64 overflow are rejected
+ok 4 - ambiguous amounts, negatives, zero and u64 overflow are rejected
+  ---
+  duration_ms: 0.224912
+  type: 'test'
+  ...
+# Subtest: standard CRC-32 known-answer vector
+ok 5 - standard CRC-32 known-answer vector
+  ---
+  duration_ms: 0.157362
+  type: 'test'
+  ...
+# Subtest: legacy transfer is 150 bytes and decodes all fields from the message
+ok 6 - legacy transfer is 150 bytes and decodes all fields from the message
+  ---
+  duration_ms: 4.31249
+  type: 'test'
+  ...
+# Subtest: durable nonce preserves exact advance, account and transfer layout
+ok 7 - durable nonce preserves exact advance, account and transfer layout
+  ---
+  duration_ms: 1.799364
+  type: 'test'
+  ...
+# Subtest: all truncated prefix messages are rejected
+ok 8 - all truncated prefix messages are rejected
+  ---
+  duration_ms: 9.256461
+  type: 'test'
+  ...
+# Subtest: versioned, multisigner and wrong permission headers are rejected
+ok 9 - versioned, multisigner and wrong permission headers are rejected
+  ---
+  duration_ms: 0.615358
+  type: 'test'
+  ...
+# Subtest: unknown instruction and changed System Program are rejected
+ok 10 - unknown instruction and changed System Program are rejected
+  ---
+  duration_ms: 0.387953
+  type: 'test'
+  ...
+# Subtest: duplicate accounts and unexpected signer are rejected
+ok 11 - duplicate accounts and unexpected signer are rejected
+  ---
+  duration_ms: 0.645952
+  type: 'test'
+  ...
+# Subtest: noncanonical shortvec, length overflow, trailing bytes and oversized messages are rejected
+ok 12 - noncanonical shortvec, length overflow, trailing bytes and oversized messages are rejected
+  ---
+  duration_ms: 0.354352
+  type: 'test'
+  ...
+# Subtest: nonce authority, sysvar, program and instruction mutations are rejected
+ok 13 - nonce authority, sysvar, program and instruction mutations are rejected
+  ---
+  duration_ms: 1.366665
+  type: 'test'
+  ...
+# Subtest: relabelled recipient or amount metadata is rejected
+ok 14 - relabelled recipient or amount metadata is rejected
+  ---
+  duration_ms: 2.982878
+  type: 'test'
+  ...
+# Subtest: changed message, envelope, digest, key, network, profile or upstream version is rejected
+ok 15 - changed message, envelope, digest, key, network, profile or upstream version is rejected
+  ---
+  duration_ms: 1.130297
+  type: 'test'
+  ...
+# Subtest: public result CRC, version, profile, reserved fields and length are enforced
+ok 16 - public result CRC, version, profile, reserved fields and length are enforced
+  ---
+  duration_ms: 0.372309
+  type: 'test'
+  ...
+# Subtest: actual 65C02 legacy signature independently verifies with WebCrypto
+ok 17 - actual 65C02 legacy signature independently verifies with WebCrypto
+  ---
+  duration_ms: 30.282235
+  type: 'test'
+  ...
+# Subtest: actual 65C02 durable-nonce signature independently verifies with WebCrypto
+ok 18 - actual 65C02 durable-nonce signature independently verifies with WebCrypto
+  ---
+  duration_ms: 3.867804
+  type: 'test'
+  ...
+# Subtest: an old signature is rejected for a newly prepared amount
+ok 19 - an old signature is rejected for a newly prepared amount
+  ---
+  duration_ms: 0.567787
+  type: 'test'
+  ...
+# Subtest: a signature alteration remains rejected after the CRC is recomputed
+ok 20 - a signature alteration remains rejected after the CRC is recomputed
+  ---
+  duration_ms: 0.868881
+  type: 'test'
+  ...
+# Subtest: a changed result digest remains rejected after CRC resealing
+ok 21 - a changed result digest remains rejected after CRC resealing
+  ---
+  duration_ms: 0.46777
+  type: 'test'
+  ...
+# Subtest: review pages cover every recipient byte in its original order
+ok 22 - review pages cover every recipient byte in its original order
+  ---
+  duration_ms: 0.408262
+  type: 'test'
+  ...
+# Subtest: JS serialization matches the separate Python upstream builder for both fixtures
+ok 23 - JS serialization matches the separate Python upstream builder for both fixtures
+  ---
+  duration_ms: 64.567201
+  type: 'test'
+  ...
+# Subtest: independent Python policy rejects changed review metadata before signing
+ok 24 - independent Python policy rejects changed review metadata before signing
+  ---
+  duration_ms: 35.349112
+  type: 'test'
+  ...
+# Subtest: independent Python decoder agrees on both exact packets
+ok 25 - independent Python decoder agrees on both exact packets
+  ---
+  duration_ms: 72.725984
+  type: 'test'
+  ...
+# Subtest: portable SHA-256 and SHA-512 match platform implementations
+ok 26 - portable SHA-256 and SHA-512 match platform implementations
+  ---
+  duration_ms: 5.55973
+  type: 'test'
+  ...
+# Subtest: portable Ed25519 rejects S+L malleability
+ok 27 - portable Ed25519 rejects S+L malleability
+  ---
+  duration_ms: 0.578443
+  type: 'test'
+  ...
+# Subtest: portable verification works with WebCrypto unavailable
+ok 28 - portable verification works with WebCrypto unavailable
+  ---
+  duration_ms: 1.680579
+  type: 'test'
+  ...
+1..28
+# tests 28
+# suites 0
+# pass 28
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 368.281991
