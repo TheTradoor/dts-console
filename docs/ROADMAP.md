@@ -5,6 +5,28 @@ sales are excluded. Earlier physical-kit and hardware-pilot milestones are
 superseded by this scope; external signer requirements remain documented as limits.
 Milestones describe evidence, not release dates or claims of production safety.
 
+## P0 — Product-fit decision before further expansion
+
+Current priority, 4 November 2026. Hold treasury feature expansion while the
+product's recurring user need and core dependency on DTS are unresolved. Keep
+the existing release, source and validation records available.
+
+The initial assessment found that public-fixture reproduction actually executes
+DTS firmware, while unsigned Squads drafting works without that execution.
+The published upstream design's physical security properties cannot be claimed
+for a software emulator. Neither finding proves that every possible software
+product using DTS is unsuitable.
+
+Use the existing fixture workflow to evaluate a developer compatibility-tool
+hypothesis. The walkthrough is prepared in PRODUCT.md. Gather concrete task feedback through
+authorized outreach, and record the explicit continue/stop criteria in
+[PRODUCT.md](PRODUCT.md#immediate-validation-work). No interviews or demand
+validation have been completed. A developer audience is a candidate, not a
+replacement product decision already made for the owner.
+
+S2-S4 remain conditional technical acceptance criteria. They do not by themselves
+clear P0, and passing them would not establish demand or a security advantage.
+
 ## S0 — Reproducible DTS companion
 
 Implemented in 0.1.1 and retained in later releases: prepare restricted public
@@ -35,8 +57,8 @@ current DTS bridge must continue rejecting this unsupported message language.
 
 ## S2 — Local-validator execution proof
 
-Pending. Pin program source, IDL and deployed test binary. Execute the exact S1
-composite in a local validator with public test keys and a 2-of-3 configuration.
+On hold pending P0. Pin program source, IDL and deployed test binary. Execute the
+exact S1 composite in a local validator with public test keys and a 2-of-3 configuration.
 Verify account owners, permissions, proposal linkage and first approval.
 
 Required adversarial cases: another member creates the next transaction first;
@@ -46,8 +68,8 @@ consumption. A size calculation or SDK match does not satisfy this gate.
 
 ## S3 — Read-only treasury workflow
 
-Pending. Retrieve and validate multisig configuration and nonce state; show data
-origin, slot/commitment and retrieval time. Detect unsafe thresholds, permissions,
+On hold pending P0. Retrieve and validate multisig configuration and nonce state;
+show data origin, slot/commitment and retrieval time. Detect unsafe thresholds, permissions,
 configuration authority and spending-limit paths. Re-read before an external
 submission step; changes require new bytes and review, never silent retries.
 
@@ -56,8 +78,8 @@ No imported host snapshot becomes trusted offline-signer authorization.
 
 ## S4 — Reviewed software pilot
 
-Pending. Independent review of the complete software flow, reproducible builds,
-compatibility evidence and explicit limits. Any future external signing adapter
+On hold pending P0. Independent review of the complete software flow, reproducible
+builds, compatibility evidence and explicit limits. Any future external signing adapter
 must preserve the signer boundary. Real-key handling or production execution is
 not enabled by the draft composer or the current profile-0 emulator.
 
