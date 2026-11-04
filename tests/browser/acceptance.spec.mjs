@@ -153,6 +153,10 @@ test('overview opens the workspace and browser history preserves the reviewed se
 test('direct links select their view and unknown routes return to the overview', async ({page,baseURL}) => {
   await page.goto(baseURL);
   await expect(page.locator('#home-view')).toBeVisible();
+  await page.keyboard.press('Tab');
+  await expect(page.locator('.skip-link')).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#home-view h1')).toBeFocused();
   await page.goto(new URL('#squads',baseURL).href);
   await expect(page.locator('#squads-view')).toBeVisible();
   await expect(page.locator('.nav-item[data-view="squads"]')).toHaveAttribute('aria-current','page');
