@@ -1,0 +1,78 @@
+{
+  "version": "0.3.1",
+  "reviewedAt": "2026-11-04",
+  "head": "0287adabc1814e07aa2c73a4144cde1293b30df5",
+  "ciCheckout": "86103953bdd2abe51c78c33857caf5da9527c949",
+  "gitTree": "6a40de58790994a637174322353e37ee9c203538",
+  "sourceDirty": false,
+  "browserRun": 41823605049,
+  "squadsRun": 41823605201,
+  "firmwareRun": 41823605039,
+  "scope": "Responsive overview and workspace, public DTS fixtures and unsigned Squads drafts",
+  "browser": "156.0.8078.4",
+  "stats": {
+    "startTime": "2026-11-04T11:46:36.156Z",
+    "duration": 110586.332,
+    "expected": 30,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "screenshotsReviewed": 40,
+  "diagnosticsReviewed": 30,
+  "sourceAssetSha256": {
+    "index.html": "621c8cdfb6d52b4d6ad993162422b142fcfe6cd34d6832b62bbcf644764d317c",
+    "app.mjs": "7f68ee7f08a56458178790c76c03165a8fd13fdf8d8ebbb71969e38d79aa923a",
+    "style.css": "1eece3e72d415ff270513e412334622025d61951eb4afc99d4bc28244f9b0bd2",
+    "favicon.svg": "eaecb518bcb65cf1c291ca238b6451ca2779e4cdfac441f5cf76327fa6a32b86",
+    "protocol.mjs": "30d035e8926ef6a02c15518c3d26911d027652b1db32b62018c21adfbcf01ccc",
+    "crypto.mjs": "a7cb1940b78e985abbcad6665c22de4c698e81004f459f97986ebdc442660b5e",
+    "squads.mjs": "3ecfbc364cd44b5c5fe40d75452b340352a3e7826ae7996eadd18c7b13e20855",
+    "squads-ui.mjs": "35e3ac80ab5f1449a4c6bacc02a3b84014f9db8af2e73be5abad940a6913b599",
+    "validation.json": "09bbba09385ebd774ec5a67bdf390b885b6ffbf13eabd9118f45cfb45875b08b",
+    "fixture-session.json": "601b784bdb8e5945fa7790d5d565adff115102c2cac72d5e568b57ebfb959fcb",
+    "nonce-fixture-session.json": "a9cfaef984e324845edf441fda4f99bd9fede79e301165355ac61d22a20f5234",
+    "fixture-result.json": "518bb85ed413ad26e14bcd5069fc6316f7936b009a828c3caf7846ced7edbf02",
+    "policy-fixture-result.json": "437f17a9ad91385409c49c09cd65af6a640b2b17ec5d4a61338cb9b8ffed8470",
+    "policy-nonce-fixture-result.json": "6600077957500670023d238da50053abfc4ef623a41324400803f33a96cf86a9"
+  },
+  "externalFonts": "disabled",
+  "squadsTests": 29,
+  "sdkDifferentialVectors": 128,
+  "firmwareHostTests": 51,
+  "firmwareDifferentialVectors": 5803,
+  "declaredLengthsChecked": 65536,
+  "firmwareReproductions": 4,
+  "exactSquadsExports": 4,
+  "exactSessionExports": 2,
+  "downloadedVerificationReports": 4,
+  "artifact": {
+    "id": 13316659799,
+    "sizeBytes": 22995567,
+    "sha256": "a5a92faa931b18c36f3e175234948e421548d48910c4f28bb23d5080e4802bac",
+    "expiresAt": "2026-11-18T11:48:26Z"
+  },
+  "visualReview": {
+    "baselineRun": 41822506475,
+    "baselineScreenshots": 40,
+    "identicalScreenshots": 15,
+    "changedScreenshotsRechecked": 25
+  },
+  "directPreviewChecks": [
+    "overview and workflow entry points",
+    "prepare, review and verified recorded fixture",
+    "unsigned Squads example",
+    "browser back/forward preserves current verification",
+    "keyboard skip link focuses main content and is clipped otherwise"
+  ],
+  "intermediateRun": {
+    "id": 41823440060,
+    "conclusion": "failure",
+    "reason": "Keyboard test initially expected heading focus; the skip link intentionally targets main-content. Corrected assertion and reran all 30 cases."
+  },
+  "limitations": [
+    "Chromium desktop and emulated mobile viewports only; not Safari or a physical device lab",
+    "Not a WCAG or independent security audit",
+    "No wallet, live-key signing, RPC, broadcast or local-validator execution"
+  ]
+}
