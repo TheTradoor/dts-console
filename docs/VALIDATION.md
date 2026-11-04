@@ -42,22 +42,49 @@ resistance, trusted device authorization, or successful on-chain execution.
 
 ## Browser status — 0.2.0
 
-The firmware parser PR retains the 0.1.1 browser HTML and application script.
-This separate UI proposal changes the displayed version to 0.2.0, identifies
-the parser as partial M1 work, and clarifies the missing trusted-device
-authorization in exported verification reports. These changes are unverified
-in a browser.
+[Browser CI run 41806149774](https://github.com/TheTradoor/dts-console/actions/runs/41806149774) passed all 18 cases on
+`7a9ccd7b5626b2160e03244e70d4f191e5b9904e` with retries disabled: nine scenarios at 1440 × 1000
+and the same nine at 390 × 844, Chromium 156.0.8078.4 on Ubuntu 24.04.
+The runner compared application asset hashes with the checkout before every
+scenario. Its diagnostics assertions reported no uncaught application errors,
+unexpected external requests or failed application requests. External fonts
+were disabled for this run.
 
-Browser acceptance remains pending. The proposed
-[automated suite](BROWSER_AUTOMATION.md) encodes the functional checks and
-screenshot capture, but has not executed. Complete the
-[validation procedure](UI_VALIDATION.md) before closing this item; neither
-test discovery nor the historical checks below establish a new result.
+The cases cover readiness and all four views; session file imports and signed
+result verification for both fixtures; downloaded reports; cross-session and
+modified-record rejection; all recipient pages and acknowledgement before
+export; input-edit invalidation; malformed replacement sessions; and malformed
+result JSON. Direct testing exposed a UI status defect: malformed
+result files now show REJECTED instead of AWAITING RESULT. In both states the
+previous successful report was already cleared.
 
-The JavaScript suite does verify both new result files through the actual
-verification module, checks that their signed records match the baseline, and
-confirms that unsigned evidence cannot become a hardware-authorization claim.
-That does not exercise file-picker interaction or visual layout.
+[The firmware run on the same commit](https://github.com/TheTradoor/dts-console/actions/runs/41806149699) also passed.
+A separate local clean-fetch reproduction passed all 51 firmware/host tests,
+5,803 differential vectors, all 65,536 u16 lengths and four signing runs. The
+browser count is separate from those 51 tests.
+
+Direct Chrome preview checks exercised actual file pickers, both fixture
+signatures, both downloaded JSON reports, review-gated export, changed amounts,
+modified records and malformed imports. The exported session matched the
+fixture exactly; both reports matched the source message hashes, signature and
+review fields, retained the trusted-device limitation, and did not copy unsigned
+firmware evidence into security claims. Desktop rendering was inspected, as were
+Prepare, Readiness and a verified result in a 390 × 844 CSS iframe. The iframe's
+content and scroll widths were both 375 pixels (390 including its scrollbar).
+This frame inspection is distinct from CI mobile viewport emulation.
+
+The CI archive contains its reports, diagnostics, downloads and screenshots.
+Its SHA-256 is `b5a7a7da7b7f0a3aeef0fedea87f72a497f35062e9b35b4be219cc399c55ae36`;
+artifact ID 13310056727, expiry 2026-11-18. Downloading that archive did not
+complete in this environment, so **visual inspection of those CI screenshots
+remains pending**. The directly inspected preview is not being represented as
+inspection of the archived files. Keep the UI pull request draft until this
+remaining review is complete. See
+[the machine-readable record](evidence/browser-validation.json).
+
+These results cover public fixture workflows. They do not establish physical
+hardware safety, trusted device approval, Safari behavior, or live-chain/Squads
+execution. The firmware parser PR still retains the original 0.1.1 browser files.
 
 ## Historical browser checks — 0.1.0 interface
 

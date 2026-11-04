@@ -18,10 +18,11 @@
   independent review, Squads and hardware work.
 - Propose matching 0.2.0 browser version/readiness text and an exported-report
   limitation that identifies missing trusted device review and authorization.
-  Browser QA for this UI proposal remains outstanding.
-- Add a proposed browser acceptance suite with fixture imports, downloads,
-  stale-state rejection and two viewport configurations. Browser execution
-  and screenshot review remain pending.
+  Record direct browser checks and a passing 18-case Chromium CI run.
+- Run browser acceptance in GitHub Actions with fixture imports, downloads,
+  stale-state rejection and desktop/mobile viewport configurations. CI screenshot
+  archive review remains pending; direct preview layouts were inspected.
+- Show REJECTED for malformed result JSON and add a regression scenario.
 
 ## 0.1.1 — 2026-11-04
 

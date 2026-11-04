@@ -10,14 +10,16 @@ forms. Trusted on-device review and authorization, physical hardware and Squads
 integration remain engineering milestones. It accepts no private key and has
 no wallet connection, RPC endpoint or broadcast operation.
 
-This branch proposes the matching 0.2.0 UI status and wording update on top
-of the firmware parser change. Browser QA has not been completed. See
-[the UI validation procedure](docs/UI_VALIDATION.md) for the acceptance checks;
-automated parser and signature tests do not establish that the UI works.
+The 0.2.0 UI identifies the experimental parser as partial M1 work and keeps
+trusted device authorization separate from host-side review. The
+[browser acceptance suite](docs/BROWSER_AUTOMATION.md) passed all 18 cases in
+Chromium desktop and mobile viewports. The same commit passed the 51-test
+firmware/host suite and four complete signing reproductions.
 
-The proposed [browser acceptance suite](docs/BROWSER_AUTOMATION.md) automates
-the fixture workflow and captures desktop/mobile-viewport evidence. Browser
-execution is still pending; it is not part of the recorded 51-test result.
+The development preview was also exercised and visually inspected on desktop
+and in a 390-by-844 CSS frame. Review of the separate CI screenshot archive
+remains pending, so the UI pull request stays draft. See the
+[validation record](docs/VALIDATION.md) for exact runs, source hashes and limits.
 
 This is an independent project. It does not claim endorsement by Anatoly
 Yakovenko, Solana, or Squads.

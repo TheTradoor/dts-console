@@ -1,8 +1,10 @@
 # Browser acceptance automation
 
-Status: desktop interactions have been exercised through the development
-preview. The full Playwright run and its screenshot review remain pending.
-Test discovery and syntax checks do not establish that the suite passes.
+Status: all 18 cases passed in [GitHub Actions run 41806149774](https://github.com/TheTradoor/dts-console/actions/runs/41806149774)
+on commit `7a9ccd7b5626b2160e03244e70d4f191e5b9904e`. The CI screenshot archive was generated,
+but its visual review remains pending because the download did not complete.
+Direct development-preview interactions and layout review were completed
+separately; see [VALIDATION.md](VALIDATION.md).
 
 The Playwright suite covers nine scenarios in two Chromium viewport
 configurations (1440 x 1000 and 390 x 844). It checks readiness text, imports and

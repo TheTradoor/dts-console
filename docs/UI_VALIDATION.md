@@ -1,13 +1,11 @@
 # Browser validation procedure for the proposed 0.2.0 UI update
 
-Status: not executed. This is a repeatable review procedure, not evidence that
-the browser tests passed. The firmware PR retains the existing 0.1.1 HTML and
-application script; the UI proposal changes version/readiness text and the
-limitation text in exported verification reports.
-
-An [automated suite](BROWSER_AUTOMATION.md) now encodes the functional checks
-below and captures screenshots. It has been authored but not executed. Its
-discovery count must not be added to the completed test count.
+Status: the functional checklist has passed in the 18-case Chromium CI run,
+with additional direct development-preview checks. Desktop and narrow CSS-frame
+layouts were inspected directly. The separate CI screenshot archive still
+needs visual inspection; the UI pull request therefore remains draft.
+See [the validation record](VALIDATION.md) and its machine-readable evidence.
+The procedure below is retained for subsequent changes.
 
 Run these checks on the UI proposal's exact commit in an authorized browser
 environment. Record the commit, browser/version, viewport, date, observed

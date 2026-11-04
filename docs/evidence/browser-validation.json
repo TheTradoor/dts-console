@@ -1,0 +1,72 @@
+{
+  "schema": "dts-console-browser-validation-v1",
+  "recordedAt": "2026-11-04",
+  "sourceCommit": "7a9ccd7b5626b2160e03244e70d4f191e5b9904e",
+  "ci": {
+    "runUrl": "https://github.com/TheTradoor/dts-console/actions/runs/41806149774",
+    "runId": 41806149774,
+    "jobId": 126493542533,
+    "passed": 18,
+    "failed": 0,
+    "skipped": 0,
+    "retries": 0,
+    "browser": "Chromium 156.0.8078.4",
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "externalFonts": "disabled",
+    "artifactId": 13310056727,
+    "artifactSha256": "b5a7a7da7b7f0a3aeef0fedea87f72a497f35062e9b35b4be219cc399c55ae36",
+    "artifactExpiresAt": "2026-11-18T09:17:42Z",
+    "screenshotReview": "pending: archive download did not complete"
+  },
+  "directPreview": {
+    "browser": "Chrome (version not exposed by this UI-control API)",
+    "desktopDocument": {
+      "clientWidth": 1363,
+      "clientHeight": 936,
+      "scrollWidth": 1363
+    },
+    "responsiveFrame": {
+      "outerWidth": 390,
+      "outerHeight": 844,
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "legacyVerification": "passed",
+    "nonceVerification": "passed",
+    "downloadedSessionExactMatch": true,
+    "bothDownloadedReportsMatch": true,
+    "reviewGating": "passed",
+    "editedAmountInvalidation": "passed",
+    "crossSessionRejection": "passed",
+    "modifiedRecordRejection": "passed",
+    "malformedSessionInvalidation": "passed",
+    "malformedResultRejectionAfterFix": "passed",
+    "directVisualReview": "desktop and narrow CSS frame inspected"
+  },
+  "assetSha256": {
+    "dist/index.html": "68ea19a8ed60e7ff6e404bc3a0b047da7158f460bed88e2860d46cd434fa4bb0",
+    "dist/app.mjs": "d87ed3322741df565c7bbdcacf0f8881cffeaaa533b9ef7401dfd422892b84fa",
+    "dist/style.css": "13c527ef287dac0314bb631d513039e6052eebba678f1ef2e0d480288c8d04a7",
+    "dist/protocol.mjs": "30d035e8926ef6a02c15518c3d26911d027652b1db32b62018c21adfbcf01ccc",
+    "dist/crypto.mjs": "a7cb1940b78e985abbcad6665c22de4c698e81004f459f97986ebdc442660b5e",
+    "tests/browser/acceptance.spec.mjs": "950a8e123f36dce84a93a352b5352adf3293ad5d04aee335f281e0cd30a34c80",
+    ".github/workflows/browser.yml": "6be5c0a35ca1694d4ab37560c3e05ce712382f7809d9ac553954d247f78fa41e"
+  },
+  "firmwareRunUrl": "https://github.com/TheTradoor/dts-console/actions/runs/41806149699",
+  "hardwareMeasured": false,
+  "onChainExecuted": false,
+  "remaining": [
+    "Visual inspection of CI screenshot archive",
+    "Independent code/security review",
+    "Trusted device approval and hardware validation"
+  ]
+}
