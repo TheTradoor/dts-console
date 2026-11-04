@@ -1,8 +1,43 @@
 # Version 0.3.3 validation
 
 Paper overview, illustrative code animation and decorative point landscape.
-Application, protocol, cryptography and Squads modules are unchanged. Browser
-motion and palette validation is in progress; earlier records below are historical.
+Application, protocol, cryptography and Squads modules are unchanged.
+
+[Browser run 41835377223](https://github.com/TheTradoor/dts-console/actions/runs/41835377223)
+passed **34/34** cases at 1440 × 1000 and 390 × 844, without skips, retries or
+flaky outcomes. Motion checks compare rendered canvas pixels before and after
+pause/resume, require a still canvas under reduced motion and after leaving the
+overview, and verify that navigation preserves the reviewed transaction session.
+
+All 44 screenshot layouts were reviewed. Forty-two final images are byte-identical
+to the preceding visual review; both changed landscape images were rechecked.
+The mobile landscape was moved below its copy and controls. Enlarged mobile
+captures also confirmed readable addresses, signatures, errors and draft export
+controls. Capture waits for finite entrance animations and notifications to finish.
+This is a visual review, not a WCAG or independent security audit.
+
+Thirty-four diagnostics contain no uncaught JavaScript errors, unexpected external
+requests or failed application requests. Sixteen served asset hashes match the
+source; external fonts were disabled. Four Squads downloads match a separately
+constructed and validated draft, two session exports match the fixture and four
+verification reports match their source fixtures.
+
+The clean CI checkout `850e12e360c59f7e316216e0022b5d4a53b3c563` has the same tree
+as head `ddf83fb05faa57fb7d3f9dd32fce9727e2c601fd`. The downloaded artifact passed
+ZIP integrity and SHA-256 checks. Exact source, artifact and image hashes are in
+[motion-validation.json](evidence/motion-validation.json) and
+[motion-screenshots.json](evidence/motion-screenshots.json). The archive expires
+on November 18; the manifests are records, not copies of the screenshots.
+
+[Squads compatibility](https://github.com/TheTradoor/dts-console/actions/runs/41835377756)
+and [firmware reproduction](https://github.com/TheTradoor/dts-console/actions/runs/41835377575)
+also passed for this code commit. An intermediate browser run caught one desktop
+resume failure. Resuming now reconciles the current section bounds and starts a
+fresh animation frame loop; the complete passing run above includes that fix.
+
+Mobile coverage is Chromium viewport emulation, not Safari or physical phones.
+No wallet, live-key signing, RPC, broadcast or local-validator execution was added
+or tested. Earlier records below describe historical interfaces.
 
 # Version 0.3.2 validation
 
