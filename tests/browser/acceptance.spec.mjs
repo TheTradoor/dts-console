@@ -82,6 +82,8 @@ async function downloadJson(page, selector, testInfo, name) {
 
 async function capture(page, testInfo, name) {
   await page.evaluate(async () => { await document.fonts.ready; });
+  // Let the real notification expire so it cannot obscure review evidence.
+  await expect(page.locator('#toast')).toBeHidden({timeout: 10000});
   const dimensions = await page.evaluate(() => ({width: document.documentElement.clientWidth,
     scroll: document.documentElement.scrollWidth}));
   expect(dimensions.scroll, `${name}: horizontal document overflow`).toBeLessThanOrEqual(dimensions.width);
@@ -206,7 +208,7 @@ test('editing clears verification and resets review before another session', asy
   await capture(page, testInfo, 'edited-session-rejection');
 });
 
-test('a modified signature cannot retain a successful verification', async ({page}) => {
+test('a modified signature cannot retain a successful verification', async ({page}, testInfo) => {
   await importSession(page, 'fixture-session.json');
   await importResult(page, 'policy-fixture-result.json');
   await expect(page.locator('#verify-state')).toHaveText('VERIFIED');
@@ -218,9 +220,10 @@ test('a modified signature cannot retain a successful verification', async ({pag
   await expect(page.locator('#verify-state')).toHaveText('REJECTED');
   await expect(page.locator('#verify-error')).toHaveText('Result CRC does not match.');
   await expect(page.locator('#download-report')).toBeHidden();
+  await capture(page, testInfo, 'modified-record-rejection');
 });
 
-test('a malformed replacement session invalidates the previous one', async ({page}) => {
+test('a malformed replacement session invalidates the previous one', async ({page}, testInfo) => {
   await importSession(page, 'fixture-session.json');
   await importResult(page, 'policy-fixture-result.json');
   await expect(page.locator('#verify-state')).toHaveText('VERIFIED');
@@ -231,9 +234,10 @@ test('a malformed replacement session invalidates the previous one', async ({pag
   await view(page, 'verify');
   await expect(page.locator('#verify-state')).toHaveText('AWAITING RESULT');
   await expect(page.locator('#download-report')).toBeHidden();
+  await capture(page, testInfo, 'malformed-session-invalidation');
 });
 
-test('a malformed result is rejected and clears the previous verified report', async ({page}) => {
+test('a malformed result is rejected and clears the previous verified report', async ({page}, testInfo) => {
   await importSession(page, 'fixture-session.json');
   await importResult(page, 'policy-fixture-result.json');
   await expect(page.locator('#verify-state')).toHaveText('VERIFIED');
@@ -242,4 +246,5 @@ test('a malformed result is rejected and clears the previous verified report', a
   await expect(page.locator('#verify-error')).toHaveText('The selected file is not valid JSON.');
   await expect(page.locator('#verify-success')).toBeHidden();
   await expect(page.locator('#download-report')).toBeHidden();
+  await capture(page, testInfo, 'malformed-result-rejection');
 });
