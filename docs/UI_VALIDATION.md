@@ -1,9 +1,9 @@
 # Browser validation procedure for the proposed 0.2.0 UI update
 
-Status: the functional checklist has passed in the 18-case Chromium CI run,
-with additional direct development-preview checks. Desktop and narrow CSS-frame
-layouts were inspected directly. The separate CI screenshot archive still
-needs visual inspection; the UI pull request therefore remains draft.
+Status: the functional checklist passed in the 18-case Chromium CI run,
+and all 28 archived screenshots were visually inspected. Direct preview checks,
+desktop/narrow CSS-frame inspection and authenticated published-site smoke
+checks also passed. Browser acceptance is complete for this recorded scope.
 See [the validation record](VALIDATION.md) and its machine-readable evidence.
 The procedure below is retained for subsequent changes.
 

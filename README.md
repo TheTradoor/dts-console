@@ -16,9 +16,9 @@ trusted device authorization separate from host-side review. The
 Chromium desktop and mobile viewports. The same commit passed the 51-test
 firmware/host suite and four complete signing reproductions.
 
-The development preview was also exercised and visually inspected on desktop
-and in a 390-by-844 CSS frame. Review of the separate CI screenshot archive
-remains pending, so the UI pull request stays draft. See the
+All 28 screenshots from the completed CI run were visually inspected, covering
+both viewport configurations. Direct preview checks and an authenticated
+published-site smoke check also passed. See the
 [validation record](docs/VALIDATION.md) for exact runs, source hashes and limits.
 
 This is an independent project. It does not claim endorsement by Anatoly

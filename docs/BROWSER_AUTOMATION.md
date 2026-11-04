@@ -1,10 +1,9 @@
 # Browser acceptance automation
 
-Status: all 18 cases passed in [GitHub Actions run 41806149774](https://github.com/TheTradoor/dts-console/actions/runs/41806149774)
-on commit `7a9ccd7b5626b2160e03244e70d4f191e5b9904e`. The CI screenshot archive was generated,
-but its visual review remains pending because the download did not complete.
-Direct development-preview interactions and layout review were completed
-separately; see [VALIDATION.md](VALIDATION.md).
+Status: all 18 cases passed in [GitHub Actions run 41810704326](https://github.com/TheTradoor/dts-console/actions/runs/41810704326)
+for head `a84b34be157c7b8e611aff267bafdceac6b46ae5`. All 28 archived screenshots
+were visually inspected. Direct preview checks and an authenticated published-site
+smoke check were completed separately; see [VALIDATION.md](VALIDATION.md).
 
 The Playwright suite covers nine scenarios in two Chromium viewport
 configurations (1440 x 1000 and 390 x 844). It checks readiness text, imports and
@@ -48,7 +47,10 @@ checked-in fixtures. It records uncaught JavaScript errors, failed application
 requests, browser version and viewport. Retries are disabled.
 
 Outputs are written under `artifacts/browser/`: a JSON result file, an HTML
-report, downloaded JSON, screenshots, and traces for failed tests. The HTML
+report, downloaded JSON, screenshots, and traces for failed tests. Captures wait
+up to ten seconds for the application's five-second notification to expire;
+they do not hide overlays or alter the page for the screenshot. Every scenario
+has visual evidence, including modified records and malformed imports. The HTML
 report does not open automatically. The checkout commit and working-tree
 status are recorded when Git metadata is available. Source hashes also
 identify packaged checkouts without Git metadata.

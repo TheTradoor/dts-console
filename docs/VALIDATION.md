@@ -42,26 +42,53 @@ resistance, trusted device authorization, or successful on-chain execution.
 
 ## Browser status — 0.2.0
 
-[Browser CI run 41806149774](https://github.com/TheTradoor/dts-console/actions/runs/41806149774) passed all 18 cases on
-`7a9ccd7b5626b2160e03244e70d4f191e5b9904e` with retries disabled: nine scenarios at 1440 × 1000
-and the same nine at 390 × 844, Chromium 156.0.8078.4 on Ubuntu 24.04.
-The runner compared application asset hashes with the checkout before every
-scenario. Its diagnostics assertions reported no uncaught application errors,
-unexpected external requests or failed application requests. External fonts
-were disabled for this run.
+Browser acceptance is complete for the recorded public-fixture scope.
+[Browser CI run 41810704326](https://github.com/TheTradoor/dts-console/actions/runs/41810704326)
+passed all 18 cases for head `a84b34be157c7b8e611aff267bafdceac6b46ae5`.
+GitHub tested synthetic merge `9a1034092a3396b7c59c2a6b688dcc6d2a4f6c8e`;
+its Git tree equals the head's tree. The checkout was clean. The run used
+Chromium 156.0.8078.4 on Ubuntu 24.04, nine scenarios at 1440 × 1000 and the same
+nine at 390 × 844, with zero failures, skips, flaky results or retries.
+
+The runner compared eleven application/fixture asset hashes with the checkout
+before each scenario. Inspection of all eighteen diagnostic attachments found
+no uncaught application errors, unexpected external requests or failed
+application requests. External fonts were disabled for this run.
 
 The cases cover readiness and all four views; session file imports and signed
 result verification for both fixtures; downloaded reports; cross-session and
 modified-record rejection; all recipient pages and acknowledgement before
 export; input-edit invalidation; malformed replacement sessions; and malformed
-result JSON. Direct testing exposed a UI status defect: malformed
-result files now show REJECTED instead of AWAITING RESULT. In both states the
-previous successful report was already cleared.
+result JSON. Malformed results show REJECTED and clear the previous report.
+The four downloaded verification reports were separately compared with their
+source fixtures; both exported sessions matched the legacy fixture exactly.
 
-[The firmware run on the same commit](https://github.com/TheTradoor/dts-console/actions/runs/41806149699) also passed.
-A separate local clean-fetch reproduction passed all 51 firmware/host tests,
-5,803 differential vectors, all 65,536 u16 lengths and four signing runs. The
-browser count is separate from those 51 tests.
+All **28 full-page PNGs** in the archive were visually inspected on 2026-11-04:
+14 desktop and 14 mobile captures. Review fields, signatures, status labels,
+error messages and controls were readable without persistent overlap or
+clipping in these captures. Long hashes/signatures wrapped within their cards
+on mobile. The horizontal-overflow assertions also passed. This inspection is
+not a WCAG audit or a claim about untested browser/device combinations.
+
+The preceding run's screenshots included transient import/export notifications
+covering some text. Capture now waits for the real five-second notification to
+expire, with a ten-second assertion deadline; it does not hide content or alter
+the page. Screenshots were also added to the three existing damaged/malformed
+input scenarios. The rerun above includes those changes; application code is
+unchanged by this capture correction.
+
+The downloaded archive passed ZIP integrity checks and matched GitHub's SHA-256
+`e92664534687c20ac65a73d433dd57ac20306cb01a48680175588ea70e2e0908`.
+Artifact ID **13312955051**, size 9,259,871 bytes, expires **2026-11-18**.
+The [screenshot manifest](evidence/browser-screenshots.json) records each
+archive path, dimensions, SHA-256 and review outcome. The workflow retains
+archives for fourteen days; the manifest is a record, not a permanent image copy.
+See also [the machine-readable validation record](evidence/browser-validation.json).
+
+[The firmware run for the same head](https://github.com/TheTradoor/dts-console/actions/runs/41810704362)
+also passed. The previously recorded local clean-fetch reproduction passed all
+51 firmware/host tests, 5,803 differential vectors, all 65,536 u16 lengths and
+four signing runs. Browser cases are separate from those 51 tests.
 
 Direct Chrome preview checks exercised actual file pickers, both fixture
 signatures, both downloaded JSON reports, review-gated export, changed amounts,
@@ -69,18 +96,16 @@ modified records and malformed imports. The exported session matched the
 fixture exactly; both reports matched the source message hashes, signature and
 review fields, retained the trusted-device limitation, and did not copy unsigned
 firmware evidence into security claims. Desktop rendering was inspected, as were
-Prepare, Readiness and a verified result in a 390 × 844 CSS iframe. The iframe's
-content and scroll widths were both 375 pixels (390 including its scrollbar).
-This frame inspection is distinct from CI mobile viewport emulation.
+Prepare, Readiness and a verified result in a 390 × 844 CSS iframe. Its content
+and scroll widths were both 375 pixels (390 including the scrollbar). This is
+distinct from CI mobile viewport emulation.
 
-The CI archive contains its reports, diagnostics, downloads and screenshots.
-Its SHA-256 is `b5a7a7da7b7f0a3aeef0fedea87f72a497f35062e9b35b4be219cc399c55ae36`;
-artifact ID 13310056727, expiry 2026-11-18. Downloading that archive did not
-complete in this environment, so **visual inspection of those CI screenshots
-remains pending**. The directly inspected preview is not being represented as
-inspection of the archived files. Keep the UI pull request draft until this
-remaining review is complete. See
-[the machine-readable record](evidence/browser-validation.json).
+An authenticated smoke check of the private published Site on 2026-11-04 loaded
+v0.2.0 and verified the recorded firmware example. Importing malformed result
+JSON changed VERIFIED to REJECTED and removed the prior report; verifying the
+example again restored VERIFIED. Readiness showed 51 passed and M1 partial.
+No app-origin console errors were observed. This was a targeted live smoke
+check, not a second execution of the full CI suite against production.
 
 These results cover public fixture workflows. They do not establish physical
 hardware safety, trusted device approval, Safari behavior, or live-chain/Squads

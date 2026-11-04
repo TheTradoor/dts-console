@@ -20,8 +20,10 @@
   limitation that identifies missing trusted device review and authorization.
   Record direct browser checks and a passing 18-case Chromium CI run.
 - Run browser acceptance in GitHub Actions with fixture imports, downloads,
-  stale-state rejection and desktop/mobile viewport configurations. CI screenshot
-  archive review remains pending; direct preview layouts were inspected.
+  stale-state rejection and desktop/mobile viewport configurations. Review all
+  28 CI screenshots and record authenticated published-site checks.
+- Wait for transient notifications to expire before capturing screenshots;
+  include modified-record and malformed-import states in the visual evidence.
 - Show REJECTED for malformed result JSON and add a regression scenario.
 
 ## 0.1.1 — 2026-11-04

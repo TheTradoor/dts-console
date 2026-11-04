@@ -1,0 +1,299 @@
+{
+  "schema": "dts-console-browser-screenshots-v1",
+  "reviewedAt": "2026-11-04",
+  "runId": 41810704326,
+  "sourceCommit": "a84b34be157c7b8e611aff267bafdceac6b46ae5",
+  "checkoutCommit": "9a1034092a3396b7c59c2a6b688dcc6d2a4f6c8e",
+  "artifactId": 13312955051,
+  "artifactSha256": "e92664534687c20ac65a73d433dd57ac20306cb01a48680175588ea70e2e0908",
+  "artifactExpiresAt": "2026-11-18T09:57:04Z",
+  "reviewOutcome": "passed",
+  "scope": "28 full-page PNGs; Chromium desktop and mobile viewport emulation; external fonts disabled; not an accessibility audit",
+  "observations": [
+    "No persistent text or control overlap observed after notifications expired.",
+    "Long hashes and signatures wrap inside mobile cards.",
+    "Expected verification, rejection and invalidated states are visible."
+  ],
+  "screenshots": [
+    {
+      "archivePath": "browser/test-results/acceptance-a-malformed-rep-67f44-nvalidates-the-previous-one-chromium-desktop/malformed-session-invalidation.png",
+      "file": "desktop/malformed-session-invalidation.png",
+      "sha256": "04b896fa5a79965868799ead0321b53fb22c66ac5364282b8d4abc9360a7b509",
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-a-malformed-rep-67f44-nvalidates-the-previous-one-chromium-mobile-viewport/malformed-session-invalidation.png",
+      "file": "mobile/malformed-session-invalidation.png",
+      "sha256": "a37169abe0c5d4ce39953c835abd5e29cd144a44229efd7e7bcf1efa0abff8e0",
+      "dimensions": [
+        390,
+        1236
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-a-malformed-res-b5138-he-previous-verified-report-chromium-desktop/malformed-result-rejection.png",
+      "file": "desktop/malformed-result-rejection.png",
+      "sha256": "2e82a5808fa15fa4fc78b4239769a3821bcd144a2ec34c2cfb004e5fa561e097",
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-a-malformed-res-b5138-he-previous-verified-report-chromium-mobile-viewport/malformed-result-rejection.png",
+      "file": "mobile/malformed-result-rejection.png",
+      "sha256": "c6eda993c6b19addbf004da4d0e5795663dca91b71906cf25313971c82595883",
+      "dimensions": [
+        390,
+        1317
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-a-mismatched-re-ccb6a--previous-successful-result-chromium-desktop/cross-session-rejection.png",
+      "file": "desktop/cross-session-rejection.png",
+      "sha256": "eb7650ec9b53f3b0ce36e0df2e08a3e2d3eaedfe778f56741daf0ad28662ba61",
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-a-mismatched-re-ccb6a--previous-successful-result-chromium-mobile-viewport/cross-session-rejection.png",
+      "file": "mobile/cross-session-rejection.png",
+      "sha256": "f372c6c25293882ff9b5bf4f83387c2cb6832f38f8853c4fd87eadc6f1e148f2",
+      "dimensions": [
+        390,
+        1317
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-a-modified-sign-61945-n-a-successful-verification-chromium-desktop/modified-record-rejection.png",
+      "file": "desktop/modified-record-rejection.png",
+      "sha256": "672bca8af390b884a4a4705b127e13b01b0094e6ffabe49e0777586219ea5ec9",
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-a-modified-sign-61945-n-a-successful-verification-chromium-mobile-viewport/modified-record-rejection.png",
+      "file": "mobile/modified-record-rejection.png",
+      "sha256": "04254be0e05f089b8569078a8505776fd463ccc8e2299b2683fe26edfba63a48",
+      "dimensions": [
+        390,
+        1317
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-editing-clears--dfaa5-view-before-another-session-chromium-desktop/edited-session-rejection.png",
+      "file": "desktop/edited-session-rejection.png",
+      "sha256": "eb7650ec9b53f3b0ce36e0df2e08a3e2d3eaedfe778f56741daf0ad28662ba61",
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-editing-clears--dfaa5-view-before-another-session-chromium-mobile-viewport/edited-session-rejection.png",
+      "file": "mobile/edited-session-rejection.png",
+      "sha256": "f372c6c25293882ff9b5bf4f83387c2cb6832f38f8853c4fd87eadc6f1e148f2",
+      "dimensions": [
+        390,
+        1317
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-export-requires-a974a-t-pages-and-acknowledgement-chromium-desktop/reviewed-session.png",
+      "file": "desktop/reviewed-session.png",
+      "sha256": "df7bced692e78a52c2212edc4857a3ba5aa3797b22d137f3cc53bd0e245fc93c",
+      "dimensions": [
+        1440,
+        1154
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-export-requires-a974a-t-pages-and-acknowledgement-chromium-mobile-viewport/reviewed-session.png",
+      "file": "mobile/reviewed-session.png",
+      "sha256": "86b2a20b6f57a24e840a10d608cb28f31ae8e64523e24eb3021f4356e10c7346",
+      "dimensions": [
+        390,
+        1777
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-fixture-file-im-48611-ation-and-downloaded-report-chromium-desktop/imported-session.png",
+      "file": "desktop/imported-session.png",
+      "sha256": "a90f64fc8d8659729d809690e1b19e52c00290e931709f55e115c32b5206a6f5",
+      "dimensions": [
+        1440,
+        1154
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-fixture-file-im-48611-ation-and-downloaded-report-chromium-desktop/verified-result.png",
+      "file": "desktop/verified-result.png",
+      "sha256": "de6d474ac7aa5a4e097a4dc2724219696581c4c5b83f14b0e96a3710b875b09a",
+      "dimensions": [
+        1440,
+        1183
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-fixture-file-im-48611-ation-and-downloaded-report-chromium-mobile-viewport/imported-session.png",
+      "file": "mobile/imported-session.png",
+      "sha256": "51959eef178634f99be3809f3ae7315fc8dbaa88ac6d55207b36a556573fa00b",
+      "dimensions": [
+        390,
+        1777
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-fixture-file-im-48611-ation-and-downloaded-report-chromium-mobile-viewport/verified-result.png",
+      "file": "mobile/verified-result.png",
+      "sha256": "f6d806a44ab444ee42ecd345e0221e65ae976bb4d66788d2f35f01da7abacac3",
+      "dimensions": [
+        390,
+        1741
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-nonce-fixture-f-df0ce-ation-and-downloaded-report-chromium-desktop/imported-session.png",
+      "file": "desktop/nonce-imported-session.png",
+      "sha256": "e136eba3609b7a6f1f32e6013d79a27cf9c4aa06e5c2c1678eba5a7db27d2108",
+      "dimensions": [
+        1440,
+        1208
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-nonce-fixture-f-df0ce-ation-and-downloaded-report-chromium-desktop/verified-result.png",
+      "file": "desktop/nonce-verified-result.png",
+      "sha256": "53462dd18a1dd9e45681df45738f4c152e6ea9ffa53194474facdb0d33acbaeb",
+      "dimensions": [
+        1440,
+        1183
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-nonce-fixture-f-df0ce-ation-and-downloaded-report-chromium-mobile-viewport/imported-session.png",
+      "file": "mobile/nonce-imported-session.png",
+      "sha256": "4006e12f2067251d053f03f919072ee893e9da2144b895419efaff2ebd9f66c5",
+      "dimensions": [
+        390,
+        1831
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-nonce-fixture-f-df0ce-ation-and-downloaded-report-chromium-mobile-viewport/verified-result.png",
+      "file": "mobile/nonce-verified-result.png",
+      "sha256": "c1e542feb7e003e9f99cdde62011bbf95f3e50aa53927b576635db2cbf8b2a8e",
+      "dimensions": [
+        390,
+        1741
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-desktop/prepare.png",
+      "file": "desktop/prepare.png",
+      "sha256": "066a891fd4b2f33c942c2d8a675c7d6d7cce4a6ea5ee66eee277451c27890ea1",
+      "dimensions": [
+        1440,
+        1124
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-desktop/readiness.png",
+      "file": "desktop/readiness.png",
+      "sha256": "f42d127fd4b666a57cafcaf02be31b37be71d03f894af9bbe7d772ad4f0dbf76",
+      "dimensions": [
+        1440,
+        1365
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-desktop/review.png",
+      "file": "desktop/review.png",
+      "sha256": "5ee59b43415b6da6f743067589108a22759c8d0fe3d9b0c3c6368aa0a0f73584",
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-desktop/verify.png",
+      "file": "desktop/verify.png",
+      "sha256": "32f04f103152dfc05677bd990fa95df95bf1c6e4ef96b2366fbf82a1d185ae2e",
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-mobile-viewport/prepare.png",
+      "file": "mobile/prepare.png",
+      "sha256": "b4ce1e8696c30c4186d6998a4706aa4a0f32436389d8b9737efc2ce149b217a0",
+      "dimensions": [
+        390,
+        1834
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-mobile-viewport/readiness.png",
+      "file": "mobile/readiness.png",
+      "sha256": "358daf86fcce5aaaead67818d82bec33fffab5d9ba7f90161a9d81a3f0e35018",
+      "dimensions": [
+        390,
+        1995
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-mobile-viewport/review.png",
+      "file": "mobile/review.png",
+      "sha256": "6f67086c25762cd22758d15520dacaa57780b80991f59790fedd0e2c690698f8",
+      "dimensions": [
+        390,
+        952
+      ],
+      "review": "passed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-mobile-viewport/verify.png",
+      "file": "mobile/verify.png",
+      "sha256": "c8cc1c61c7f2cafabf28f750b680ed9f5d156f4c4dcd7a0857fa79cfc1e99470",
+      "dimensions": [
+        390,
+        1236
+      ],
+      "review": "passed"
+    }
+  ]
+}
