@@ -11,16 +11,11 @@ On-chain Squads execution remains pending; trusted device authorization belongs
 to the external signer. Hardware development is outside this project’s scope. It accepts no private key and has
 no wallet connection, RPC endpoint or broadcast operation.
 
-The retained fixture UI identifies the experimental parser as partial M1 work and keeps
-trusted device authorization separate from host-side review. The
-[browser acceptance suite](docs/BROWSER_AUTOMATION.md) passed all 18 cases in
-Chromium desktop and mobile viewports. The same commit passed the 51-test
-firmware/host suite and four complete signing reproductions.
-
-For the 0.2.0 fixture baseline, all 28 CI screenshots were visually inspected, covering
-both viewport configurations. Direct preview checks and an authenticated
-published-site smoke check also passed. See the
-[validation record](docs/VALIDATION.md) for exact runs, source hashes and limits.
+The current [browser acceptance suite](docs/BROWSER_AUTOMATION.md) passed all
+26 cases in Chromium desktop and mobile viewports. All 38 CI screenshots were
+visually inspected. The same code passed 29 Squads compatibility tests and the
+51-test firmware/host suite with four complete signing reproductions. See the
+[validation record](docs/VALIDATION.md) for exact source/run identifiers and limits.
 
 This is an independent project. It does not claim endorsement by Anatoly
 Yakovenko, Solana, or Squads.
@@ -128,7 +123,8 @@ is not redistributed in this repository or its kit.
 Original Console code is provided under [MIT](LICENSE). Vendored Noble libraries
 retain their own MIT notices. This grant does not apply to upstream DTS code.
 Upstream licensing and commercial distribution rights need clarification before
-shipping derivative firmware or hardware. See [NOTICE.md](NOTICE.md).
+distributing derivative firmware. Hardware is outside the product scope.
+See [NOTICE.md](NOTICE.md).
 
 The browser uses pinned Noble 2.4.0 modules with strict Ed25519 verification
 (zip215: false). It also cross-checks with WebCrypto when available. Fonts are

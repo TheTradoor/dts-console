@@ -1,5 +1,10 @@
 # Browser acceptance — current scope
 
+Current 0.3.0 evidence: [run 41816685541](https://github.com/TheTradoor/dts-console/actions/runs/41816685541)
+passed 26/26 cases. All 38 screenshots and 26 diagnostic attachments were reviewed.
+See [the validation record](VALIDATION.md) for source hashes, exported-file checks,
+artifact integrity and the precise browser/validator limitations.
+
 Version 0.3.0 extends the fixture suite with Squads draft construction, export/import, input invalidation, manual stale-state checks and rejected replacement imports. There are 26 Chromium cases across desktop and mobile viewports. Current results are recorded in the PR; the detailed 0.2.0 evidence below remains historical and is not evidence for changed 0.3.0 assets.
 
 # Browser acceptance automation

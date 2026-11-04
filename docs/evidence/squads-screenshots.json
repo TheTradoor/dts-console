@@ -1,0 +1,389 @@
+{
+  "run": 41816685541,
+  "head": "ac0259d35d14f7f773586eaf39627eaef772b8c8",
+  "reviewedAt": "2026-11-04",
+  "count": 38,
+  "reviewScope": "Readable fields, controls, errors, wrapping and absence of blocking clipping/overlap in captured states. Fixed desktop sidebars reflect the viewport scroll offset in full-page captures.",
+  "screenshots": [
+    {
+      "archivePath": "browser/test-results/acceptance-Squads-draft-ex-af67f-ts-with-full-decoded-intent-chromium-desktop/squads-reviewed-draft.png",
+      "file": "desktop/squads-reviewed-draft.png",
+      "sha256": "7995d73efb90e9843bf37baa7b9b69e8b9d10e982b019f87290dfbed2a44c1b7",
+      "dimensions": [
+        1440,
+        2130
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-Squads-draft-ex-af67f-ts-with-full-decoded-intent-chromium-mobile-viewport/squads-reviewed-draft.png",
+      "file": "mobile/squads-reviewed-draft.png",
+      "sha256": "589ec69ddcd5747abfa4eec64816c7601f2a01490486941e5a43fd91a52ae04d",
+      "dimensions": [
+        390,
+        3265
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-Squads-input-ch-53ae1--and-reject-invalid-amounts-chromium-desktop/squads-invalid-amount.png",
+      "file": "desktop/squads-invalid-amount.png",
+      "sha256": "46f2efaac4ce2db5fedd058b7eba7ce45d7d7c22f625f87dbc94f15b6e31f605",
+      "dimensions": [
+        1440,
+        1299
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-Squads-input-ch-53ae1--and-reject-invalid-amounts-chromium-mobile-viewport/squads-invalid-amount.png",
+      "file": "mobile/squads-invalid-amount.png",
+      "sha256": "4794ed3cfde96e37d3ee829494256fc245ff6d1d07e35eb296f6512d1691069d",
+      "dimensions": [
+        390,
+        1773
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-Squads-stale-in-deae5-ng-is-explicitly-unverified-chromium-desktop/squads-stale-state.png",
+      "file": "desktop/squads-stale-state.png",
+      "sha256": "9a29271fdc6e1fe355e708ba16164e4e1d293873a97d2a7c1b87752276648207",
+      "dimensions": [
+        1440,
+        2202
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-Squads-stale-in-deae5-ng-is-explicitly-unverified-chromium-mobile-viewport/squads-stale-state.png",
+      "file": "mobile/squads-stale-state.png",
+      "sha256": "f093f459fa320aac6ec844bfff0731e04943ccbb84652d5eccbdb2f51b43eb6e",
+      "dimensions": [
+        390,
+        3353
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-Squads-tampered-b73ff-s-clear-the-previous-review-chromium-desktop/squads-rejected-import.png",
+      "file": "desktop/squads-rejected-import.png",
+      "sha256": "9ed787af539de054b1047caee02b6c9c2f53a788e513d782381ed2920f436ee8",
+      "dimensions": [
+        1440,
+        1299
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-Squads-tampered-b73ff-s-clear-the-previous-review-chromium-mobile-viewport/squads-rejected-import.png",
+      "file": "mobile/squads-rejected-import.png",
+      "sha256": "4ec97f579140a2f997a8e523818b07252c5574b202bde90c41de02e946734740",
+      "dimensions": [
+        390,
+        1757
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-a-malformed-rep-67f44-nvalidates-the-previous-one-chromium-desktop/malformed-session-invalidation.png",
+      "file": "desktop/malformed-session-invalidation.png",
+      "sha256": "5c22dc62b947e7b8808c182274f9168980aa6c69674571c298ee2d30d3c352a5",
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-a-malformed-rep-67f44-nvalidates-the-previous-one-chromium-mobile-viewport/malformed-session-invalidation.png",
+      "file": "mobile/malformed-session-invalidation.png",
+      "sha256": "e861a3dd56f1b5aa536476b0f407369704bd474a3d13ee7abc4a077c5e1035a8",
+      "dimensions": [
+        390,
+        1308
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-a-malformed-res-b5138-he-previous-verified-report-chromium-desktop/malformed-result-rejection.png",
+      "file": "desktop/malformed-result-rejection.png",
+      "sha256": "d2ef7e269c2913a034054c59c8400372c518185592308640e1d07356985db60b",
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-a-malformed-res-b5138-he-previous-verified-report-chromium-mobile-viewport/malformed-result-rejection.png",
+      "file": "mobile/malformed-result-rejection.png",
+      "sha256": "ce730536af6b0abafb06871585e4b7036f3fbcb5feebc04bc1b46455f5a5a9fe",
+      "dimensions": [
+        390,
+        1388
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-a-mismatched-re-ccb6a--previous-successful-result-chromium-desktop/cross-session-rejection.png",
+      "file": "desktop/cross-session-rejection.png",
+      "sha256": "a5caa03406cff156776bd19adefe686d2950eb66a02d858704c745ffe27f5289",
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-a-mismatched-re-ccb6a--previous-successful-result-chromium-mobile-viewport/cross-session-rejection.png",
+      "file": "mobile/cross-session-rejection.png",
+      "sha256": "5a86b08b465e7d101c46e01a30a0594171a63b746cc281d03b57f1e7d08e66f8",
+      "dimensions": [
+        390,
+        1388
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-a-modified-sign-61945-n-a-successful-verification-chromium-desktop/modified-record-rejection.png",
+      "file": "desktop/modified-record-rejection.png",
+      "sha256": "f03b18b98c53a5f239053f6686dfc24d2cd859f8e18707adf2372bc8e2acb228",
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-a-modified-sign-61945-n-a-successful-verification-chromium-mobile-viewport/modified-record-rejection.png",
+      "file": "mobile/modified-record-rejection.png",
+      "sha256": "0a650e38de4df01e68a05a71db1aa7e20fd8fc0a68aad7574ee30d40b147a593",
+      "dimensions": [
+        390,
+        1388
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-editing-clears--dfaa5-view-before-another-session-chromium-desktop/edited-session-rejection.png",
+      "file": "desktop/edited-session-rejection.png",
+      "sha256": "a5caa03406cff156776bd19adefe686d2950eb66a02d858704c745ffe27f5289",
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-editing-clears--dfaa5-view-before-another-session-chromium-mobile-viewport/edited-session-rejection.png",
+      "file": "mobile/edited-session-rejection.png",
+      "sha256": "5a86b08b465e7d101c46e01a30a0594171a63b746cc281d03b57f1e7d08e66f8",
+      "dimensions": [
+        390,
+        1388
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-export-requires-a974a-t-pages-and-acknowledgement-chromium-desktop/reviewed-session.png",
+      "file": "desktop/reviewed-session.png",
+      "sha256": "6814990117de1d48d8a73c0c1cad0752ef7c087910bd5dbd4b13c98c707d0945",
+      "dimensions": [
+        1440,
+        1154
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-export-requires-a974a-t-pages-and-acknowledgement-chromium-mobile-viewport/reviewed-session.png",
+      "file": "mobile/reviewed-session.png",
+      "sha256": "62a03b463213fd975def86356aff7b0d222926f716819461c4ceabb27adef19d",
+      "dimensions": [
+        390,
+        1849
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-fixture-file-im-48611-ation-and-downloaded-report-chromium-desktop/imported-session.png",
+      "file": "desktop/imported-session.png",
+      "sha256": "167353d235ff161e597ab727500cbd53d904911eb6bfa996bce9eab9f7e80d91",
+      "dimensions": [
+        1440,
+        1154
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-fixture-file-im-48611-ation-and-downloaded-report-chromium-desktop/verified-result.png",
+      "file": "desktop/verified-result.png",
+      "sha256": "c4924c3d63bb8c98d2de88a534b2d9b5ff7ee74385e32b2d705628dc000a7c8c",
+      "dimensions": [
+        1440,
+        1183
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-fixture-file-im-48611-ation-and-downloaded-report-chromium-mobile-viewport/imported-session.png",
+      "file": "mobile/imported-session.png",
+      "sha256": "64c2d51fc46ee0cce9e512978361249fe111335e7a985a6daca564e6c684c672",
+      "dimensions": [
+        390,
+        1849
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-fixture-file-im-48611-ation-and-downloaded-report-chromium-mobile-viewport/verified-result.png",
+      "file": "mobile/verified-result.png",
+      "sha256": "3d7fdde523099b576899c16237bf7d0f221485acbbc2168fd90adcee62e3d6c1",
+      "dimensions": [
+        390,
+        1812
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-nonce-fixture-f-df0ce-ation-and-downloaded-report-chromium-desktop/imported-session.png",
+      "file": "desktop/nonce-imported-session.png",
+      "sha256": "b58fecbbdb5f26cebe360f9f3650c613c85d9f5ddc643f0e5c2860adae1d3bd6",
+      "dimensions": [
+        1440,
+        1208
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-nonce-fixture-f-df0ce-ation-and-downloaded-report-chromium-desktop/verified-result.png",
+      "file": "desktop/nonce-verified-result.png",
+      "sha256": "d9586d88a05ab76021be02b4e3397d5b1e9e7043342219c975548e319b37093a",
+      "dimensions": [
+        1440,
+        1183
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-nonce-fixture-f-df0ce-ation-and-downloaded-report-chromium-mobile-viewport/imported-session.png",
+      "file": "mobile/nonce-imported-session.png",
+      "sha256": "018a7a3d7039c43da42e182af43a37982797d05bdd053d73825b76c03c64372c",
+      "dimensions": [
+        390,
+        1903
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-nonce-fixture-f-df0ce-ation-and-downloaded-report-chromium-mobile-viewport/verified-result.png",
+      "file": "mobile/nonce-verified-result.png",
+      "sha256": "031e400468567ebd40c2f333824eecfc9c6ba151dd7f49c192d31608782b2bf3",
+      "dimensions": [
+        390,
+        1812
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-desktop/prepare.png",
+      "file": "desktop/prepare.png",
+      "sha256": "6c2dcc23ebdc0e5073cbd55a6d3eb7299286ce1508b6d75a891a71c339cf4c88",
+      "dimensions": [
+        1440,
+        1124
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-desktop/readiness.png",
+      "file": "desktop/readiness.png",
+      "sha256": "0f07078dba69f7cb305d35d984ad0567f66dfb88babb96ef4c9330b51d4d25e0",
+      "dimensions": [
+        1440,
+        1402
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-desktop/review.png",
+      "file": "desktop/review.png",
+      "sha256": "6f7fa3951504b446f0ff6ea2dc6f454daa00d3ccc73f6568440d76642b7590cf",
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-desktop/squads.png",
+      "file": "desktop/squads.png",
+      "sha256": "befcc2460074fec5b10315be84b18ba345aa693f5c67ad6201f5c776e5c7bbfc",
+      "dimensions": [
+        1440,
+        1237
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-desktop/verify.png",
+      "file": "desktop/verify.png",
+      "sha256": "8a59c89d1cb62599b91be659672f0fe11c55b5efe47f66fd3d254fb48fbc603c",
+      "dimensions": [
+        1440,
+        1000
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-mobile-viewport/prepare.png",
+      "file": "mobile/prepare.png",
+      "sha256": "251657d9d4fd25a5b3576a0ce2e680e358e1b34ead8b70712e675fd791306d01",
+      "dimensions": [
+        390,
+        1890
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-mobile-viewport/readiness.png",
+      "file": "mobile/readiness.png",
+      "sha256": "2193b0286ced6451249dd31b57d588c68786473a90105d9d98164e091e287432",
+      "dimensions": [
+        390,
+        2115
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-mobile-viewport/review.png",
+      "file": "mobile/review.png",
+      "sha256": "077980a2ba8fd00bc6e46e004fb46f0401a4246ddf97de8952afcc6e2dc325f7",
+      "dimensions": [
+        390,
+        990
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-mobile-viewport/squads.png",
+      "file": "mobile/squads.png",
+      "sha256": "6078026b6a369a3fac3779b50fae7e31e2708abe10abe582ad3f4943a8124db6",
+      "dimensions": [
+        390,
+        1695
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    },
+    {
+      "archivePath": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-mobile-viewport/verify.png",
+      "file": "mobile/verify.png",
+      "sha256": "6dde60c517326ae87111bd9138e1aaee2eb8a642b41abb2603dc062b8a833f8c",
+      "dimensions": [
+        390,
+        1308
+      ],
+      "visualReview": "reviewed; no blocking layout defect observed"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "version": "0.3.0",
+  "reviewedAt": "2026-11-04",
+  "head": "ac0259d35d14f7f773586eaf39627eaef772b8c8",
+  "ciCheckout": "914adef1a5559e5089a09b4f070084000cb2bff4",
+  "gitTree": "f9c7a31d066c27c0dc26d24a04f138434d3de8c9",
+  "sourceDirty": false,
+  "scope": "Unsigned Squads preparation and public DTS fixture browser acceptance; no validator, signing or chain execution proof",
+  "browserRun": 41816685541,
+  "squadsRun": 41816685483,
+  "firmwareRun": 41816685248,
+  "browser": "156.0.8078.4",
+  "stats": {
+    "startTime": "2026-11-04T10:49:53.357Z",
+    "duration": 110330.86,
+    "expected": 26,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "screenshotsReviewed": 38,
+  "diagnosticsReviewed": 26,
+  "externalFonts": "disabled",
+  "sourceAssetSha256": {
+    "index.html": "f4c941b3943be24519a9a13d67fddc865b80adf4d9e8a919473fc2b200f2430b",
+    "app.mjs": "f0598a6f344dcce5e1617cfd80e629d44fe54b0e40548146385131292b4fb7f6",
+    "style.css": "7ea5f485042f57aa106e728a37a1bedca0cc52bd727b0326a01f90f3e1e714ac",
+    "protocol.mjs": "30d035e8926ef6a02c15518c3d26911d027652b1db32b62018c21adfbcf01ccc",
+    "crypto.mjs": "a7cb1940b78e985abbcad6665c22de4c698e81004f459f97986ebdc442660b5e",
+    "squads.mjs": "3ecfbc364cd44b5c5fe40d75452b340352a3e7826ae7996eadd18c7b13e20855",
+    "squads-ui.mjs": "35e3ac80ab5f1449a4c6bacc02a3b84014f9db8af2e73be5abad940a6913b599",
+    "validation.json": "09bbba09385ebd774ec5a67bdf390b885b6ffbf13eabd9118f45cfb45875b08b",
+    "fixture-session.json": "601b784bdb8e5945fa7790d5d565adff115102c2cac72d5e568b57ebfb959fcb",
+    "nonce-fixture-session.json": "a9cfaef984e324845edf441fda4f99bd9fede79e301165355ac61d22a20f5234",
+    "fixture-result.json": "518bb85ed413ad26e14bcd5069fc6316f7936b009a828c3caf7846ced7edbf02",
+    "policy-fixture-result.json": "437f17a9ad91385409c49c09cd65af6a640b2b17ec5d4a61338cb9b8ffed8470",
+    "policy-nonce-fixture-result.json": "6600077957500670023d238da50053abfc4ef623a41324400803f33a96cf86a9"
+  },
+  "squadsTests": 29,
+  "sdkDifferentialVectors": 128,
+  "rejectedTruncatedPrefixes": 487,
+  "combinedJavaScriptTests": 59,
+  "firmwareHostTests": 51,
+  "firmwareReproductions": 4,
+  "exactSquadsExports": 4,
+  "exactSessionExports": 2,
+  "downloadedVerificationReports": 4,
+  "artifact": {
+    "id": 13315361303,
+    "sizeBytes": 14464599,
+    "sha256": "28af4e0b7ac2c04f9812ec3257d9c3c72d163f7eb1589ff9521bd9ff809c3e27",
+    "expiresAt": "2026-11-18T10:51:44Z"
+  },
+  "directPreviewChecks": [
+    "487-byte draft construction",
+    "acknowledged export and downloaded JSON validation",
+    "changed index disables export",
+    "reverting comparison values cannot clear stale state",
+    "zero amount clears previous review",
+    "software-only readiness"
+  ],
+  "limitations": [
+    "Chromium desktop and emulated mobile viewports only; not Safari or a device lab",
+    "Not a WCAG or independent security audit",
+    "No local-validator execution or live-key approval",
+    "Matching manually supplied state is not chain verification"
+  ]
+}
