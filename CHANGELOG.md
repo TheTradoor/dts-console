@@ -16,8 +16,9 @@
   original assembly and new references in the development kit.
 - Document the partial M1 scope and pending trusted review, boot/recovery,
   independent review, Squads and hardware work.
-- Retain the 0.1.1 browser HTML and application script unchanged. The proposed
-  UI wording update is a separate change with browser QA outstanding.
+- Propose matching 0.2.0 browser version/readiness text and an exported-report
+  limitation that identifies missing trusted device review and authorization.
+  Browser QA for this UI proposal remains outstanding.
 
 ## 0.1.1 — 2026-11-04
 

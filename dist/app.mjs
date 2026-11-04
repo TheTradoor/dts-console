@@ -190,7 +190,7 @@ $('download-report').addEventListener('click', () => {
   if (verification) download('dts-verification-report.json', {
     schema: 'dts-console-verification-v1', verifiedAt: new Date().toISOString(),
     environment: 'public-fixture-only', ...verification,
-    limitations: ['Host-side policy only', 'No physical hardware validation', 'No blockchain submission or execution check']
+    limitations: ['No trusted device review or authorization', 'No physical hardware validation', 'No blockchain submission or execution check']
   });
 });
 async function initialize() {

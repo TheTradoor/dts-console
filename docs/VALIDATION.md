@@ -42,13 +42,14 @@ resistance, trusted device authorization, or successful on-chain execution.
 
 ## Browser status — 0.2.0
 
-The firmware change retains dist/index.html and dist/app.mjs byte for byte
-from the published 0.1.1 commit (85acc5de08562739b1d1e329dad6d1d871504bb8).
-The browser's displayed version therefore remains 0.1.1. The proposed readiness,
-version and exported-limitation wording update is a separate UI change.
+The firmware parser PR retains the 0.1.1 browser HTML and application script.
+This separate UI proposal changes the displayed version to 0.2.0, identifies
+the parser as partial M1 work, and clarifies the missing trusted-device
+authorization in exported verification reports. These changes are unverified
+in a browser.
 
 Browser access to the development preview was blocked. No new browser result
-is claimed for either change. The UI proposal must complete the separately
+is claimed. This UI proposal must complete the separately
 documented [validation procedure](UI_VALIDATION.md); the historical checks
 below are not a substitute for that result.
 
