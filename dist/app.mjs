@@ -1,7 +1,7 @@
 import {TEST_ADDRESS, amountToLamports, makePacket, validatePacket, verifyResult, reviewPages} from './protocol.mjs';
 import './squads-ui.mjs';
 const $ = id => document.getElementById(id);
-const titles = {prepare: 'Prepare transaction', review: 'Review session', verify: 'Verify result', squads:'Squads draft', readiness: 'Build readiness'};
+const titles = {home: 'Overview', prepare: 'Prepare transaction', review: 'Review session', verify: 'Verify result', squads:'Squads draft', readiness: 'Build readiness'};
 let current = null, pages = [], pageIndex = 0, viewed = new Set(), verification = null, generation = 0;
 let fixturePacket = null, fixtureResult = null, toastTimer;
 
@@ -9,18 +9,37 @@ function toast(message) {
   clearTimeout(toastTimer); $('toast').textContent = message; $('toast').hidden = false;
   toastTimer = setTimeout(() => { $('toast').hidden = true; }, 5000);
 }
-function show(view) {
-  if (!titles[view]) return;
+function show(view, {historyMode = 'push', focus = true} = {}) {
+  if (!Object.hasOwn(titles, view)) view = 'home';
   for (const key of Object.keys(titles)) $(key + '-view').hidden = key !== view;
+  document.body.dataset.page = view;
   document.querySelectorAll('.nav-item[data-view]').forEach(button => {
     button.classList.toggle('active', button.dataset.view === view);
     if (button.dataset.view === view) button.setAttribute('aria-current', 'page'); else button.removeAttribute('aria-current');
   });
   $('breadcrumb').textContent = titles[view];
-  history.replaceState(null, '', '#' + view);
+  if (historyMode === 'replace') history.replaceState(null, '', '#' + view);
+  else if (historyMode === 'push' && location.hash !== '#' + view) history.pushState(null, '', '#' + view);
+  const heading = $(view + '-view').querySelector('h1');
+  if (focus && heading) { heading.tabIndex = -1; heading.focus({preventScroll: true}); }
   window.scrollTo({top: 0, behavior: 'instant'});
 }
-document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', () => show(button.dataset.view)));
+document.querySelectorAll('[data-view]').forEach(button => button.addEventListener('click', event => {
+  event.preventDefault(); show(button.dataset.view);
+}));
+window.addEventListener('popstate', () => show(location.hash.slice(1) || 'home', {historyMode: 'none'}));
+window.addEventListener('hashchange', () => show(location.hash.slice(1) || 'home', {historyMode: 'none'}));
+document.querySelectorAll('[data-scroll]').forEach(button => button.addEventListener('click', () => {
+  const target = $(button.dataset.scroll);
+  if (!target) return;
+  target.tabIndex = -1; target.focus({preventScroll: true});
+  target.scrollIntoView({behavior: matchMedia('(prefers-reduced-motion: reduce)').matches ? 'instant' : 'smooth', block: 'start'});
+}));
+document.querySelector('.skip-link').addEventListener('click', event => {
+  event.preventDefault();
+  const target = document.body.dataset.page === 'home' ? $('main-content') : $('workspace-main');
+  target.tabIndex = -1; target.focus();
+});
 function download(name, object) {
   const blob = new Blob([JSON.stringify(object, null, 2) + '\n'], {type: 'application/json'});
   const url = URL.createObjectURL(blob), a = document.createElement('a');
@@ -215,5 +234,5 @@ async function initialize() {
     }
   } catch (error) { toast(error.message); $('test-description').textContent = 'Validation report unavailable'; }
 }
-show(location.hash.slice(1) || 'prepare');
+show(location.hash.slice(1) || 'home', {historyMode: 'replace', focus: false});
 initialize();

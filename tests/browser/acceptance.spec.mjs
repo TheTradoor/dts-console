@@ -10,7 +10,7 @@ const file = name => fileURLToPath(new URL(name, dist));
 const json = name => JSON.parse(readFileSync(file(name), 'utf8'));
 const legacy = json('fixture-session.json');
 const validation = json('validation.json');
-const assets = ['index.html', 'app.mjs', 'style.css', 'protocol.mjs', 'crypto.mjs',
+const assets = ['index.html', 'app.mjs', 'style.css', 'motion.css', 'motion.mjs', 'favicon.svg', 'protocol.mjs', 'crypto.mjs',
   'squads.mjs','squads-ui.mjs',
   'validation.json', 'fixture-session.json', 'nonce-fixture-session.json',
   'fixture-result.json', 'policy-fixture-result.json', 'policy-nonce-fixture-result.json'];
@@ -83,7 +83,13 @@ async function downloadJson(page, selector, testInfo, name) {
 }
 
 async function capture(page, testInfo, name) {
-  await page.evaluate(async () => { await document.fonts.ready; });
+  await page.evaluate(async () => {
+    await document.fonts.ready;
+    // Capture the settled interface; keep looping decorative motion intact.
+    const entrances = document.getAnimations().filter(animation =>
+      Number.isFinite(animation.effect?.getComputedTiming().endTime));
+    await Promise.all(entrances.map(animation => animation.finished.catch(() => {})));
+  });
   // Let the real notification expire so it cannot obscure review evidence.
   await expect(page.locator('#toast')).toBeHidden({timeout: 10000});
   const dimensions = await page.evaluate(() => ({width: document.documentElement.clientWidth,
@@ -106,7 +112,7 @@ test.beforeEach(async ({page, request, baseURL}, testInfo) => {
     hashes[name] = expected;
   }
   await testInfo.attach('source-hashes', {body: Buffer.from(JSON.stringify(hashes, null, 2)), contentType: 'application/json'});
-  await page.goto(baseURL);
+  await page.goto(new URL('#prepare', baseURL).href);
   await expect(page.locator('#source')).toHaveValue(legacy.review.from);
   // The count is hidden on the initial view; this also waits for initialize().
   await expect(page.locator('#test-count')).toHaveText(validation.passed + ' passed');
@@ -117,11 +123,95 @@ test('readiness describes the partial parser and all views render', async ({page
     await view(page, name);
     await capture(page, testInfo, name);
   }
-  await expect(page.locator('.version-line')).toContainText('v0.3.0');
+  await expect(page.locator('.version-line')).toContainText('v0.3.3');
   await expect(page.locator('#readiness-view')).toContainText('No hardware development');
   await expect(page.locator('#readiness-view')).toContainText('M1 partial');
   await expect(page.locator('#readiness-view')).toContainText('trusted device review and approval are still pending');
   await expect(page.locator('#test-description')).toHaveText(`${validation.failed} failed · ${validation.recordedAt.slice(0, 10)}`);
+});
+
+test('overview opens the workspace and browser history preserves the reviewed session', async ({page}, testInfo) => {
+  await page.locator('.sidebar .brand').click();
+  await expect(page.locator('#home-view')).toBeVisible();
+  await expect(page.locator('#workspace-main')).toBeHidden();
+  await expect(page.locator('#home-view')).toContainText('Public test keys');
+  await capture(page, testInfo, 'overview');
+  await page.getByRole('button', {name: 'Explore the workflow', exact: true}).click();
+  await expect(page.locator('#workflow-title')).toBeInViewport();
+  await page.locator('#open-workspace').click();
+  await expect(page.locator('#prepare-view')).toBeVisible();
+  await page.locator('#load-example').click();
+  await expect(page.locator('#review-content')).toBeVisible();
+  await view(page, 'verify');
+  await page.locator('#verify-example').click();
+  await expect(page.locator('#verify-state')).toHaveText('VERIFIED');
+  await page.goBack();
+  await expect(page.locator('#review-view')).toBeVisible();
+  await expect(page.locator('#session-id')).toHaveText(legacy.messageSha256.slice(0,16));
+  await page.goForward();
+  await expect(page.locator('#verify-view')).toBeVisible();
+  await expect(page.locator('#verify-state')).toHaveText('VERIFIED');
+  await page.locator('.sidebar .brand').click();
+  await page.goBack();
+  await expect(page.locator('#verify-success')).toBeVisible();
+});
+
+test('direct links select their view and unknown routes return to the overview', async ({page,baseURL}) => {
+  await page.goto(baseURL);
+  await expect(page.locator('#home-view')).toBeVisible();
+  await page.keyboard.press('Tab');
+  await expect(page.locator('.skip-link')).toBeFocused();
+  await page.keyboard.press('Enter');
+  await expect(page.locator('#main-content')).toBeFocused();
+  await page.goto(new URL('#squads',baseURL).href);
+  await expect(page.locator('#squads-view')).toBeVisible();
+  await expect(page.locator('.nav-item[data-view="squads"]')).toHaveAttribute('aria-current','page');
+  await page.goto(new URL('#unknown',baseURL).href);
+  await expect(page.locator('#home-view')).toBeVisible();
+  await expect(page.locator('#workspace-main')).toBeHidden();
+});
+
+test('decorative motion renders, pauses and resumes without changing a session', async ({page}, testInfo) => {
+  await page.locator('#load-example').click();
+  const session = await page.locator('#session-id').textContent();
+  await page.locator('.sidebar .brand').click();
+  await page.locator('#landscape').scrollIntoViewIfNeeded();
+  await expect(page.locator('#terrain-canvas')).toHaveAttribute('data-ready', 'true');
+  const pixels = async () => digest(await page.locator('#terrain-canvas').evaluate(canvas => canvas.toDataURL()));
+  const initial = await pixels();
+  await expect.poll(pixels).not.toBe(initial);
+  await page.getByRole('button', {name: 'Pause motion', exact: true}).click();
+  await expect(page.locator('#motion-toggle')).toHaveAttribute('aria-pressed', 'true');
+  const paused = await pixels();
+  await page.waitForTimeout(200);
+  expect(await pixels()).toBe(paused);
+  await capture(page, testInfo, 'paper-landscape-paused');
+  await page.getByRole('button', {name: 'Resume motion', exact: true}).click();
+  await expect(page.locator('#motion-toggle')).toHaveAttribute('aria-pressed', 'false');
+  await expect(page.locator('#landscape')).toBeInViewport();
+  await expect.poll(pixels).not.toBe(paused);
+  await page.locator('.paper-footer [data-view="review"]').click();
+  await expect(page.locator('#session-id')).toHaveText(session);
+  const hidden = await pixels();
+  await page.waitForTimeout(150);
+  expect(await pixels()).toBe(hidden);
+});
+
+test('reduced motion keeps the landscape still and all landing content usable', async ({page,baseURL}, testInfo) => {
+  await page.emulateMedia({reducedMotion: 'reduce'});
+  await page.goto(baseURL);
+  await expect(page.locator('.paper-title')).toBeVisible();
+  await expect(page.locator('.code-lines')).toContainText('legacy-transfer');
+  await page.locator('#landscape').scrollIntoViewIfNeeded();
+  await expect(page.getByRole('button', {name: 'Motion reduced', exact: true})).toBeDisabled();
+  await expect(page.locator('#terrain-canvas')).toHaveAttribute('data-ready', 'true');
+  const pixels = async () => digest(await page.locator('#terrain-canvas').evaluate(canvas => canvas.toDataURL()));
+  const still = await pixels();
+  await page.waitForTimeout(200);
+  expect(await pixels()).toBe(still);
+  await capture(page, testInfo, 'paper-reduced-motion');
+  await page.locator('#open-workspace').click();
+  await expect(page.locator('#prepare-view')).toBeVisible();
 });
 
 for (const name of ['fixture', 'nonce-fixture']) {

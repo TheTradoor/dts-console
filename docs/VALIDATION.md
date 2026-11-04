@@ -1,3 +1,125 @@
+# Version 0.3.3 validation
+
+Paper overview, illustrative code animation and decorative point landscape.
+Application, protocol, cryptography and Squads modules are unchanged.
+
+[Browser run 41835377223](https://github.com/TheTradoor/dts-console/actions/runs/41835377223)
+passed **34/34** cases at 1440 × 1000 and 390 × 844, without skips, retries or
+flaky outcomes. Motion checks compare rendered canvas pixels before and after
+pause/resume, require a still canvas under reduced motion and after leaving the
+overview, and verify that navigation preserves the reviewed transaction session.
+
+All 44 screenshot layouts were reviewed. Forty-two final images are byte-identical
+to the preceding visual review; both changed landscape images were rechecked.
+The mobile landscape was moved below its copy and controls. Enlarged mobile
+captures also confirmed readable addresses, signatures, errors and draft export
+controls. Capture waits for finite entrance animations and notifications to finish.
+This is a visual review, not a WCAG or independent security audit.
+
+Thirty-four diagnostics contain no uncaught JavaScript errors, unexpected external
+requests or failed application requests. Sixteen served asset hashes match the
+source; external fonts were disabled. Four Squads downloads match a separately
+constructed and validated draft, two session exports match the fixture and four
+verification reports match their source fixtures.
+
+The clean CI checkout `850e12e360c59f7e316216e0022b5d4a53b3c563` has the same tree
+as head `ddf83fb05faa57fb7d3f9dd32fce9727e2c601fd`. The downloaded artifact passed
+ZIP integrity and SHA-256 checks. Exact source, artifact and image hashes are in
+[motion-validation.json](evidence/motion-validation.json) and
+[motion-screenshots.json](evidence/motion-screenshots.json). The archive expires
+on November 18; the manifests are records, not copies of the screenshots.
+
+[Squads compatibility](https://github.com/TheTradoor/dts-console/actions/runs/41835377756)
+and [firmware reproduction](https://github.com/TheTradoor/dts-console/actions/runs/41835377575)
+also passed for this code commit. An intermediate browser run caught one desktop
+resume failure. Resuming now reconciles the current section bounds and starts a
+fresh animation frame loop; the complete passing run above includes that fix.
+
+Mobile coverage is Chromium viewport emulation, not Safari or physical phones.
+No wallet, live-key signing, RPC, broadcast or local-validator execution was added
+or tested. Earlier records below describe historical interfaces.
+
+# Version 0.3.2 validation
+
+Monochrome overview and workspace with a labelled process schematic. Application
+logic, protocol, cryptography and Squads draft semantics are unchanged.
+
+[Browser run 41826198655](https://github.com/TheTradoor/dts-console/actions/runs/41826198655)
+passed **30/30** cases at 1440 × 1000 and 390 × 844, without skips, retries or
+flaky outcomes. All 40 screenshot states were visually reviewed, including
+successful verification, rejection, stale-state locks and unsigned draft export.
+Controls and full-address review fields remain readable without blocking overlap
+or horizontal document overflow. Errors and status use text and symbols as well
+as contrast. The interface color literals are neutral; mint glows are removed.
+
+Thirty diagnostics contain zero uncaught JavaScript errors, unexpected external
+requests or failed application requests. Fourteen served asset hashes match the
+source. External fonts were disabled. Four Squads downloads match the independently
+validated draft, two session exports match the fixture and four verification
+reports match their source fixtures. Syntax, unique HTML IDs and label targets
+passed. Direct Chrome checks also confirmed overview entry, recorded fixture
+verification and zero-amount rejection with the previous review cleared.
+
+The clean CI checkout `6c7991f1e176557ac6230854e8156b744f24af6a` has the same tree
+as head `453243c9473a9a8e060d739e5254571d2f218c8c`. The downloaded evidence ZIP
+passed integrity and SHA-256 checks. Exact source, artifact and screenshot hashes
+are in [monochrome-validation.json](evidence/monochrome-validation.json) and
+[monochrome-screenshots.json](evidence/monochrome-screenshots.json). The archive
+expires on November 18; these manifests are not copies of the screenshots.
+
+[Squads compatibility](https://github.com/TheTradoor/dts-console/actions/runs/41826198566)
+and [firmware reproduction](https://github.com/TheTradoor/dts-console/actions/runs/41826198581)
+also passed for this code commit.
+
+Mobile results use Chromium viewport emulation, not Safari or physical phones.
+This is not a WCAG or independent security audit. Wallet connection, live-key
+signing, broadcast and local-validator execution remain outside this validation.
+
+# Version 0.3.1 validation
+
+Dark overview and workspace redesign; the signing bridge, codec, cryptographic
+verification and Squads draft semantics are unchanged.
+
+[Browser run 41823605049](https://github.com/TheTradoor/dts-console/actions/runs/41823605049)
+passed **30/30** cases at 1440 × 1000 and 390 × 844, without skips, retries or
+flaky outcomes. Coverage includes overview/workflow entry points, direct links,
+browser history with session preservation and keyboard skip-link focus, plus
+all existing fixture and Squads import, export, verification and rejection cases.
+
+All 40 screenshot states were reviewed. The first run's 40 captures were
+inspected; the final run retained 15 byte-identical images and all 25 changed
+captures were rechecked. Controls, full-address review fields and error states
+remain readable, without blocking overlap or horizontal document overflow.
+Thirty diagnostics contain zero uncaught JavaScript errors, unexpected external
+requests or failed application requests. Fourteen served asset hashes match the
+source. External fonts were disabled. Four Squads downloads match the independently
+validated draft, two session exports match the fixture and four verification
+reports match their source fixtures.
+
+The clean CI checkout `86103953bdd2abe51c78c33857caf5da9527c949` has the same tree
+as head `0287adabc1814e07aa2c73a4144cde1293b30df5`. The downloaded evidence ZIP
+passed integrity and SHA-256 checks. Exact source, artifact and image hashes are
+recorded in [redesign-validation.json](evidence/redesign-validation.json) and
+[redesign-screenshots.json](evidence/redesign-screenshots.json). The archive expires
+on November 18; these manifests are not copies of the images.
+
+[Squads run 41823605201](https://github.com/TheTradoor/dts-console/actions/runs/41823605201)
+passed 29 tests, including 128 SDK differential vectors.
+[Firmware run 41823605039](https://github.com/TheTradoor/dts-console/actions/runs/41823605039)
+passed 51 firmware/host tests, 5,803 differential vectors, every u16 length and
+four full signing reproductions. Syntax and HTML ID/label checks also passed.
+Direct Chrome checks confirmed overview, preparation, review, actual recorded
+signature verification, unsigned Squads preparation and keyboard navigation.
+
+An intermediate [run 41823440060](https://github.com/TheTradoor/dts-console/actions/runs/41823440060)
+passed 28 cases and failed two new keyboard assertions: the test expected heading
+focus although the skip link intentionally focuses main content. The assertion
+was corrected before the complete successful run above.
+
+Mobile results use Chromium viewport emulation, not Safari or physical phones.
+This is not a WCAG or independent security audit. Wallet connection, live-key
+signing, broadcast and local-validator execution remain outside this validation.
+
 # Version 0.3.0 validation
 
 [Browser CI run 41816685541](https://github.com/TheTradoor/dts-console/actions/runs/41816685541)

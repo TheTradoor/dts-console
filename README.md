@@ -4,18 +4,18 @@ A development companion for [DTS-02](https://github.com/aeyakovenko/dts02-6502-s
 Prepare canonical Solana transfer fixtures, inspect the exact message bytes,
 run the pinned 65C02 signing firmware locally, and verify its output in a browser.
 
-**Version 0.3.0 is a software development prototype.** It includes the existing host
+**Version 0.3.3 is a software development prototype.** It includes the existing host
 workflow and an opt-in experimental 65C02 parser for two restricted SOL message
 forms. The new Squads draft workspace prepares and reviews an unsigned composite.
 On-chain Squads execution remains pending; trusted device authorization belongs
 to the external signer. Hardware development is outside this project’s scope. It accepts no private key and has
 no wallet connection, RPC endpoint or broadcast operation.
 
-The current [browser acceptance suite](docs/BROWSER_AUTOMATION.md) passed all
-26 cases in Chromium desktop and mobile viewports. All 38 CI screenshots were
-visually inspected. The same code passed 29 Squads compatibility tests and the
-51-test firmware/host suite with four complete signing reproductions. See the
-[validation record](docs/VALIDATION.md) for exact source/run identifiers and limits.
+Version 0.3.3 adds a light monochrome interface, an illustrative code preview,
+progressive entrance animations and a decorative point landscape with pause/resume
+and reduced-motion support. Its [browser acceptance suite](docs/BROWSER_AUTOMATION.md)
+contains 34 cases across desktop and mobile viewports. Current and historical
+evidence are separated in the [validation record](docs/VALIDATION.md).
 
 This is an independent project. It does not claim endorsement by Anatoly
 Yakovenko, Solana, or Squads.
@@ -52,8 +52,8 @@ No npm install is needed for the prebuilt interface:
 
     python3 -m http.server 8080 --directory dist
 
-Open http://localhost:8080 and select **Squads draft → Load test draft** for the
-new preparation workflow. For the retained DTS signing example, choose **Load signed example**, review the fields,
+Open http://localhost:8080 and choose **Open workspace**. Select **Squads draft → Load test draft**
+for unsigned preparation. For the DTS signing example, choose **Load signed example** in Prepare, review the fields,
 then select **Verify signed example** in the Verify view. This checks a recorded
 emulator result. Signing does not run in the browser.
 

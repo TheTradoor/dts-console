@@ -1,6 +1,13 @@
 # Browser acceptance — current scope
 
-Current 0.3.0 evidence: [run 41816685541](https://github.com/TheTradoor/dts-console/actions/runs/41816685541)
+Version 0.3.3 has 34 cases across 1440 x 1000 and 390 x 844 Chromium viewports.
+The suite retains all fixture, Squads, navigation and keyboard checks. Additional
+cases compare rendered canvas pixels to verify movement, pause, resume and
+reduced-motion behavior, and confirm that motion does not change the current
+session. Sixteen served asset hashes bind every case to its source.
+See [VALIDATION.md](VALIDATION.md) for the current run and visual review evidence.
+
+Historical 0.3.0 evidence: [run 41816685541](https://github.com/TheTradoor/dts-console/actions/runs/41816685541)
 passed 26/26 cases. All 38 screenshots and 26 diagnostic attachments were reviewed.
 See [the validation record](VALIDATION.md) for source hashes, exported-file checks,
 artifact integrity and the precise browser/validator limitations.

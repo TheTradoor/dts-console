@@ -1,0 +1,367 @@
+{
+  "version": "0.3.2",
+  "browserRun": 41826198655,
+  "reviewedAt": "2026-11-04",
+  "screenshots": [
+    {
+      "project": "chromium-desktop",
+      "case": "readiness describes the partial parser and all views render",
+      "name": "prepare",
+      "path": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-desktop/attachments/prepare-22d649b2fb25da15688e985b8a33a73629143884.png",
+      "sha256": "573b32469374897f06e9d409bfe4579194bd1a9b225377b3cce657cae81534ef",
+      "width": 1440,
+      "height": 1155
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "readiness describes the partial parser and all views render",
+      "name": "review",
+      "path": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-desktop/attachments/review-78ddfa861c307607301af797208b52b318c87a2c.png",
+      "sha256": "f862e36a77562054f77b51243eb48e49ffe12980edda593c499565bbacd6389d",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "readiness describes the partial parser and all views render",
+      "name": "verify",
+      "path": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-desktop/attachments/verify-3e57f86d326f3024a49f3be775cfe0073daf1328.png",
+      "sha256": "842bf0c8c7ebadaed5a2094770466791f1ecd4863ff9821ddc71812d48393cde",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "readiness describes the partial parser and all views render",
+      "name": "squads",
+      "path": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-desktop/attachments/squads-16eb2c34e1483e581d51afdcf8d684a4908797f8.png",
+      "sha256": "2daf2e9851275f402e115c7eb7fb536cf6f46b2cd59ab9e6c4c9683969486655",
+      "width": 1440,
+      "height": 1251
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "readiness describes the partial parser and all views render",
+      "name": "readiness",
+      "path": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-desktop/attachments/readiness-1267df7f33d95839e14ad1dc832e3fecbfad601b.png",
+      "sha256": "17a726dc87ab0ad7512bd2d6df874a9a2792dcae69de8d7cb9e6ea8aacb199ae",
+      "width": 1440,
+      "height": 1370
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "overview opens the workspace and browser history preserves the reviewed session",
+      "name": "overview",
+      "path": "browser/test-results/acceptance-overview-opens--757a8-serves-the-reviewed-session-chromium-desktop/attachments/overview-a8b795b1498ae79a0eb4e5c67fc23ed6d805f2fb.png",
+      "sha256": "44427e40aff9213ec9238e76ff3344427b6f8a4826fa7adceda27ddfa3077b2b",
+      "width": 1440,
+      "height": 1605
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "fixture: file import, signature verification and downloaded report",
+      "name": "imported-session",
+      "path": "browser/test-results/acceptance-fixture-file-im-48611-ation-and-downloaded-report-chromium-desktop/attachments/imported-session-af1cb1671339a22c14941947f11a8863053c18e7.png",
+      "sha256": "8a32560ace7941d666d7cf1e853c23b3fd7e34aa6938202149db6c1a603d820c",
+      "width": 1440,
+      "height": 1186
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "fixture: file import, signature verification and downloaded report",
+      "name": "verified-result",
+      "path": "browser/test-results/acceptance-fixture-file-im-48611-ation-and-downloaded-report-chromium-desktop/attachments/verified-result-d871e155648939d0e947eb0dde4dd00981db25b1.png",
+      "sha256": "5e6d8ec74fa1427d5e24647c9cc6ca0f7ebbb21336c874f57ca2821c92dcc7ef",
+      "width": 1440,
+      "height": 1222
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "nonce-fixture: file import, signature verification and downloaded report",
+      "name": "imported-session",
+      "path": "browser/test-results/acceptance-nonce-fixture-f-df0ce-ation-and-downloaded-report-chromium-desktop/attachments/imported-session-a0e0a87d9f1bea6a4386770a0f441dafba8fbc24.png",
+      "sha256": "1596451698277808fdfdc1d7e23e9b3fc9a3944d8dffbe13a165ec19ca1426e3",
+      "width": 1440,
+      "height": 1243
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "nonce-fixture: file import, signature verification and downloaded report",
+      "name": "verified-result",
+      "path": "browser/test-results/acceptance-nonce-fixture-f-df0ce-ation-and-downloaded-report-chromium-desktop/attachments/verified-result-094981645a34a725114bc29905b11e9f0c5cef29.png",
+      "sha256": "5a4ace23870a226b1f816a8ed0a53e9c9a86a929b730034c63d961789952cd8c",
+      "width": 1440,
+      "height": 1222
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "a mismatched result clears the previous successful result",
+      "name": "cross-session-rejection",
+      "path": "browser/test-results/acceptance-a-mismatched-re-ccb6a--previous-successful-result-chromium-desktop/attachments/cross-session-rejection-6dff9c12a24cdbbc20d75b4a9eb0efa7802a19d7.png",
+      "sha256": "d89e334f77dec61cbccab8534e548aa532b6bdfb9c3fdc912c5a0625ef703667",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "export requires all recipient pages and acknowledgement",
+      "name": "reviewed-session",
+      "path": "browser/test-results/acceptance-export-requires-a974a-t-pages-and-acknowledgement-chromium-desktop/attachments/reviewed-session-07ddfe961cc31c9c1707206f9e1f88df07111d3c.png",
+      "sha256": "117684cbd2ff9b887e5979c8d8877a7d7662d67dfcaec7808436f728036d505f",
+      "width": 1440,
+      "height": 1186
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "editing clears verification and resets review before another session",
+      "name": "edited-session-rejection",
+      "path": "browser/test-results/acceptance-editing-clears--dfaa5-view-before-another-session-chromium-desktop/attachments/edited-session-rejection-69d4b3f77a66f2718226ada23b437266d43880a9.png",
+      "sha256": "d89e334f77dec61cbccab8534e548aa532b6bdfb9c3fdc912c5a0625ef703667",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "a modified signature cannot retain a successful verification",
+      "name": "modified-record-rejection",
+      "path": "browser/test-results/acceptance-a-modified-sign-61945-n-a-successful-verification-chromium-desktop/attachments/modified-record-rejection-411f79ad5718fea20d61b33d8b07be60617e011f.png",
+      "sha256": "2012b0bb40a073b833209e6d91bfa2d7f315018c8d777243bf82166f82559b45",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "a malformed replacement session invalidates the previous one",
+      "name": "malformed-session-invalidation",
+      "path": "browser/test-results/acceptance-a-malformed-rep-67f44-nvalidates-the-previous-one-chromium-desktop/attachments/malformed-session-invalidation-06d7b1787b8761be0f22a1c5ff04c16eb3fde667.png",
+      "sha256": "e7ebca673da56ef0a1f0fd37eba7ffa8d98427b2e80a140fae7ade8bf6c507df",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "a malformed result is rejected and clears the previous verified report",
+      "name": "malformed-result-rejection",
+      "path": "browser/test-results/acceptance-a-malformed-res-b5138-he-previous-verified-report-chromium-desktop/attachments/malformed-result-rejection-4d1ebadddab06c470c23e43f40d03d77db8bd421.png",
+      "sha256": "72893da0390261cefdbfa79f43ef0ef9a5c8340c1c0ca515179aa1682ca77727",
+      "width": 1440,
+      "height": 1000
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "Squads draft exports reviewed bytes and imports with full decoded intent",
+      "name": "squads-reviewed-draft",
+      "path": "browser/test-results/acceptance-Squads-draft-ex-af67f-ts-with-full-decoded-intent-chromium-desktop/attachments/squads-reviewed-draft-094f6ea8844045c17ddc8e67a268b117415dccfe.png",
+      "sha256": "257c96b9257a4f46ff7c729cd5cc0952b57e913c11a2fa0c536d246de01d0977",
+      "width": 1440,
+      "height": 2152
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "Squads input changes invalidate the draft and reject invalid amounts",
+      "name": "squads-invalid-amount",
+      "path": "browser/test-results/acceptance-Squads-input-ch-53ae1--and-reject-invalid-amounts-chromium-desktop/attachments/squads-invalid-amount-369737e0162c9206eab7c9cb9126bca138501ca8.png",
+      "sha256": "005a2e4b0b60e9e0c6690349b0f234a97c86725206249706563a0f9f5799bf78",
+      "width": 1440,
+      "height": 1308
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "Squads stale index or nonce blocks reuse while matching is explicitly unverified",
+      "name": "squads-stale-state",
+      "path": "browser/test-results/acceptance-Squads-stale-in-deae5-ng-is-explicitly-unverified-chromium-desktop/attachments/squads-stale-state-e4721c636e28196c2fc82413f5b942e491f9324f.png",
+      "sha256": "1f6df1ce18f683198c6dba533c82450631f2e09eb30c3f1b8a44e462597b93b5",
+      "width": 1440,
+      "height": 2229
+    },
+    {
+      "project": "chromium-desktop",
+      "case": "Squads tampered or malformed imports clear the previous review",
+      "name": "squads-rejected-import",
+      "path": "browser/test-results/acceptance-Squads-tampered-b73ff-s-clear-the-previous-review-chromium-desktop/attachments/squads-rejected-import-30e8f244a61e5a650d09446ef7555c67c593b450.png",
+      "sha256": "9d80ea966b17d22ab240e6abf006056ccca51fc10d59aa411ead5c8be2a4b357",
+      "width": 1440,
+      "height": 1308
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "readiness describes the partial parser and all views render",
+      "name": "prepare",
+      "path": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-mobile-viewport/attachments/prepare-68f7a9ac029facf8c0164e8ac83c810e90a47fba.png",
+      "sha256": "4c518148c073f1152d21d0f22b32834e59a67deb79f4fe0a834962a36bdabc28",
+      "width": 390,
+      "height": 2083
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "readiness describes the partial parser and all views render",
+      "name": "review",
+      "path": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-mobile-viewport/attachments/review-23acc594246ddd986b57eaf8d57f200c2e956217.png",
+      "sha256": "eb4d56b49f9b4fe63899ac8d465eeaadfb286cefcd5ffdfc21c59e156c0e4602",
+      "width": 390,
+      "height": 1010
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "readiness describes the partial parser and all views render",
+      "name": "verify",
+      "path": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-mobile-viewport/attachments/verify-f5dba045c880d07f3c6ea84364907857f3e418bc.png",
+      "sha256": "08c2dfc2e253b329577d76c6a3fedd32ffa7b94d346a51a8623bfa42593a32ca",
+      "width": 390,
+      "height": 1303
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "readiness describes the partial parser and all views render",
+      "name": "squads",
+      "path": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-mobile-viewport/attachments/squads-87c303d5a83c1540987ffc6e532fb36757205125.png",
+      "sha256": "c16642137840c32ef0be8a02a6aa8e1e4444edc23a72948f4e7c227912f96e7f",
+      "width": 390,
+      "height": 1771
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "readiness describes the partial parser and all views render",
+      "name": "readiness",
+      "path": "browser/test-results/acceptance-readiness-descr-d7697-parser-and-all-views-render-chromium-mobile-viewport/attachments/readiness-6b254acb70133986f052178d071b61113d1b28a1.png",
+      "sha256": "cac293aa10c8df3b0b2409ebf80e1fcd2920d4b8d098de6f72494ea356eaf482",
+      "width": 390,
+      "height": 2098
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "overview opens the workspace and browser history preserves the reviewed session",
+      "name": "overview",
+      "path": "browser/test-results/acceptance-overview-opens--757a8-serves-the-reviewed-session-chromium-mobile-viewport/attachments/overview-360cdb4568791b5b1d93fa2d7d346880ad80e96b.png",
+      "sha256": "7dbba947bb565eb4f929771176d5c56c64eb0f5a9b19395980cc3694aece2703",
+      "width": 390,
+      "height": 2127
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "fixture: file import, signature verification and downloaded report",
+      "name": "imported-session",
+      "path": "browser/test-results/acceptance-fixture-file-im-48611-ation-and-downloaded-report-chromium-mobile-viewport/attachments/imported-session-b2f3d49efacad845d3cca0a18246aea006e5a1ba.png",
+      "sha256": "ac05a0ac0fece1d81f1110b071abd797dc4640977fef34ad3d485863f566f0e4",
+      "width": 390,
+      "height": 1909
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "fixture: file import, signature verification and downloaded report",
+      "name": "verified-result",
+      "path": "browser/test-results/acceptance-fixture-file-im-48611-ation-and-downloaded-report-chromium-mobile-viewport/attachments/verified-result-812710a27f7489d1c7053c816da9db9525ba68e0.png",
+      "sha256": "fe6ae0e08cb9a69760958c4376a092668b6970dc7bb0e90cbb1f9d5d8ed1d0df",
+      "width": 390,
+      "height": 1846
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "nonce-fixture: file import, signature verification and downloaded report",
+      "name": "imported-session",
+      "path": "browser/test-results/acceptance-nonce-fixture-f-df0ce-ation-and-downloaded-report-chromium-mobile-viewport/attachments/imported-session-a815e87c7f1d5090faf561fc715e74f7ce2000dc.png",
+      "sha256": "39e2c7a74e37d643f084475c15ee4627bad151a874a80707e94c1b0455d992ab",
+      "width": 390,
+      "height": 1966
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "nonce-fixture: file import, signature verification and downloaded report",
+      "name": "verified-result",
+      "path": "browser/test-results/acceptance-nonce-fixture-f-df0ce-ation-and-downloaded-report-chromium-mobile-viewport/attachments/verified-result-68e53b8cd85f09701eba4314fd52cf8cf9271184.png",
+      "sha256": "e484bcc15c75fe6b13e1a2d1c617d128d49d2a11a471d68b42956d752d73e968",
+      "width": 390,
+      "height": 1846
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "a mismatched result clears the previous successful result",
+      "name": "cross-session-rejection",
+      "path": "browser/test-results/acceptance-a-mismatched-re-ccb6a--previous-successful-result-chromium-mobile-viewport/attachments/cross-session-rejection-8d7144f459b2e9d3ce18fb189e5608d0170f5c7a.png",
+      "sha256": "77281451814d15fe10625ee7a650e046c19dc2c817cf152477fc4d9dda05b8ee",
+      "width": 390,
+      "height": 1386
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "export requires all recipient pages and acknowledgement",
+      "name": "reviewed-session",
+      "path": "browser/test-results/acceptance-export-requires-a974a-t-pages-and-acknowledgement-chromium-mobile-viewport/attachments/reviewed-session-22cd171aed1032db796788eb5d3c4a6289a2d9b6.png",
+      "sha256": "1a053ba35eae347d8f8bbefa1e1094c87350ed15f92907724ebbe96b2e11ae5a",
+      "width": 390,
+      "height": 1909
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "editing clears verification and resets review before another session",
+      "name": "edited-session-rejection",
+      "path": "browser/test-results/acceptance-editing-clears--dfaa5-view-before-another-session-chromium-mobile-viewport/attachments/edited-session-rejection-832c7a645a8762bc8700a59d98cce8c3719b53d1.png",
+      "sha256": "77281451814d15fe10625ee7a650e046c19dc2c817cf152477fc4d9dda05b8ee",
+      "width": 390,
+      "height": 1386
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "a modified signature cannot retain a successful verification",
+      "name": "modified-record-rejection",
+      "path": "browser/test-results/acceptance-a-modified-sign-61945-n-a-successful-verification-chromium-mobile-viewport/attachments/modified-record-rejection-8db750f86d3b0cf8ac1b62711c3f5af1ec76dcc7.png",
+      "sha256": "f51cd21b3c5bf3bbbc6343509a19fe8e40f9850d0fa00851a0c216468be9bd21",
+      "width": 390,
+      "height": 1386
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "a malformed replacement session invalidates the previous one",
+      "name": "malformed-session-invalidation",
+      "path": "browser/test-results/acceptance-a-malformed-rep-67f44-nvalidates-the-previous-one-chromium-mobile-viewport/attachments/malformed-session-invalidation-7d831ca3b34f56380ec7ce0058473d986b683637.png",
+      "sha256": "5a224a986f650950bd716e742f90da05165861232a4c180dec614c881c9becb2",
+      "width": 390,
+      "height": 1303
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "a malformed result is rejected and clears the previous verified report",
+      "name": "malformed-result-rejection",
+      "path": "browser/test-results/acceptance-a-malformed-res-b5138-he-previous-verified-report-chromium-mobile-viewport/attachments/malformed-result-rejection-dfea240730b9718138da1d56b80cd5a33174e1db.png",
+      "sha256": "55c2c171d1ed6fa59dc2bb7d63e900bcc76ea0b274b70c0e974d3dbd9aef2685",
+      "width": 390,
+      "height": 1386
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "Squads draft exports reviewed bytes and imports with full decoded intent",
+      "name": "squads-reviewed-draft",
+      "path": "browser/test-results/acceptance-Squads-draft-ex-af67f-ts-with-full-decoded-intent-chromium-mobile-viewport/attachments/squads-reviewed-draft-29ec7ad9e7017a12cab9ee0c3c8003f0676cd825.png",
+      "sha256": "eb8e1f49e7b9a4508ba0b32da993b953073ee4b3ab0dbf5a4a5fcb9031efd4b9",
+      "width": 390,
+      "height": 3342
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "Squads input changes invalidate the draft and reject invalid amounts",
+      "name": "squads-invalid-amount",
+      "path": "browser/test-results/acceptance-Squads-input-ch-53ae1--and-reject-invalid-amounts-chromium-mobile-viewport/attachments/squads-invalid-amount-cf3fba84e2547fa4a98de7250176303514bf43b0.png",
+      "sha256": "f62ce872644904b2a597f9f9ea663dccdf00e587139ebe2257b084276a6351a8",
+      "width": 390,
+      "height": 1846
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "Squads stale index or nonce blocks reuse while matching is explicitly unverified",
+      "name": "squads-stale-state",
+      "path": "browser/test-results/acceptance-Squads-stale-in-deae5-ng-is-explicitly-unverified-chromium-mobile-viewport/attachments/squads-stale-state-c038171399fee6c428d34d168d5e73f3b3b6d640.png",
+      "sha256": "1e4b72c421cdd18b90219ea93a6fbb1767e240981b9c64f38cd2cdba543bc787",
+      "width": 390,
+      "height": 3436
+    },
+    {
+      "project": "chromium-mobile-viewport",
+      "case": "Squads tampered or malformed imports clear the previous review",
+      "name": "squads-rejected-import",
+      "path": "browser/test-results/acceptance-Squads-tampered-b73ff-s-clear-the-previous-review-chromium-mobile-viewport/attachments/squads-rejected-import-39273142b93b9e40a9f16bcf182115d89b45a876.png",
+      "sha256": "cb762be8de83d4a983dda4665b147f67c084eec87a6cc36d96205a90816d1ae9",
+      "width": 390,
+      "height": 1828
+    }
+  ]
+}

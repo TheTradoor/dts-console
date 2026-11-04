@@ -1,0 +1,68 @@
+{
+  "version": "0.3.2",
+  "reviewedAt": "2026-11-04",
+  "head": "453243c9473a9a8e060d739e5254571d2f218c8c",
+  "ciCheckout": "6c7991f1e176557ac6230854e8156b744f24af6a",
+  "gitTree": "2f1002e0ba4aefea9d0d2ebc13882ebc777bff0f",
+  "sourceDirty": false,
+  "browserRun": 41826198655,
+  "squadsRun": 41826198566,
+  "firmwareRun": 41826198581,
+  "allWorkflowConclusions": "success",
+  "scope": "Monochrome overview and workspace; public DTS fixtures and unsigned Squads drafts",
+  "browser": "156.0.8078.4",
+  "stats": {
+    "startTime": "2026-11-04T12:05:54.241Z",
+    "duration": 115743.94,
+    "expected": 30,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "screenshotsReviewed": 40,
+  "diagnosticsReviewed": 30,
+  "sourceAssetSha256": {
+    "index.html": "ce6e7b3626adb0dfd51ea3620d13f9982b003d464250fa3f9b7370e6778fc682",
+    "app.mjs": "7f68ee7f08a56458178790c76c03165a8fd13fdf8d8ebbb71969e38d79aa923a",
+    "style.css": "3b8fff2eb5e292ae5f5b952f4cece2f7822925341305cfd17639c102373e4f2b",
+    "favicon.svg": "3dda4abe00dd57f09eb5666fdb5c212c282dcd116fbfbfc5b711ef82a6af3266",
+    "protocol.mjs": "30d035e8926ef6a02c15518c3d26911d027652b1db32b62018c21adfbcf01ccc",
+    "crypto.mjs": "a7cb1940b78e985abbcad6665c22de4c698e81004f459f97986ebdc442660b5e",
+    "squads.mjs": "3ecfbc364cd44b5c5fe40d75452b340352a3e7826ae7996eadd18c7b13e20855",
+    "squads-ui.mjs": "35e3ac80ab5f1449a4c6bacc02a3b84014f9db8af2e73be5abad940a6913b599",
+    "validation.json": "09bbba09385ebd774ec5a67bdf390b885b6ffbf13eabd9118f45cfb45875b08b",
+    "fixture-session.json": "601b784bdb8e5945fa7790d5d565adff115102c2cac72d5e568b57ebfb959fcb",
+    "nonce-fixture-session.json": "a9cfaef984e324845edf441fda4f99bd9fede79e301165355ac61d22a20f5234",
+    "fixture-result.json": "518bb85ed413ad26e14bcd5069fc6316f7936b009a828c3caf7846ced7edbf02",
+    "policy-fixture-result.json": "437f17a9ad91385409c49c09cd65af6a640b2b17ec5d4a61338cb9b8ffed8470",
+    "policy-nonce-fixture-result.json": "6600077957500670023d238da50053abfc4ef623a41324400803f33a96cf86a9"
+  },
+  "externalFonts": "disabled",
+  "exactSquadsExports": 4,
+  "exactSessionExports": 2,
+  "downloadedVerificationReports": 4,
+  "artifact": {
+    "id": 13319068122,
+    "sizeBytes": 13043108,
+    "sha256": "411c30afa658daebc0955debb572416b87225775c6e07f6bc6335288dbbeddc4",
+    "expiresAt": "2026-11-18T12:07:50Z"
+  },
+  "visualReview": {
+    "desktopScreenshots": 20,
+    "mobileViewportScreenshots": 20,
+    "neutralColorLiterals": true,
+    "horizontalDocumentOverflow": false,
+    "errorsUseTextAndSymbols": true
+  },
+  "directPreviewChecks": [
+    "overview and workspace entry points",
+    "recorded fixture signature verification",
+    "Squads zero-amount rejection clears previous review",
+    "visible verify-view computed colors are neutral"
+  ],
+  "limitations": [
+    "Chromium desktop and emulated mobile viewports only; not Safari or a physical device lab",
+    "Not a WCAG or independent security audit",
+    "No wallet, live-key signing, RPC, broadcast or local-validator execution"
+  ]
+}

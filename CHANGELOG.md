@@ -1,3 +1,27 @@
+# 0.3.3 — Paper interface and motion
+
+- Rebuilt the overview around a light monochrome frame, hatched dividers and an illustrative session editor.
+- Added progressive text/code entrances, subtle section transitions, a locally rendered point landscape and drifting fog.
+- Added pause/resume and system reduced-motion support; decorative rendering stops outside the overview and while offscreen.
+- Applied the matching light palette to the existing transaction workspace without changing signing or verification behavior.
+- Added browser checks for changing canvas pixels, pause/resume, reduced motion and session preservation.
+
+# 0.3.2 — Monochrome workspace
+
+- Replace the colored glow with a black-and-white technical interface.
+- Add a labeled workflow schematic, instrument-style dividers and squared controls.
+- Apply neutral status treatments throughout; labels and symbols retain their meaning.
+- Preserve all transaction, signing and draft behavior.
+
+# 0.3.1 — Console design update
+
+- Add an overview with a mint glow, workflow entry points and explicit developer-preview scope.
+- Restyle all workspace views with dark surfaces, violet controls and responsive layouts.
+- Replace the physical-device illustration with a software message preview.
+- Support browser back/forward navigation, direct view links, keyboard focus and reduced motion.
+- Retain public-fixture signing and unsigned Squads behavior; no wallet, RPC or broadcasting is added.
+- Extend browser acceptance to 30 desktop/mobile cases, including overview navigation and session preservation.
+
 # 0.3.0 — Unsigned Squads preparation
 
 - Add a software-only Squads draft workspace: restricted nonce/create/propose/approve composition, derived accounts, exact-byte review and JSON import/export.

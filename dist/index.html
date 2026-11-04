@@ -4,33 +4,110 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="Prepare, inspect, and verify public test transactions for the DTS-02 signer.">
-  <meta name="theme-color" content="#17251f">
-  <title>DTS Console — Signing workspace</title>
+  <meta name="theme-color" content="#f7f7f7">
+  <title>DTS Console — Every byte, accounted for</title>
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
   <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="motion.css">
   <script type="module" src="app.mjs"></script>
+  <script type="module" src="motion.mjs"></script>
 </head>
-<body>
-  <aside class="sidebar">
-    <a class="brand" href="./" aria-label="DTS Console home"><span class="mark">D<span>:</span></span><span>DTS<span class="brand-light"> / Console</span></span></a>
+<body data-page="home">
+  <svg class="svg-definitions" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"><defs>
+    <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+    <symbol id="i-external" viewBox="0 0 24 24"><path d="M7 17 17 7M7 7h10v10"/></symbol>
+    <symbol id="i-grid" viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1.5"/><rect x="14" y="4" width="6" height="6" rx="1.5"/><rect x="4" y="14" width="6" height="6" rx="1.5"/><rect x="14" y="14" width="6" height="6" rx="1.5"/></symbol>
+    <symbol id="i-prepare" viewBox="0 0 24 24"><path d="M8 4h8l4 4v12H4V4h4ZM15 4v5h5M8 13h8M8 17h5"/></symbol>
+    <symbol id="i-review" viewBox="0 0 24 24"><path d="M2.5 12s3.5-7 9.5-7 9.5 7 9.5 7-3.5 7-9.5 7-9.5-7-9.5-7Z"/><circle cx="12" cy="12" r="2.5"/></symbol>
+    <symbol id="i-verify" viewBox="0 0 24 24"><path d="m12 3 8 3v6c0 5-8 9-8 9s-8-4-8-9V6l8-3Z"/><path d="m8 12 3 3 5-6"/></symbol>
+    <symbol id="i-squads" viewBox="0 0 24 24"><rect x="3" y="4" width="7" height="6" rx="2"/><rect x="14" y="4" width="7" height="6" rx="2"/><rect x="8.5" y="15" width="7" height="6" rx="2"/><path d="M6.5 10v3H12m5.5-3v3H12v2"/></symbol>
+    <symbol id="i-status" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></symbol>
+    <symbol id="i-code" viewBox="0 0 24 24"><path d="m8 6-6 6 6 6m8-12 6 6-6 6M14 3l-4 18"/></symbol>
+  </defs></svg>
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <section id="home-view" class="view landing paper" aria-label="DTS Console overview">
+    <header class="landing-nav">
+      <a class="brand" href="#home" data-view="home" aria-label="DTS Console home"><span class="mark">D<span>:</span></span><span>DTS<span class="brand-light"> Console</span></span></a>
+      <nav class="landing-links" aria-label="Overview navigation"><button class="landing-link current" data-view="home">Overview</button><button class="landing-link" data-scroll="workflow">Workflow</button><button class="landing-link" data-view="readiness">Project scope</button></nav>
+      <div class="nav-tools"><a class="nav-source" href="https://github.com/TheTradoor/dts-console" target="_blank" rel="noopener noreferrer">Source <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a><button class="button primary" data-view="prepare">Launch console ↗</button></div>
+    </header>
+    <div class="hatch" aria-hidden="true"></div>
+    <div class="paper-hero" id="main-content" tabindex="-1">
+      <div class="paper-intro">
+        <p class="paper-kicker">DTS-02 / Independent developer preview</p>
+        <h1 class="paper-title">Every byte.<span>Accounted for.</span></h1>
+        <p class="paper-description">Prepare the transaction. Inspect its exact bytes.<br>Verify the signing result.</p>
+        <div class="paper-actions"><button id="open-workspace" class="button primary" data-view="prepare">Open workspace <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></button><button class="button secondary" data-scroll="workflow">Explore the workflow</button></div>
+        <span class="paper-scope">Public test keys · No wallet connection</span>
+      </div>
+      <div class="code-window" aria-label="Illustrative public fixture session. This preview does not execute a transaction.">
+        <div class="code-titlebar"><span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span><span>DTS / MESSAGE WORKSPACE</span><span>PREVIEW</span></div>
+        <div class="code-layout">
+          <div class="file-tree" aria-hidden="true"><p class="tree-label">EXPLORER</p><span class="tree-root">⌄ dts-console</span><span class="tree-active">&nbsp; ◇ session.json</span><span>&nbsp; # message.hex</span><span>&nbsp; ◇ result.json</span><small>A public fixture.<br>One exact message.</small></div>
+          <div class="code-pane"><div class="code-tab"><span>session.json</span><span>PUBLIC FIXTURE</span></div>
+            <ol class="code-lines" aria-label="Example session fields">
+              <li><code style="--line:0">{</code></li>
+              <li><code style="--line:1">  <span class="code-key">"network"</span>: <span class="code-value">"solana"</span>,</code></li>
+              <li><code style="--line:2">  <span class="code-key">"format"</span>: <span class="code-value">"legacy-transfer"</span>,</code></li>
+              <li><code style="--line:3">  <span class="code-key">"amountSol"</span>: <span class="code-value">"0.000005"</span>,</code></li>
+              <li><code style="--line:4">  <span class="code-key">"lamports"</span>: <span class="code-value">"5000"</span>,</code></li>
+              <li><code style="--line:5">  <span class="code-key">"messageBytes"</span>: <span class="code-value">150</span>,</code></li>
+              <li><code style="--line:6">  <span class="code-key">"signature"</span>: <span class="code-value">"Ed25519"</span>,</code></li>
+              <li><code style="--line:7">  <span class="code-key">"mode"</span>: <span class="code-value">"public fixture"</span></code></li>
+              <li><code style="--line:8">}<span class="code-caret" aria-hidden="true"></span></code></li>
+              <li><code style="--line:9"><span class="code-comment">// Prepare → Review → Verify</span></code></li>
+            </ol>
+          </div>
+        </div>
+        <div class="code-statusbar"><span>ILLUSTRATIVE SESSION</span><span>LOCAL FILES / NO BROADCAST</span></div>
+      </div>
+    </div>
+    <div class="hatch" aria-hidden="true"></div>
+    <div class="capability-strip"><span><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg><strong>DTS-02</strong></span><span><svg class="icon" aria-hidden="true"><use href="#i-grid"/></svg>Solana messages</span><span><svg class="icon" aria-hidden="true"><use href="#i-verify"/></svg>Ed25519 verification</span><span><svg class="icon" aria-hidden="true"><use href="#i-prepare"/></svg>Local file exchange</span></div>
+    <section class="workflow-section" id="workflow" aria-labelledby="workflow-title"><div class="section-heading" data-reveal><div><p class="eyebrow">01 / THE WORKFLOW</p><h2 id="workflow-title">From intent to evidence.</h2></div><p>Three connected steps.<br>One message throughout.</p></div>
+      <div class="workflow-steps" data-reveal>
+        <button class="workflow-step" data-view="prepare"><div class="step-top"><span>01 / PREPARE</span><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></div><div class="step-symbol"><svg class="icon" aria-hidden="true"><use href="#i-prepare"/></svg></div><h3>Make it explicit.</h3><p>Set a recipient and exact SOL amount. Build a supported public test transaction.</p><span class="step-link">Prepare a fixture <span>↗</span></span></button>
+        <button class="workflow-step" data-view="review"><div class="step-top"><span>02 / REVIEW</span><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></div><div class="step-symbol"><svg class="icon" aria-hidden="true"><use href="#i-review"/></svg></div><h3>Read what matters.</h3><p>Inspect decoded fields, full addresses and the same bytes the session will export.</p><span class="step-link">Inspect a session <span>↗</span></span></button>
+        <button class="workflow-step" data-view="verify"><div class="step-top"><span>03 / VERIFY</span><svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></div><div class="step-symbol"><svg class="icon" aria-hidden="true"><use href="#i-verify"/></svg></div><h3>Check the result.</h3><p>Import a local firmware result and verify its signature against your frozen message.</p><span class="step-link">Verify a result <span>↗</span></span></button>
+      </div>
+    </section>
+    <section class="draft-callout" data-reveal><div class="draft-callout-icon"><svg class="icon" aria-hidden="true"><use href="#i-squads"/></svg></div><div><span class="eyebrow">02 / SQUADS DRAFTS</span><h2>One proposal. The whole picture.</h2><p>Prepare and inspect a restricted Squads draft.<br>Unsigned, with no on-chain submission.</p></div><button class="button secondary" data-view="squads">Explore Squads drafts ↗</button></section>
+    <div class="hatch" aria-hidden="true"></div>
+    <section class="landscape" id="landscape" aria-labelledby="landscape-title">
+      <div class="landscape-copy" data-reveal><h2 id="landscape-title">Your message.<span>In full view.</span></h2><p>A clear view of what you prepare, what you review,<br>and what the signature actually proves.</p><div class="paper-actions"><button class="button primary" data-view="prepare">Prepare a fixture ↗</button><button class="button secondary" data-view="readiness">View project scope</button></div></div>
+      <div class="terrain" aria-hidden="true"><svg class="terrain-fallback" viewBox="0 0 1200 570" preserveAspectRatio="none"><defs><pattern id="terrain-dots" width="4" height="4" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".7" fill="#555"/></pattern><linearGradient id="terrain-haze" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f7f7f7" stop-opacity="0"/><stop offset="1" stop-color="#f7f7f7"/></linearGradient></defs><path d="M0 325Q110 210 230 370T510 405T850 375T1200 290V570H0Z" fill="#b5b5b5"/><path d="M0 300Q100 180 230 365T570 535Q720 550 870 375T1200 265V570H0Z" fill="url(#terrain-dots)"/><path d="M0 385Q130 260 270 470T700 530Q850 505 970 375T1200 410V570H0Z" fill="url(#terrain-dots)"/><rect y="410" width="1200" height="160" fill="url(#terrain-haze)"/></svg><canvas id="terrain-canvas"></canvas><div class="terrain-fog"></div></div>
+      <span class="terrain-caption">GENERATIVE LANDSCAPE / DECORATIVE</span><button class="motion-control" id="motion-toggle" aria-pressed="false"><svg class="icon" aria-hidden="true" viewBox="0 0 12 12"><path d="M4 2v8M8 2v8"/></svg><span>Pause motion</span></button>
+    </section>
+    <div class="hatch" aria-hidden="true"></div>
+    <footer class="paper-footer">
+      <div class="footer-identity"><a class="brand" href="#home" data-view="home" aria-label="DTS Console home"><span class="mark">D<span>:</span></span><span>DTS<span class="brand-light"> Console</span></span></a><p>A software workspace for transaction preparation, byte review and signature verification.</p><span class="footer-caption">INDEPENDENT DEVELOPMENT PROJECT<br>BUILT AROUND DTS-02</span></div>
+      <div class="footer-col"><h3>Workspace</h3><button data-view="prepare">Prepare a transaction <span>↗</span></button><button data-view="review">Review a session <span>↗</span></button><button data-view="verify">Verify a result <span>↗</span></button><button data-view="squads">Squads drafts <span>↗</span></button></div>
+      <div class="footer-col"><h3>Project</h3><button data-view="readiness">Scope & evidence <span>↗</span></button><a href="https://github.com/TheTradoor/dts-console" target="_blank" rel="noopener noreferrer">Source code <span>↗</span></a><a href="https://github.com/aeyakovenko/dts02-6502-signer" target="_blank" rel="noopener noreferrer">DTS-02 upstream <span>↗</span></a><a href="dts-console-devkit.zip" download>Development kit <span>↓</span></a></div>
+    </footer>
+    <div class="hatch" aria-hidden="true"></div>
+    <div class="paper-bottom"><span>DTS CONSOLE / v0.3.3</span><span>Software only. Public fixtures. Independent of upstream.</span></div>
+  </section>
+  <aside class="sidebar" aria-label="Workspace sidebar">
+    <a class="brand" href="#home" data-view="home" aria-label="DTS Console home"><span class="mark">D<span>:</span></span><span>DTS<span class="brand-light"> Console</span></span></a>
     <div class="workspace"><span class="workspace-icon">B</span><div>Bollish workspace<small>Development environment</small></div><span class="workspace-dot"></span></div>
-    <p class="nav-label">SIGNING WORKSPACE</p>
+    <p class="nav-label">WORKSPACE</p>
     <nav aria-label="Main navigation">
-      <button data-view="prepare" class="nav-item active"><span class="nav-icon">▤</span>Prepare transaction<span class="nav-num">01</span></button>
-      <button data-view="review" class="nav-item"><span class="nav-icon">⊞</span>Review session<span class="nav-num">02</span></button>
-      <button data-view="verify" class="nav-item"><span class="nav-icon">◈</span>Verify result<span class="nav-num">03</span></button>
-      <button data-view="squads" class="nav-item"><span class="nav-icon">⊕</span>Squads draft<span class="nav-num">04</span></button>
+      <button data-view="prepare" class="nav-item"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-prepare"/></svg><span>Prepare transaction</span><span class="nav-num">01</span></button>
+      <button data-view="review" class="nav-item"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-review"/></svg><span>Review session</span><span class="nav-num">02</span></button>
+      <button data-view="verify" class="nav-item"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-verify"/></svg><span>Verify result</span><span class="nav-num">03</span></button>
+      <button data-view="squads" class="nav-item"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-squads"/></svg><span>Squads draft</span><span class="nav-num">04</span></button>
     </nav>
-    <p class="nav-label second-label">PROJECT</p>
-    <button data-view="readiness" class="nav-item"><span class="nav-icon">◷</span>Build readiness<span class="small-dot"></span></button>
-    <a class="nav-item" href="https://github.com/aeyakovenko/dts02-6502-signer" target="_blank" rel="noopener noreferrer"><span class="nav-icon">↗</span>Upstream source</a>
-    <div class="sidebar-bottom"><div class="version-line"><span class="status-led"></span>SOFTWARE WORKSPACE<span>v0.3.0</span></div><p>Independent companion project.<br>Based on DTS-02 by Anatoly Yakovenko.</p></div>
+    <p class="nav-label second-label">RESOURCES</p>
+    <button data-view="readiness" class="nav-item"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-status"/></svg>Build readiness<span class="small-dot"></span></button>
+    <a class="nav-item" href="https://github.com/aeyakovenko/dts02-6502-signer" target="_blank" rel="noopener noreferrer"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-code"/></svg>Upstream source<svg class="icon link-arrow" aria-hidden="true" focusable="false"><use href="#i-external"/></svg></a>
+    <button data-view="home" class="nav-item overview-nav"><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-grid"/></svg>Overview</button>
+    <div class="sidebar-bottom"><div class="version-line"><span class="status-led"></span>DEVELOPER PREVIEW<span>v0.3.3</span></div><p>Independent companion project.<br>Based on DTS-02 by Anatoly Yakovenko.</p></div>
   </aside>
-  <main>
-    <header class="topbar"><div><span class="muted">Workspace</span><span class="slash">/</span><span id="breadcrumb">Prepare transaction</span></div><div class="environment"><span class="status-led"></span>Fixture environment</div></header>
+  <main id="workspace-main">
+    <header class="topbar"><div><svg class="icon topbar-icon" aria-hidden="true" focusable="false"><use href="#i-grid"/></svg><span class="muted">Workspace</span><span class="slash">/</span><span id="breadcrumb">Prepare transaction</span></div><div class="environment"><span class="status-led"></span>Local workspace<span class="environment-label">SOLANA</span></div></header>
     <div class="content">
-      <div class="notice"><span class="notice-symbol">i</span><span><strong>Development build.</strong> DTS signing uses public test keys. Squads drafts are unsigned. No wallet connection or broadcast.</span><button data-view="readiness" class="text-button">View scope <span>↗</span></button></div>
-      <section id="prepare-view" class="view">
+      <div class="notice"><span class="notice-symbol">i</span><span><strong>Developer preview.</strong> Public test signing and unsigned drafts. No wallet connection or broadcast.</span><button data-view="readiness" class="text-button">View scope <span>↗</span></button></div>
+      <section id="prepare-view" class="view" hidden>
         <div class="page-heading"><div><p class="eyebrow">01 / PREPARE</p><h1>Start with the exact bytes.</h1><p class="subtitle">Build a restricted SOL transfer for a DTS-02 test signing session.</p></div><button class="button secondary" id="load-example">Load signed example <span>↗</span></button></div>
         <div class="prepare-grid">
           <section class="card form-card"><div class="card-heading"><div><span class="card-index">01</span><h2>Transfer details</h2></div><span class="tag">SOLANA · LEGACY</span></div>
@@ -54,11 +131,7 @@
             </form>
           </section>
           <div class="right-column">
-            <section class="device-card">
-              <div class="device-caption"><span class="status-led"></span>REVIEW PREVIEW<span>65C02 / DTS-02</span></div>
-              <div class="device-outline"><div class="device-screws"><i></i><i></i></div><div class="device-name">DTS–02 <span>DESKTOP SIGNER</span></div><div class="led-panel"><span id="intro-led">d75a 9801 82b1 0ab7</span><div class="led-reflection"></div></div><div class="device-lower"><span>01 SOURCE<span class="device-underline"></span></span><div class="keys-mini"><i></i><i></i><i></i><i></i></div><span>PUBLIC DATA</span></div><div class="device-screws bottom"><i></i><i></i></div></div>
-              <p>A preview of the upstream review format.<br>This software workflow runs without a physical DTS device.</p>
-            </section>
+            <section class="message-preview"><div class="preview-heading"><span><span class="status-led"></span> SESSION PREVIEW</span><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-review"/></svg></div><div class="preview-orbit" aria-hidden="true"><div class="orbit-ring"></div><svg class="icon" aria-hidden="true" focusable="false"><use href="#i-prepare"/></svg></div><h2>It starts with a message.</h2><p>Your transaction becomes a fixed set of bytes. Review those bytes before exporting.</p><div class="preview-data"><span>SOURCE · PUBLIC TEST KEY</span><code id="intro-led">d75a 9801 82b1 0ab7</code><span class="preview-data-foot">First 8 bytes · Full address in the form</span></div><div class="preview-foot"><span>Ed25519</span><span>Profile 0</span><span>Local files</span></div></section>
             <section class="card compact-card"><p class="eyebrow">THE SESSION CONTRACT</p><div class="contract-row"><span class="check">✓</span><div><strong>Prepare</strong><p>Serialize a restricted transaction.</p></div></div><div class="contract-row"><span class="check">✓</span><div><strong>Review</strong><p>Read fields from those exact bytes.</p></div></div><div class="contract-row"><span class="check">✓</span><div><strong>Verify</strong><p>Match the result to the frozen message.</p></div></div><div class="contract-foot">Host-side checks · profile 0 only</div></section>
           </div>
         </div>
@@ -113,14 +186,15 @@ python3 tools/sign_fixture.py dts-session.json --output dts-result.json</pre><a 
       </section>
       <section id="readiness-view" class="view" hidden>
         <div class="page-heading"><div><p class="eyebrow">PROJECT / READINESS</p><h1>Evidence before claims.</h1><p class="subtitle">A software product for preparation, review and verification. No hardware development is included.</p></div><a class="button secondary" href="dts-console-devkit.zip" download>Download development kit ↓</a></div>
-        <div class="readiness-stats"><div class="card"><span class="stat-label">SOFTWARE RELEASE</span><strong>0.3.0</strong><p>Fixture + Squads preparation</p></div><div class="card"><span class="stat-label">FIRMWARE / HOST CHECKS</span><strong id="test-count">—</strong><p id="test-description">Loading recorded test results</p></div><div class="card"><span class="stat-label">PRODUCT SCOPE</span><strong>Software</strong><p>No hardware development</p></div></div>
+        <div class="readiness-stats"><div class="card"><span class="stat-label">SOFTWARE RELEASE</span><strong>0.3.3</strong><p>Motion & paper workspace</p></div><div class="card"><span class="stat-label">FIRMWARE / HOST CHECKS</span><strong id="test-count">—</strong><p id="test-description">Loading recorded test results</p></div><div class="card"><span class="stat-label">PRODUCT SCOPE</span><strong>Software</strong><p>No hardware development</p></div></div>
         <section class="card readiness-card"><div class="card-heading"><h2>Implementation status</h2><span class="tag">NO LIVE-KEY SUPPORT</span></div><div class="readiness-row"><div><h3>Prepare, inspect, export, import, verify</h3><p>Canonical SOL transfer and durable-nonce fixtures; exact bytes and integer amounts.</p></div><span class="state built">Implemented</span></div><div class="readiness-row"><div><h3>Actual 65C02 firmware bridge</h3><p>Local execution of pinned upstream firmware, double signing, on-emulator verification, and OpenSSL comparison.</p></div><span class="state built">Implemented</span></div><div class="readiness-row"><div><h3>Experimental 65C02 transaction parser</h3><p>Optional firmware checks over frozen SOL fixture bytes. Tested in an emulator; trusted device review and approval are still pending.</p></div><span class="state pending">M1 partial</span></div><div class="readiness-row"><div><h3>Squads draft preparation + byte review</h3><p>Unsigned nonce/create/propose/approve composition, derived accounts and manual state comparison. On-chain execution and local-validator tests remain pending.</p></div><span class="state built">Preparation only</span></div><div class="readiness-row"><div><h3>Upstream signer security boundary</h3><p>Physical isolation and trusted device authorization belong to the external signer design. The Console does not build hardware or claim those guarantees.</p></div><span class="state hardware">External dependency</span></div><div class="readiness-row"><div><h3>Commercial distribution and upstream attribution</h3><p>Upstream source is fetched separately for development. Distribution licensing needs clarification. No Toly endorsement is claimed.</p></div><span class="state pending">Unresolved</span></div></section>
         <section class="card evidence-card"><div><p class="eyebrow">REPRODUCIBLE FIXTURE</p><h2>Measured in an emulator.</h2><p id="cycle-count">Loading firmware evidence…</p><p>Cycle-derived estimates are not hardware measurements. The existing design is not ready to hold funds.</p></div><a href="fixture-result.json" download class="button secondary">Download result evidence ↓</a></section>
         <p class="attribution">DTS Console is an independent development project. <a href="https://github.com/aeyakovenko/dts02-6502-signer/blob/main/spec.md" target="_blank" rel="noopener noreferrer">Read the DTS-02 specification ↗</a></p>
       </section>
       <div id="toast" class="toast" role="status" hidden></div>
     </div>
-    <footer><span>DTS CONSOLE</span><span>Public test signing · Unsigned Squads drafts</span><span id="footer-version">Upstream a7cbac2</span></footer>
+    <footer><span>DTS CONSOLE <span class="footer-muted">/ v0.3.3</span></span><span>Public test signing · Unsigned Squads drafts</span><span id="footer-version">Upstream a7cbac2</span></footer>
   </main>
+  <noscript><div class="noscript-notice">JavaScript is required to use the transaction workspace.</div></noscript>
 </body>
 </html>

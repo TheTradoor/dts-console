@@ -1,0 +1,76 @@
+{
+  "head": "ddf83fb05faa57fb7d3f9dd32fce9727e2c601fd",
+  "ciCheckout": "850e12e360c59f7e316216e0022b5d4a53b3c563",
+  "gitTree": "4989753fcca8255ab22811cc9cd46a5a84648f02",
+  "browserRun": 41835377223,
+  "squadsRun": 41835377756,
+  "firmwareRun": 41835377575,
+  "artifact": {
+    "id": 13325356585,
+    "name": "browser-evidence",
+    "size_in_bytes": 18588192,
+    "url": "https://api.github.com/repos/TheTradoor/dts-console/actions/artifacts/13325356585",
+    "archive_download_url": "https://api.github.com/repos/TheTradoor/dts-console/actions/artifacts/13325356585/zip",
+    "expired": false,
+    "created_at": "2026-11-04T13:11:09Z",
+    "expires_at": "2026-11-18T13:11:07Z",
+    "updated_at": "2026-11-04T13:11:09Z",
+    "digest": "sha256:db7048105c455e657a3c33022e28ccb6724f65063c49099ec8305609367eae8c",
+    "workflow_run": {
+      "id": 41835377223,
+      "repository_id": 1445234120,
+      "head_repository_id": 1445234120,
+      "head_branch": "ui/dark-console-redesign",
+      "head_sha": "ddf83fb05faa57fb7d3f9dd32fce9727e2c601fd"
+    }
+  },
+  "version": "0.3.3",
+  "reviewedAt": "2026-11-04",
+  "sourceDirty": false,
+  "scope": "Light monochrome UI, decorative motion, public fixtures and unsigned Squads drafts",
+  "browser": "156.0.8078.4",
+  "stats": {
+    "startTime": "2026-11-04T13:08:56.018Z",
+    "duration": 131375.757,
+    "expected": 34,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "diagnosticsReviewed": 34,
+  "screenshotsReviewed": 44,
+  "sourceAssetSha256": {
+    "index.html": "c0eef69cb96e15e8b1d933a138ba590d165bccd9154d2520e7d6b5d8caf358e3",
+    "app.mjs": "7f68ee7f08a56458178790c76c03165a8fd13fdf8d8ebbb71969e38d79aa923a",
+    "style.css": "d866404dfedf3df120bd15bbfb7680a1b6037219b7e355d424c7ccb7ff70c379",
+    "motion.css": "70cb40f16a4a6ceb98960768f606f8ee4e154c2a436e4203089d73dedd3f8657",
+    "motion.mjs": "aad6cc9fd1633330ec5b8d3ca617126dabf3e69e7d252934b42ad9d4e60ab764",
+    "favicon.svg": "6b7d3d5f06c1d5ab12226d086018224d3bd32b225289761186c6a3b6c09287f0",
+    "protocol.mjs": "30d035e8926ef6a02c15518c3d26911d027652b1db32b62018c21adfbcf01ccc",
+    "crypto.mjs": "a7cb1940b78e985abbcad6665c22de4c698e81004f459f97986ebdc442660b5e",
+    "squads.mjs": "3ecfbc364cd44b5c5fe40d75452b340352a3e7826ae7996eadd18c7b13e20855",
+    "squads-ui.mjs": "35e3ac80ab5f1449a4c6bacc02a3b84014f9db8af2e73be5abad940a6913b599",
+    "validation.json": "09bbba09385ebd774ec5a67bdf390b885b6ffbf13eabd9118f45cfb45875b08b",
+    "fixture-session.json": "601b784bdb8e5945fa7790d5d565adff115102c2cac72d5e568b57ebfb959fcb",
+    "nonce-fixture-session.json": "a9cfaef984e324845edf441fda4f99bd9fede79e301165355ac61d22a20f5234",
+    "fixture-result.json": "518bb85ed413ad26e14bcd5069fc6316f7936b009a828c3caf7846ced7edbf02",
+    "policy-fixture-result.json": "437f17a9ad91385409c49c09cd65af6a640b2b17ec5d4a61338cb9b8ffed8470",
+    "policy-nonce-fixture-result.json": "6600077957500670023d238da50053abfc4ef623a41324400803f33a96cf86a9"
+  },
+  "externalFonts": "disabled",
+  "exactSquadsExports": 4,
+  "exactSessionExports": 2,
+  "downloadedVerificationReports": 4,
+  "motionChecks": [
+    "Canvas pixels change while motion runs",
+    "Pause freezes canvas pixels; resume changes them",
+    "Reduced motion keeps the canvas still",
+    "Leaving the overview stops canvas updates",
+    "Motion navigation preserves the current session"
+  ],
+  "limitations": [
+    "Chromium desktop and emulated mobile viewports only",
+    "Not a WCAG or independent security audit",
+    "No wallet, live-key signing, RPC, broadcast or local-validator execution"
+  ]
+}
