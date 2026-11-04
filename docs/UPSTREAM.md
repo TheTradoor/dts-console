@@ -10,6 +10,14 @@ adds the original Console parser and a pre-sign gate in a locally assembled
 ROM. It keeps the upstream source checkout unchanged. Every required upstream
 source file has a SHA-256 pin in ../upstream-lock.json and is fetched separately.
 
+## Software-only scope
+
+DTS Console does not design, build or sell physical hardware. It builds the
+companion software around the published design. Hardware security and trusted
+device approval remain external signer requirements, not Console milestones.
+The 0.3.0 Squads composer is unsigned preparation only; validator execution and
+firmware authorization of that message language remain unimplemented.
+
 ## Alignment with the published direction
 
 The intended long-term use follows the specification's distinct third offline

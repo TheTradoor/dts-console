@@ -1,3 +1,9 @@
+# Version 0.3.0 validation
+
+The Squads codec has 29 passing tests, including 128 deterministic exact-byte/PDA comparisons with the pinned official SDK. All 487 truncated message prefixes are rejected. The combined JavaScript suite passes 59 tests with DTS_UPSTREAM set to the pinned source. Browser and remote CI results for this change are tracked in the PR. No local-validator execution has been performed; Squads signing and on-chain approval remain unimplemented.
+
+The detailed records below describe the earlier 0.2.0 baseline. Its screenshot hashes do not attest the changed 0.3.0 interface.
+
 # Validation record
 
 ## Automated — 0.2.0

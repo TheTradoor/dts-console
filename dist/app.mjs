@@ -1,6 +1,7 @@
 import {TEST_ADDRESS, amountToLamports, makePacket, validatePacket, verifyResult, reviewPages} from './protocol.mjs';
+import './squads-ui.mjs';
 const $ = id => document.getElementById(id);
-const titles = {prepare: 'Prepare transaction', review: 'Review session', verify: 'Verify result', readiness: 'Build readiness'};
+const titles = {prepare: 'Prepare transaction', review: 'Review session', verify: 'Verify result', squads:'Squads draft', readiness: 'Build readiness'};
 let current = null, pages = [], pageIndex = 0, viewed = new Set(), verification = null, generation = 0;
 let fixturePacket = null, fixtureResult = null, toastTimer;
 

@@ -1,83 +1,68 @@
-# Roadmap and acceptance criteria
+# Software roadmap and acceptance criteria
 
-Milestones describe engineering evidence required for progress. They are not
-release dates or commitments that a later stage is feasible without revision.
+DTS Console builds software. Hardware design, assembly, manufacturing and device
+sales are excluded. Earlier physical-kit and hardware-pilot milestones are
+superseded by this scope; external signer requirements remain documented as limits.
+Milestones describe evidence, not release dates or claims of production safety.
 
-## M0 — Reproducible host companion
+## S0 — Reproducible DTS companion
 
-Status: implemented in 0.1.1; retained in 0.2.0.
+Implemented in 0.1.1 and retained in later releases: prepare restricted public
+fixtures, review frozen bytes, export/import sessions, reproduce actual pinned
+firmware output in an emulator and independently verify Ed25519 signatures.
+The existing firmware/host verification covers 51 tests, 5,803 differential
+vectors, every u16 message length and four complete signing reproductions.
 
-- Prepare and independently decode both restricted SOL fixture forms.
-- Export a fixed public-key profile 0 envelope; invalidate stale review state.
-- Verify bound result records and reject modified inputs and signatures.
-- Reproduce both outputs using pinned actual firmware and an isolated emulator
-  build, with independent OpenSSL comparison.
-- Document limits and publish the command needed to repeat the evidence.
+The optional 0.2.0 65C02 parser experiment remains partial under the historical
+M1 designation. It adds a pre-sign policy gate but no trusted device approval.
+Further device confirmation/reset work is external signer research, not the
+Console's next product milestone.
 
-The published 0.1.1 baseline passed [remote CI](https://github.com/TheTradoor/dts-console/actions/runs/41786675460).
-Every later change needs its own successful run.
+## S1 — Unsigned Squads preparation and review
 
-## M1 — Restricted on-device SOL policy
+Implemented in 0.3.0 for one restricted SOL transfer: legacy outer message,
+durable nonce advance, vault transaction creation, active proposal creation and
+one approval. One member also pays fees/rent and owns the nonce authority role.
+No memos, lookup tables, ephemeral signers, alternate programs or execution.
 
-Status: partial in 0.2.0. An experimental profile-0 parser and pre-sign gate run
-on the emulated 65C02. Trusted review/confirmation and the complete device
-reset/fault state machine remain unimplemented; independent review is pending.
+Acceptance: exact SDK serialization/PDA agreement; integer boundaries; bounded
+independent decoding; rejection of malformed bytes and mismatched metadata;
+reviewed JSON export/import; stale draft invalidation; comparison of explicitly
+unverified index/nonce inputs; desktop and mobile browser checks.
 
-Completion requires an independently reviewed 65C02 parser that accepts exactly
-the agreed canonical transfer forms; positive and adversarial vectors; trusted
-review of the complete recipient and amount; integration with the device's
-confirmation/reset/fault state machine; and measured ROM, RAM and stack budgets.
-Host checks must not be counted as satisfying this milestone.
+A prepared draft is not a signature or a completed Squads integration. The
+current DTS bridge must continue rejecting this unsupported message language.
 
-See [FIRMWARE_POLICY.md](FIRMWARE_POLICY.md) for the exact accepted language,
-5,803 differential vectors, all-u16-length checks, bus tracing and measured
-resource use. Two complete parser-enabled signing runs preserve the baseline
-records. These results do not complete M1 or enable a live-key profile.
+## S2 — Local-validator execution proof
 
-The next steps are independent review and a trusted review/confirmation state
-machine, followed by full reset/fault integration and combined resource
-accounting. Discuss the narrow parser proposal with upstream before proposing
-changes to its production profile or architecture.
+Pending. Pin program source, IDL and deployed test binary. Execute the exact S1
+composite in a local validator with public test keys and a 2-of-3 configuration.
+Verify account owners, permissions, proposal linkage and first approval.
 
-## M2 — Squads composite transaction proof
+Required adversarial cases: another member creates the next transaction first;
+the nonce changes before submission; and a consumed nonce is replayed. In each
+case record vault transaction, proposal and approval state plus fees and nonce
+consumption. A size calculation or SDK match does not satisfy this gate.
 
-Status: design and compatibility work outstanding.
+## S3 — Read-only treasury workflow
 
-Pin program and IDL versions. Establish exact account permissions, PDA
-derivations and serialized size for the spec's proposed atomic sequence:
-nonce advance, restricted vault-transaction creation, proposal creation and
-the DTS member's first approval.
+Pending. Retrieve and validate multisig configuration and nonce state; show data
+origin, slot/commitment and retrieval time. Detect unsafe thresholds, permissions,
+configuration authority and spending-limit paths. Re-read before an external
+submission step; changes require new bytes and review, never silent retries.
 
-Execute that exact transaction on a local validator. Demonstrate success,
-competing proposal behavior, changed nonce behavior, replay rejection and every
-unsupported operation's rejection. A host-supplied snapshot of an existing
-proposal is not sufficient evidence for the offline signer.
+Acceptance includes simulated stale/conflicting snapshots and unavailable RPCs.
+No imported host snapshot becomes trusted offline-signer authorization.
 
-If the composite does not fit transaction or device constraints, document the
-failure and revise the design rather than claiming integration.
+## S4 — Reviewed software pilot
 
-## M3 — Physical public-key developer kit
+Pending. Independent review of the complete software flow, reproducible builds,
+compatibility evidence and explicit limits. Any future external signing adapter
+must preserve the signer boundary. Real-key handling or production execution is
+not enabled by the draft composer or the current profile-0 emulator.
 
-Status: not built or measured by this project.
+## External dependencies and product decisions
 
-An embedded/electronics engineer must implement and inspect the independent
-wipe/readback circuit, CPU and secret-input isolation, output restriction and
-power/reset behavior. Measure signing time, electrical timing, discharge and
-back-power behavior, interruption handling and manual-input usability on real
-hardware. Publish setup, board revision and measurement method.
-
-## M4 — Independent review and controlled pilot
-
-Status: gated on prior milestones and licensing clarification.
-
-Complete independent firmware/hardware review; reproducible ROM and readback;
-component provenance; custody and recovery procedures; and a scoped pilot with
-documented findings. No live-key product claim before those results exist.
-
-## Commercial and token decisions
-
-Potential commercialization and a separate token remain undecided. A token is
-not required by the current fixture workflow and none is implemented. Any
-future proposal must specify an actual role, obligations and implementation
-status separately from the hardware roadmap. Upstream attribution is not an
-endorsement of a product or token.
+Upstream device security is tracked separately; no Console hardware build is
+scheduled. Attribution and downstream distribution terms require resolution.
+A token is not necessary for the existing workflow and none is implemented.

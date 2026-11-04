@@ -47,7 +47,7 @@ def main():
         "cc": run(["cc", "--version"]).splitlines()[0],
         "openssl": run(["openssl", "version"]).strip(),
     }
-    for name in ["app.mjs", "protocol.mjs", "crypto.mjs"]:
+    for name in ["app.mjs", "protocol.mjs", "crypto.mjs", "squads.mjs", "squads-ui.mjs"]:
         run(["node", "--check", "dist/" + name])
     env = dict(os.environ, DTS_UPSTREAM=str(upstream))
     tap = run(["node", "--test", "--test-reporter=tap", "tests/protocol.test.mjs"], env=env)

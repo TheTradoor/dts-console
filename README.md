@@ -4,19 +4,20 @@ A development companion for [DTS-02](https://github.com/aeyakovenko/dts02-6502-s
 Prepare canonical Solana transfer fixtures, inspect the exact message bytes,
 run the pinned 65C02 signing firmware locally, and verify its output in a browser.
 
-**Version 0.2.0 is a public-test-key prototype.** It includes the existing host
+**Version 0.3.0 is a software development prototype.** It includes the existing host
 workflow and an opt-in experimental 65C02 parser for two restricted SOL message
-forms. Trusted on-device review and authorization, physical hardware and Squads
-integration remain engineering milestones. It accepts no private key and has
+forms. The new Squads draft workspace prepares and reviews an unsigned composite.
+On-chain Squads execution remains pending; trusted device authorization belongs
+to the external signer. Hardware development is outside this project’s scope. It accepts no private key and has
 no wallet connection, RPC endpoint or broadcast operation.
 
-The 0.2.0 UI identifies the experimental parser as partial M1 work and keeps
+The retained fixture UI identifies the experimental parser as partial M1 work and keeps
 trusted device authorization separate from host-side review. The
 [browser acceptance suite](docs/BROWSER_AUTOMATION.md) passed all 18 cases in
 Chromium desktop and mobile viewports. The same commit passed the 51-test
 firmware/host suite and four complete signing reproductions.
 
-All 28 screenshots from the completed CI run were visually inspected, covering
+For the 0.2.0 fixture baseline, all 28 CI screenshots were visually inspected, covering
 both viewport configurations. Direct preview checks and an authenticated
 published-site smoke check also passed. See the
 [validation record](docs/VALIDATION.md) for exact runs, source hashes and limits.
@@ -24,10 +25,20 @@ published-site smoke check also passed. See the
 This is an independent project. It does not claim endorsement by Anatoly
 Yakovenko, Solana, or Squads.
 
+## Software product scope
+
+No PCB, physical device, assembly or manufacturing is planned. The Console
+builds usable preparation, review and verification workflows around DTS-02.
+The new **Squads draft** tab constructs the spec’s proposed nonce/create/propose/
+approve message, shows independently decoded intent and exports unsigned JSON.
+It cannot be signed by the current DTS bridge or submitted from the Console.
+See [the Squads contract](docs/SQUADS.md) and [software roadmap](docs/ROADMAP.md).
+
 ## What works today
 
 | Component | Implemented behavior |
 | --- | --- |
+| Squads draft | Unsigned restricted SOL proposal composition, PDA derivation, byte review, JSON import/export and manual stale-state comparison |
 | Prepare | Canonical legacy SOL transfer and durable-nonce advance + transfer fixtures |
 | Review | Decode frozen bytes, show exact integer amounts and all recipient pages; invalidate state when inputs change |
 | Export | Profile 0 envelope with the published RFC 8032 test public key |
@@ -46,7 +57,8 @@ No npm install is needed for the prebuilt interface:
 
     python3 -m http.server 8080 --directory dist
 
-Open http://localhost:8080, choose **Load signed example**, review the fields,
+Open http://localhost:8080 and select **Squads draft → Load test draft** for the
+new preparation workflow. For the retained DTS signing example, choose **Load signed example**, review the fields,
 then select **Verify signed example** in the Verify view. This checks a recorded
 emulator result. Signing does not run in the browser.
 
@@ -68,7 +80,16 @@ The signed record is unchanged. The optional build performs additional checks
 on the frozen message before it reaches signing. See the
 [firmware policy design and limits](docs/FIRMWARE_POLICY.md). M1 remains partial.
 
-## Reproduce the evidence
+## Squads compatibility checks
+
+    npm ci --ignore-scripts
+    npm run test:squads
+
+The narrow browser codec is compared byte for byte with the pinned official SDK
+across 128 deterministic vectors. SDK dependencies are used for tests only and
+are not bundled into the browser. No private key or RPC is needed.
+
+## Reproduce the firmware evidence
 
 On Linux with Node 24, Python 3.10+, cc, and OpenSSL 3:
 

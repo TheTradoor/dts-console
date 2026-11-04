@@ -1,3 +1,7 @@
+# Version 0.3.0 interface
+
+Adds the Squads draft view and software-only product scope. Current browser acceptance and visual review results are recorded in the PR. Historical 0.2.0 screenshots below apply only to their recorded assets.
+
 # Browser validation procedure for the proposed 0.2.0 UI update
 
 Status: the functional checklist passed in the 18-case Chromium CI run,

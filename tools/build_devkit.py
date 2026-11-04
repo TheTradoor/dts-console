@@ -5,7 +5,7 @@ import pathlib
 import zipfile
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
-ROOT_FILES = ("README.md", "CHANGELOG.md", "CONTRIBUTING.md", "SECURITY.md", "NOTICE.md", "LICENSE",
+ROOT_FILES = ("README.md", "CHANGELOG.md", "CONTRIBUTING.md", "SECURITY.md", "NOTICE.md", "LICENSE", "AGENTS.md",
               "package.json", "package-lock.json", "upstream-lock.json", ".gitignore",
               "playwright.config.mjs")
 DIRECTORIES = ("dist", "firmware", "tools", "tests", "docs", ".github")
