@@ -16,8 +16,15 @@
   original assembly and new references in the development kit.
 - Document the partial M1 scope and pending trusted review, boot/recovery,
   independent review, Squads and hardware work.
-- Retain the 0.1.1 browser HTML and application script unchanged. The proposed
-  UI wording update is a separate change with browser QA outstanding.
+- Propose matching 0.2.0 browser version/readiness text and an exported-report
+  limitation that identifies missing trusted device review and authorization.
+  Record direct browser checks and a passing 18-case Chromium CI run.
+- Run browser acceptance in GitHub Actions with fixture imports, downloads,
+  stale-state rejection and desktop/mobile viewport configurations. Review all
+  28 CI screenshots and record authenticated published-site checks.
+- Wait for transient notifications to expire before capturing screenshots;
+  include modified-record and malformed-import states in the visual evidence.
+- Show REJECTED for malformed result JSON and add a regression scenario.
 
 ## 0.1.1 — 2026-11-04
 

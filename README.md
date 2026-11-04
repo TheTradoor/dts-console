@@ -10,10 +10,16 @@ forms. Trusted on-device review and authorization, physical hardware and Squads
 integration remain engineering milestones. It accepts no private key and has
 no wallet connection, RPC endpoint or broadcast operation.
 
-The 0.2.0 version refers to the development kit and CLI. This change retains
-the browser HTML and application script from 0.1.1 unchanged, including their
-displayed version. The proposed UI status/wording update is reviewed separately
-and has not passed browser QA; see [the UI validation procedure](docs/UI_VALIDATION.md).
+The 0.2.0 UI identifies the experimental parser as partial M1 work and keeps
+trusted device authorization separate from host-side review. The
+[browser acceptance suite](docs/BROWSER_AUTOMATION.md) passed all 18 cases in
+Chromium desktop and mobile viewports. The same commit passed the 51-test
+firmware/host suite and four complete signing reproductions.
+
+All 28 screenshots from the completed CI run were visually inspected, covering
+both viewport configurations. Direct preview checks and an authenticated
+published-site smoke check also passed. See the
+[validation record](docs/VALIDATION.md) for exact runs, source hashes and limits.
 
 This is an independent project. It does not claim endorsement by Anatoly
 Yakovenko, Solana, or Squads.

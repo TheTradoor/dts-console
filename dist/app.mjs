@@ -174,7 +174,12 @@ $('result-file').addEventListener('change', async event => {
     const result = await readJsonFile(file);
     if (token !== generation) return;
     await performVerification(result);
-  } catch (error) { if (token === generation) { $('verify-error').textContent = error.message; $('verify-error').hidden = false; } }
+  } catch (error) {
+    if (token === generation) {
+      $('verify-state').textContent = 'REJECTED';
+      $('verify-error').textContent = error.message; $('verify-error').hidden = false;
+    }
+  }
   finally { event.target.value = ''; }
 });
 $('verify-example').addEventListener('click', async () => {
@@ -190,7 +195,7 @@ $('download-report').addEventListener('click', () => {
   if (verification) download('dts-verification-report.json', {
     schema: 'dts-console-verification-v1', verifiedAt: new Date().toISOString(),
     environment: 'public-fixture-only', ...verification,
-    limitations: ['Host-side policy only', 'No physical hardware validation', 'No blockchain submission or execution check']
+    limitations: ['No trusted device review or authorization', 'No physical hardware validation', 'No blockchain submission or execution check']
   });
 });
 async function initialize() {

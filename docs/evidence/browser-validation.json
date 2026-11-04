@@ -1,0 +1,94 @@
+{
+  "schema": "dts-console-browser-validation-v1",
+  "recordedAt": "2026-11-04",
+  "sourceCommit": "a84b34be157c7b8e611aff267bafdceac6b46ae5",
+  "ci": {
+    "runUrl": "https://github.com/TheTradoor/dts-console/actions/runs/41810704326",
+    "runId": 41810704326,
+    "jobId": 126508931083,
+    "passed": 18,
+    "failed": 0,
+    "skipped": 0,
+    "retries": 0,
+    "browser": "Chromium 156.0.8078.4",
+    "viewports": [
+      {
+        "width": 1440,
+        "height": 1000
+      },
+      {
+        "width": 390,
+        "height": 844
+      }
+    ],
+    "externalFonts": "disabled",
+    "artifactId": 13312955051,
+    "artifactSha256": "e92664534687c20ac65a73d433dd57ac20306cb01a48680175588ea70e2e0908",
+    "artifactExpiresAt": "2026-11-18T09:57:04Z",
+    "screenshotReview": "passed: all 28 full-page captures visually inspected",
+    "checkoutCommit": "9a1034092a3396b7c59c2a6b688dcc6d2a4f6c8e",
+    "sourceDirty": false,
+    "headTreeEqualsCheckoutTree": true,
+    "flaky": 0,
+    "artifactBytes": 9259871,
+    "screenshotCount": 28,
+    "screenshotManifest": "browser-screenshots.json",
+    "diagnosticAttachmentsInspected": 18,
+    "sourceAssetsComparedPerScenario": 11,
+    "downloadedReportsCompared": 4,
+    "exportedSessionsCompared": 2
+  },
+  "directPreview": {
+    "browser": "Chrome (version not exposed by this UI-control API)",
+    "desktopDocument": {
+      "clientWidth": 1363,
+      "clientHeight": 936,
+      "scrollWidth": 1363
+    },
+    "responsiveFrame": {
+      "outerWidth": 390,
+      "outerHeight": 844,
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "legacyVerification": "passed",
+    "nonceVerification": "passed",
+    "downloadedSessionExactMatch": true,
+    "bothDownloadedReportsMatch": true,
+    "reviewGating": "passed",
+    "editedAmountInvalidation": "passed",
+    "crossSessionRejection": "passed",
+    "modifiedRecordRejection": "passed",
+    "malformedSessionInvalidation": "passed",
+    "malformedResultRejectionAfterFix": "passed",
+    "directVisualReview": "desktop and narrow CSS frame inspected"
+  },
+  "assetSha256": {
+    "dist/index.html": "68ea19a8ed60e7ff6e404bc3a0b047da7158f460bed88e2860d46cd434fa4bb0",
+    "dist/app.mjs": "d87ed3322741df565c7bbdcacf0f8881cffeaaa533b9ef7401dfd422892b84fa",
+    "dist/style.css": "13c527ef287dac0314bb631d513039e6052eebba678f1ef2e0d480288c8d04a7",
+    "dist/protocol.mjs": "30d035e8926ef6a02c15518c3d26911d027652b1db32b62018c21adfbcf01ccc",
+    "dist/crypto.mjs": "a7cb1940b78e985abbcad6665c22de4c698e81004f459f97986ebdc442660b5e",
+    "tests/browser/acceptance.spec.mjs": "aaa25104105a9bfcde0b981ac4bc8b1391c8364a3022006a956e0d50d4ebfa4b",
+    ".github/workflows/browser.yml": "6be5c0a35ca1694d4ab37560c3e05ce712382f7809d9ac553954d247f78fa41e"
+  },
+  "firmwareRunUrl": "https://github.com/TheTradoor/dts-console/actions/runs/41810704362",
+  "hardwareMeasured": false,
+  "onChainExecuted": false,
+  "remaining": [
+    "Independent code/security review",
+    "Trusted device approval and hardware validation"
+  ],
+  "publishedSiteSmoke": {
+    "recordedAt": "2026-11-04",
+    "version": "0.2.0",
+    "authenticated": true,
+    "exampleVerification": "passed",
+    "malformedResultRejection": "passed",
+    "staleReportCleared": true,
+    "verificationRecovery": "passed",
+    "readiness": "51 passed; M1 partial",
+    "appOriginConsoleErrorsObserved": 0,
+    "scope": "Targeted smoke check; not the full CI suite"
+  }
+}
