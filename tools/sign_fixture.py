@@ -1,20 +1,21 @@
 #!/usr/bin/env python3
-"""Run the unmodified, pinned DTS-02 signing firmware with a published test seed.
+"""Run pinned DTS-02 signing firmware with a published test seed.
 
 This is a local emulator bridge, not a hardware signer. It never accepts a seed.
 The host-side policy below is not an on-device authorization policy.
 """
 import argparse
 import hashlib
-import importlib
 import json
 import pathlib
 import subprocess
 import sys
-import tempfile
 import zlib
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+from tools.upstream import isolated_emulator, load_pinned
 UPSTREAM = "a7cbac2ed7093a3cd994c4b7f1109396cd1d2faf"
 SEED = bytes.fromhex("9d61b19deffd5a60ba844af492ec2cc44449c5697b326919703bac031cae7f60")
 PUBLIC = bytes.fromhex("d75a980182b10ab7d54bfed3c964073a0ee172f3daa62325af021a68f707511a")
@@ -123,26 +124,18 @@ def validate(packet):
     return message, envelope
 
 
-def sign(packet, upstream):
+def sign(packet, upstream, firmware_policy=False):
     message, envelope = validate(packet)
-    upstream = pathlib.Path(upstream).resolve()
-    pins = json.loads((ROOT / "upstream-lock.json").read_text())
-    need(pins["commit"] == UPSTREAM, "Incorrect source lock")
-    for name, expected in pins["files"].items():
-        path = upstream / name
-        need(path.is_file() and hashlib.sha256(path.read_bytes()).hexdigest() == expected,
-             "Upstream source mismatch: " + name)
-    sys.path.insert(0, str(upstream))
-    fw_module = importlib.import_module("sim.signer_fw")
-    harness = importlib.import_module("sim.signer_harness")
-    solana = importlib.import_module("sim.solana")
-    emu = importlib.import_module("sim.emu")
-    with tempfile.TemporaryDirectory(prefix="dts-emulator-") as directory:
-        # Rebuild a pinned source in an isolated directory; never load an old binary.
-        emu.BUILD = directory
-        emu.LIB = str(pathlib.Path(directory) / "_emu65.so")
-        emu._lib = None
+    modules = load_pinned(upstream, UPSTREAM)
+    fw_module, harness, solana, emu = [modules[name] for name in
+                                      ("signer_fw", "signer_harness", "solana", "emu")]
+    with isolated_emulator(emu):
         fw = harness.Fw(double_sign=True, verify=True)
+        policy_resources = None
+        if firmware_policy:
+            from tools.firmware_policy import build
+            fw.img, fw.syms, _, policy_resources = build(fw_module, modules["asm"])
+            fw.m = emu.Machine(rom=fw.img)
         need(len(envelope) < fw_module.SEED - fw_module.ENV, "Envelope overlaps seed memory")
         fw.put(fw_module.SEED, SEED)
         fw.put(fw_module.ENV, envelope)
@@ -157,7 +150,7 @@ def sign(packet, upstream):
         need(record == fw_module.expected_record(message, PUBLIC, signature), "Result record mismatch")
         need(signature == solana.openssl_sign(SEED, message), "OpenSSL signature mismatch")
         need(solana.openssl_verify(PUBLIC, message, signature), "OpenSSL verification failed")
-        return {
+        result = {
             "schema": "dts-console-result-v1", "sessionSha256": packet["messageSha256"],
             "recordHex": record.hex(),
             "evidence": {
@@ -170,6 +163,11 @@ def sign(packet, upstream):
                 "hostPolicy": "console-canonical-sol-v1"
             }
         }
+        if policy_resources is not None:
+            result["evidence"]["engine"] = "DTS-02 65C02 firmware with experimental Console parser on the upstream C emulator"
+            result["evidence"]["firmwareParser"] = policy_resources
+            result["evidence"]["preSignPolicyGate"] = True
+        return result
 
 
 def main():
@@ -177,10 +175,12 @@ def main():
     parser.add_argument("session", type=pathlib.Path)
     parser.add_argument("--upstream", type=pathlib.Path, default=ROOT / ".upstream" / "dts02")
     parser.add_argument("--output", type=pathlib.Path, required=True)
+    parser.add_argument("--firmware-policy", action="store_true",
+                        help="Use the experimental profile-0 65C02 parser; no live-key authorization")
     args = parser.parse_args()
     need(args.session.stat().st_size <= 16000, "Session file is too large")
     packet = json.loads(args.session.read_text())
-    result = sign(packet, args.upstream)
+    result = sign(packet, args.upstream, firmware_policy=args.firmware_policy)
     args.output.parent.mkdir(parents=True, exist_ok=True)
     args.output.write_text(json.dumps(result, indent=2) + "\n")
     print(json.dumps({"result": str(args.output), "cycles": result["evidence"]["cycles"],

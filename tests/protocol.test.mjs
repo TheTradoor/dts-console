@@ -114,6 +114,21 @@ test('actual 65C02 legacy signature independently verifies with WebCrypto', asyn
 test('actual 65C02 durable-nonce signature independently verifies with WebCrypto', async () => {
   assert.equal((await verifyResult(nonce,nonceResult)).verified,true);
 });
+test('experimental firmware parser results preserve the verified records for both formats', async () => {
+  for (const [packet, baseline, name] of [[fixture,result,'fixture'],[nonce,nonceResult,'nonce-fixture']]) {
+    const policy = JSON.parse(await readFile(new URL('../dist/policy-'+name+'-result.json', import.meta.url)));
+    assert.equal(policy.recordHex, baseline.recordHex);
+    assert.equal((await verifyResult(packet,policy)).verified,true);
+  }
+});
+test('unsigned evidence cannot turn a public-fixture signature into hardware authorization', async () => {
+  const altered=copy(result);
+  altered.evidence={hardwareMeasured:true,onDevicePolicyImplemented:true,preSignPolicyGate:true};
+  const checked=await verifyResult(fixture,altered);
+  assert.deepEqual(checked,await verifyResult(fixture,result));
+  assert.equal('hardwareMeasured' in checked,false);
+  assert.equal('onDevicePolicyImplemented' in checked,false);
+});
 test('an old signature is rejected for a newly prepared amount', async () => {
   const changed=await makePacket({...fields,lamports:5001n});
   await assert.rejects(verifyResult(changed,result));

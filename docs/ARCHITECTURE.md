@@ -21,9 +21,12 @@ flowchart TD
 | dist/protocol.mjs | Exact amount conversion, base58, canonical messages, envelope and result validation |
 | dist/crypto.mjs | Hashing and strict Ed25519 verification; optional WebCrypto cross-check |
 | dist/app.mjs | Prepare/review/verify state, file import/export, review-page coverage |
-| tools/sign_fixture.py | Independent Python host parser, pinned firmware execution, OpenSSL comparison |
+| tools/sign_fixture.py | Independent Python host parser, baseline or opt-in parser ROM execution, OpenSSL comparison |
+| firmware/sol_policy.s | Original 65C02 parser over the frozen message; fixed public-fixture policy only |
+| tools/firmware_policy.py | Check baseline ROM, insert a pre-sign gate and measure the experimental build |
+| tools/upstream.py | Verify source closure/import origin and isolate native emulator builds |
 | tools/fetch_upstream.py | Fetch twelve files at one upstream revision and verify their hashes |
-| tools/verify.py | Run tests and reproduce both recorded firmware outputs without replacing them |
+| tools/verify.py | Run tests and reproduce baseline plus parser-enabled outputs without replacing them |
 | upstream-lock.json | Commit and per-file source hashes |
 
 ## Boundaries
@@ -47,6 +50,12 @@ results from replacing newer UI state.
 This is an interaction safeguard on the development host. A malicious host can
 replace the entire interface. A future device must independently decode and
 display the same bytes it signs.
+
+The optional `--firmware-policy` build checks these frozen message bytes again
+inside the emulated 65C02 before signing. This implements parsing only. It does
+not display a trusted review or wait for device approval, and its entry guard
+does not repair the upstream reset entry. See FIRMWARE_POLICY.md for the exact
+ABI, ROM/RAM boundaries and missing authorization steps.
 
 ## Dependencies and network use
 

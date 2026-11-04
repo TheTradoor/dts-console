@@ -13,12 +13,14 @@ the bytes, execute the actual signing core and independently verify the result.
 
 ## Current release
 
-Version 0.1.1 includes a static Prepare/Review/Verify/Readiness interface, two
+Version 0.2.0 includes a static Prepare/Review/Verify/Readiness interface, two
 canonical SOL fixture forms, independent JavaScript and Python host parsers,
 source pinning, actual-firmware emulator execution and signature verification.
+An opt-in assembly parser validates the frozen message on the emulated 65C02
+before signing. It uses public profile 0 and has no trusted approval interface.
 
 It does not include a live wallet, funds handling, seed input, transaction
-broadcast, Squads execution, physical device or on-device authorization policy.
+broadcast, Squads execution, physical device or complete on-device authorization.
 
 ## Product direction
 
@@ -28,8 +30,9 @@ parser, display, confirmation state machine and physical security boundary.
 The host's review screen is useful during development but cannot become the
 device's source of truth.
 
-The next engineering target is a reviewed restricted SOL policy inside the
-65C02 firmware, including adversarial vectors and ROM/RAM/stack accounting.
+The restricted SOL parser is implemented as an experiment, with adversarial
+vectors and parser ROM/RAM/stack evidence. The next target is independent review
+and trusted device confirmation, integrated with complete reset/fault handling.
 Squads work then needs an exact serialized composite and local-validator
 evidence. Hardware work requires an embedded/electronics engineer and physical
 measurements.

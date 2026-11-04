@@ -4,10 +4,16 @@ A development companion for [DTS-02](https://github.com/aeyakovenko/dts02-6502-s
 Prepare canonical Solana transfer fixtures, inspect the exact message bytes,
 run the pinned 65C02 signing firmware locally, and verify its output in a browser.
 
-**Version 0.1.1 is a public-test-key prototype.** It implements a host workflow
-around the existing signing core. On-device authorization, physical hardware,
-and Squads integration remain engineering milestones. It accepts no private key
-and has no wallet connection, RPC endpoint, or broadcast operation.
+**Version 0.2.0 is a public-test-key prototype.** It includes the existing host
+workflow and an opt-in experimental 65C02 parser for two restricted SOL message
+forms. Trusted on-device review and authorization, physical hardware and Squads
+integration remain engineering milestones. It accepts no private key and has
+no wallet connection, RPC endpoint or broadcast operation.
+
+The 0.2.0 version refers to the development kit and CLI. This change retains
+the browser HTML and application script from 0.1.1 unchanged, including their
+displayed version. The proposed UI status/wording update is reviewed separately
+and has not passed browser QA; see [the UI validation procedure](docs/UI_VALIDATION.md).
 
 This is an independent project. It does not claim endorsement by Anatoly
 Yakovenko, Solana, or Squads.
@@ -20,11 +26,13 @@ Yakovenko, Solana, or Squads.
 | Review | Decode frozen bytes, show exact integer amounts and all recipient pages; invalidate state when inputs change |
 | Export | Profile 0 envelope with the published RFC 8032 test public key |
 | Firmware bridge | Execute pinned upstream firmware on its C emulator with double signing and verification |
+| Experimental firmware parser | Check frozen SOL bytes on the emulated 65C02 before signing; fixed public test key and profile 0 only |
 | Verify | Check record format, CRC, public key, message length, SHA-512 binding, and Ed25519 signature |
-| Reproduce | Re-run tests and both firmware fixtures, then compare complete records with checked-in results |
+| Reproduce | Differential parser tests, memory/stack checks and four full signing runs compared with checked-in results |
 
-Browser review and the Python parser are **host-side checks**. They cannot
-protect a real key from a compromised host and do not implement DTS profiles 1/2.
+Browser review and the Python parser are **host-side checks**. The experimental
+assembly parser adds a firmware check but does not provide trusted review or a
+complete authorization state machine. DTS profiles 1/2 remain disabled.
 
 ## Try the interface
 
@@ -46,6 +54,14 @@ Import that result into the Console. The test seed is published and must never
 hold funds. Blockhashes and nonce accounts are fixture values; these are not
 live-chain transactions.
 
+To exercise the experimental parser before signing the same public fixture:
+
+    python3 tools/sign_fixture.py dts-session.json --firmware-policy --output dts-policy-result.json
+
+The signed record is unchanged. The optional build performs additional checks
+on the frozen message before it reaches signing. See the
+[firmware policy design and limits](docs/FIRMWARE_POLICY.md). M1 remains partial.
+
 ## Reproduce the evidence
 
 On Linux with Node 24, Python 3.10+, cc, and OpenSSL 3:
@@ -53,7 +69,7 @@ On Linux with Node 24, Python 3.10+, cc, and OpenSSL 3:
     python3 tools/verify.py --fetch-upstream --report artifacts/validation.json
 
 This command verifies source pins, runs JavaScript and Python tests, executes
-both fixtures on a fresh native emulator, and compares the outputs. It does not
+both fixtures with and without the experimental parser, and compares outputs. It does not
 overwrite the checked-in fixtures. The same command is configured in
 [GitHub Actions](.github/workflows/verify.yml); a workflow file alone is not
 evidence of a successful remote run.
@@ -68,6 +84,7 @@ See [reproduction instructions](docs/REPRODUCING.md) and the
 | [Product scope](docs/PRODUCT.md) | Intended users, current value, and release boundaries |
 | [Architecture](docs/ARCHITECTURE.md) | Components and trust boundaries |
 | [Formats](docs/FORMATS.md) | Supported messages, envelopes, and result records |
+| [Experimental firmware policy](docs/FIRMWARE_POLICY.md) | Assembly ABI, accepted language, integration, resource budget and remaining M1 work |
 | [Threat model](docs/THREAT_MODEL.md) | What is and is not covered |
 | [Roadmap](docs/ROADMAP.md) | Milestones with observable completion criteria |
 | [Upstream relationship](docs/UPSTREAM.md) | Attribution, open design questions, and contribution policy |

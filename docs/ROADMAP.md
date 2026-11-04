@@ -5,7 +5,7 @@ release dates or commitments that a later stage is feasible without revision.
 
 ## M0 — Reproducible host companion
 
-Status: implemented locally in 0.1.1.
+Status: implemented in 0.1.1; retained in 0.2.0.
 
 - Prepare and independently decode both restricted SOL fixture forms.
 - Export a fixed public-key profile 0 envelope; invalidate stale review state.
@@ -14,11 +14,14 @@ Status: implemented locally in 0.1.1.
   build, with independent OpenSSL comparison.
 - Document limits and publish the command needed to repeat the evidence.
 
-Remote CI status must be checked separately after the repository is published.
+The published 0.1.1 baseline passed [remote CI](https://github.com/TheTradoor/dts-console/actions/runs/41786675460).
+Every later change needs its own successful run.
 
 ## M1 — Restricted on-device SOL policy
 
-Status: not implemented by this project.
+Status: partial in 0.2.0. An experimental profile-0 parser and pre-sign gate run
+on the emulated 65C02. Trusted review/confirmation and the complete device
+reset/fault state machine remain unimplemented; independent review is pending.
 
 Completion requires an independently reviewed 65C02 parser that accepts exactly
 the agreed canonical transfer forms; positive and adversarial vectors; trusted
@@ -26,8 +29,15 @@ review of the complete recipient and amount; integration with the device's
 confirmation/reset/fault state machine; and measured ROM, RAM and stack budgets.
 Host checks must not be counted as satisfying this milestone.
 
-The next proposed contribution is a small parser scope with explicit reject
-vectors and resource accounting, agreed with upstream before broad changes.
+See [FIRMWARE_POLICY.md](FIRMWARE_POLICY.md) for the exact accepted language,
+5,803 differential vectors, all-u16-length checks, bus tracing and measured
+resource use. Two complete parser-enabled signing runs preserve the baseline
+records. These results do not complete M1 or enable a live-key profile.
+
+The next steps are independent review and a trusted review/confirmation state
+machine, followed by full reset/fault integration and combined resource
+accounting. Discuss the narrow parser proposal with upstream before proposing
+changes to its production profile or architecture.
 
 ## M2 — Squads composite transaction proof
 
