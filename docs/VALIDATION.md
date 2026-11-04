@@ -48,10 +48,11 @@ the parser as partial M1 work, and clarifies the missing trusted-device
 authorization in exported verification reports. These changes are unverified
 in a browser.
 
-Browser access to the development preview was blocked. No new browser result
-is claimed. This UI proposal must complete the separately
-documented [validation procedure](UI_VALIDATION.md); the historical checks
-below are not a substitute for that result.
+Browser acceptance remains pending. The proposed
+[automated suite](BROWSER_AUTOMATION.md) encodes the functional checks and
+screenshot capture, but has not executed. Complete the
+[validation procedure](UI_VALIDATION.md) before closing this item; neither
+test discovery nor the historical checks below establish a new result.
 
 The JavaScript suite does verify both new result files through the actual
 verification module, checks that their signed records match the baseline, and

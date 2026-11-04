@@ -15,6 +15,10 @@ of the firmware parser change. Browser QA has not been completed. See
 [the UI validation procedure](docs/UI_VALIDATION.md) for the acceptance checks;
 automated parser and signature tests do not establish that the UI works.
 
+The proposed [browser acceptance suite](docs/BROWSER_AUTOMATION.md) automates
+the fixture workflow and captures desktop/mobile-viewport evidence. Browser
+execution is still pending; it is not part of the recorded 51-test result.
+
 This is an independent project. It does not claim endorsement by Anatoly
 Yakovenko, Solana, or Squads.
 

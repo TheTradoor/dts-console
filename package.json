@@ -9,6 +9,11 @@
   },
   "scripts": {
     "test": "node --test tests/*.test.mjs",
-    "check": "node --check dist/app.mjs && node --check dist/protocol.mjs"
+    "check": "node --check dist/app.mjs && node --check dist/protocol.mjs",
+    "test:browser": "playwright test",
+    "test:browser:list": "playwright test --list"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.64.1"
   }
 }

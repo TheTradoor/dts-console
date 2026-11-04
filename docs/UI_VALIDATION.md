@@ -5,6 +5,10 @@ the browser tests passed. The firmware PR retains the existing 0.1.1 HTML and
 application script; the UI proposal changes version/readiness text and the
 limitation text in exported verification reports.
 
+An [automated suite](BROWSER_AUTOMATION.md) now encodes the functional checks
+below and captures screenshots. It has been authored but not executed. Its
+discovery count must not be added to the completed test count.
+
 Run these checks on the UI proposal's exact commit in an authorized browser
 environment. Record the commit, browser/version, viewport, date, observed
 results and screenshots. Do not infer success from a test script, this document
