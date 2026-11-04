@@ -17,6 +17,9 @@ only. Squads drafts are unsigned, unsubmitted and not accepted by that bridge.
 Keep draft construction, SDK compatibility, validator execution, external
 signing and physical signer security as separate claims with separate evidence.
 
-Follow docs/ROADMAP.md for the next software acceptance gates. Keep exact source
-pins and evidence; never describe a passing byte-comparison test as on-chain
-execution or a signature as proof of trusted authorization.
+The immediate priority is the product-fit gate in docs/PRODUCT.md and
+docs/ROADMAP.md. Hold treasury feature expansion while that gate is unresolved.
+Existing S2-S4 criteria describe conditional technical work, not authorization
+to assume a validated product. Preserve the current prototype and evidence.
+Keep exact source pins; never describe a passing byte-comparison test as on-chain
+execution or a signature as proof of trusted authorization or user demand.
