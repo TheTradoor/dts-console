@@ -91,12 +91,19 @@ function tick(now) {
 
 function sync() {
   const enabled = running();
+  // Reconcile against the current layout when resuming. Observer callbacks can
+  // arrive after a visibility or layout transition, so their last value alone
+  // must not decide whether a fresh animation loop starts.
+  const box = section.getBoundingClientRect();
+  visible = box.width > 0 && box.height > 0 && box.bottom > 0 && box.top < innerHeight;
   body.dataset.motion = enabled ? 'running' : 'paused';
   control.disabled = reduced.matches;
   control.setAttribute('aria-pressed', String(!enabled));
   control.querySelector('span').textContent = reduced.matches ? 'Motion reduced' : paused ? 'Resume motion' : 'Pause motion';
-  if (enabled && visible && !frame) frame = requestAnimationFrame(tick);
-  if (!enabled || !visible) { cancelAnimationFrame(frame); frame = 0; last = 0; }
+  cancelAnimationFrame(frame);
+  frame = 0;
+  last = 0;
+  if (context && enabled && visible) frame = requestAnimationFrame(tick);
 }
 
 function resize() {
@@ -119,8 +126,7 @@ new MutationObserver(sync).observe(body, {attributes: true, attributeFilter: ['d
 if (context) {
   new ResizeObserver(resize).observe(canvas);
   new IntersectionObserver(entries => {
-    visible = entries[0].isIntersecting;
-    if (visible) resize();
+    if (entries.some(entry => entry.isIntersecting)) resize();
     sync();
   }).observe(section);
   section.addEventListener('pointermove', event => {

@@ -177,7 +177,7 @@ test('decorative motion renders, pauses and resumes without changing a session',
   await page.locator('.sidebar .brand').click();
   await page.locator('#landscape').scrollIntoViewIfNeeded();
   await expect(page.locator('#terrain-canvas')).toHaveAttribute('data-ready', 'true');
-  const pixels = () => page.locator('#terrain-canvas').evaluate(canvas => canvas.toDataURL());
+  const pixels = async () => digest(await page.locator('#terrain-canvas').evaluate(canvas => canvas.toDataURL()));
   const initial = await pixels();
   await expect.poll(pixels).not.toBe(initial);
   await page.getByRole('button', {name: 'Pause motion', exact: true}).click();
@@ -187,6 +187,8 @@ test('decorative motion renders, pauses and resumes without changing a session',
   expect(await pixels()).toBe(paused);
   await capture(page, testInfo, 'paper-landscape-paused');
   await page.getByRole('button', {name: 'Resume motion', exact: true}).click();
+  await expect(page.locator('#motion-toggle')).toHaveAttribute('aria-pressed', 'false');
+  await expect(page.locator('#landscape')).toBeInViewport();
   await expect.poll(pixels).not.toBe(paused);
   await page.locator('.paper-footer [data-view="review"]').click();
   await expect(page.locator('#session-id')).toHaveText(session);
@@ -203,7 +205,7 @@ test('reduced motion keeps the landscape still and all landing content usable', 
   await page.locator('#landscape').scrollIntoViewIfNeeded();
   await expect(page.getByRole('button', {name: 'Motion reduced', exact: true})).toBeDisabled();
   await expect(page.locator('#terrain-canvas')).toHaveAttribute('data-ready', 'true');
-  const pixels = () => page.locator('#terrain-canvas').evaluate(canvas => canvas.toDataURL());
+  const pixels = async () => digest(await page.locator('#terrain-canvas').evaluate(canvas => canvas.toDataURL()));
   const still = await pixels();
   await page.waitForTimeout(200);
   expect(await pixels()).toBe(still);
