@@ -15,8 +15,9 @@
 - Reject cached upstream imports from a different checkout. Include the
   original assembly and new references in the development kit.
 - Document the partial M1 scope and pending trusted review, boot/recovery,
-  independent review, Squads and hardware work. Browser QA for the small
-  interface wording changes remains outstanding.
+  independent review, Squads and hardware work.
+- Retain the 0.1.1 browser HTML and application script unchanged. The proposed
+  UI wording update is a separate change with browser QA outstanding.
 
 ## 0.1.1 — 2026-11-04
 

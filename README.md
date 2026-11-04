@@ -10,6 +10,11 @@ forms. Trusted on-device review and authorization, physical hardware and Squads
 integration remain engineering milestones. It accepts no private key and has
 no wallet connection, RPC endpoint or broadcast operation.
 
+The 0.2.0 version refers to the development kit and CLI. This change retains
+the browser HTML and application script from 0.1.1 unchanged, including their
+displayed version. The proposed UI status/wording update is reviewed separately
+and has not passed browser QA; see [the UI validation procedure](docs/UI_VALIDATION.md).
+
 This is an independent project. It does not claim endorsement by Anatoly
 Yakovenko, Solana, or Squads.
 

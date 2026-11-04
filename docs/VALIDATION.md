@@ -42,10 +42,15 @@ resistance, trusted device authorization, or successful on-chain execution.
 
 ## Browser status — 0.2.0
 
-The changed readiness/version text and exported limitation wording have not
-been verified in a browser in this environment. The browser could not access
-the development preview. Browser QA remains open for this change; do not count
-the historical checks below as a new 0.2.0 result.
+The firmware change retains dist/index.html and dist/app.mjs byte for byte
+from the published 0.1.1 commit (85acc5de08562739b1d1e329dad6d1d871504bb8).
+The browser's displayed version therefore remains 0.1.1. The proposed readiness,
+version and exported-limitation wording update is a separate UI change.
+
+Browser access to the development preview was blocked. No new browser result
+is claimed for either change. The UI proposal must complete the separately
+documented [validation procedure](UI_VALIDATION.md); the historical checks
+below are not a substitute for that result.
 
 The JavaScript suite does verify both new result files through the actual
 verification module, checks that their signed records match the baseline, and
