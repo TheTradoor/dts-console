@@ -156,7 +156,7 @@ test('direct links select their view and unknown routes return to the overview',
   await page.keyboard.press('Tab');
   await expect(page.locator('.skip-link')).toBeFocused();
   await page.keyboard.press('Enter');
-  await expect(page.locator('#home-view h1')).toBeFocused();
+  await expect(page.locator('#main-content')).toBeFocused();
   await page.goto(new URL('#squads',baseURL).href);
   await expect(page.locator('#squads-view')).toBeVisible();
   await expect(page.locator('.nav-item[data-view="squads"]')).toHaveAttribute('aria-current','page');
